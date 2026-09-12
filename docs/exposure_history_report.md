@@ -69,6 +69,12 @@ The first pilot sample predicted this split: guard code added by a fix reads as 
 | ↑ largest rise | CURL-CVE-2026-8925 | +7.079 | 1 |
 | ↑ largest rise | CURL-CVE-2016-5419 | +6.097 | 3 |
 
+> **† CURL-CVE-2026-11586 (+47.112) is an attribution artifact, not a property of the fix.**
+> The per-event mean blends the 2 touched files; the rise is almost entirely the *accompanying
+> test file* (`tests/http/test_20_websockets.py`, `risk_concurrency` 0→87.26 from a newly added
+> `threading` harness). The CVE fix itself (`lib/ws.c`) moved **+0.78**. Verdict: GENUINE code
+> movement, mislabeled by the source/test blend. Full audit: `docs/instrument_controls_forensics.md`.
+
 ## CVE hotspot files (appearances across fix+introduced events)
 
 | file | events |
@@ -146,9 +152,30 @@ Introduced → fixed, n = 137 CVEs with both commits: median **4.5 years** (p25 
 
 ## Instrument controls
 
-- **Untouched-file spillover** (files the commit did not touch; expected ~0, graph ripple via api_exposure is the legitimate exception): n = 375265, median |Δ| = 0.000000, p99 = 0.0000, max = 29.7754.
+- **Untouched-file spillover** (files the commit did not touch; expected ~0, graph ripple via api_exposure is the legitimate exception): n = 375265, median |Δ| = 0.000000, p99 = 0.0000, max = 29.7754. **Forensic audit (issue #5):** the bulk of the nonzero tail is legitimate — 199 api_exposure-only cells backed by real `popularity`/`pagerank` shifts, plus sub-rounding verification noise. But the **max (29.7754) is an artifact**: `lib/curlx/base64.c` returns different persisted `risk_api_exposure`/`risk_tech_debt` across two scans of a byte-identical blob with byte-identical documented inputs (`state_unreferenced` 3→0 while the parallel `raw_state_unreferenced` holds 3→3) — a scanner-determinism defect in whole-repo symbol resolution, reproduced on two unrelated events, **escalated to the GitGalaxy engine**. Full audit: `docs/instrument_controls_forensics.md`.
 - **LOC coupling** on touched files (is Δ just size change?): Spearman ρ = -0.187 over 875 files. The length-leak lesson says watch this; a high ρ routes to the score-contract program, not to a corpus tweak.
 - **Temporal ablation**: asserted exactly 0.0 across every delta in this run.
 
+## Charts
+
+Committed SVGs, regenerated from the history DB by `tools/make_charts.py` (same
+`delta_report`/`signal_anatomy` machinery, so every number matches the tables above).
+
+**Per-event structural delta by class** — the H1 null, made visual: all three classes cluster on the zero baseline; the movement lives in rare labeled outliers, not the distributions.
+
+![Per-event structural delta by class](charts/delta_distributions_by_class.svg)
+
+**Implicated-file exposure percentile by era** — CVE-implicated files climb from the 25th to the ~87th percentile as the codebase matures (event-sampled; see the era-table caveats).
+
+![Implicated-file exposure percentile by era](charts/era_trajectory.svg)
+
+**CWE family × exposure vector** — where each weakness family's files already stood, per vector, before the event.
+
+![CWE family by exposure vector heatmap](charts/cwe_vector_heatmap.svg)
+
+**Signature prevalence by class** — the fix-shaped differential: security fixes carry "branch/pointer-added without new allocs/casts" at 66% vs 38% (control) / 40% (introduced).
+
+![Signature prevalence by class](charts/signature_prevalence.svg)
+
 ---
-*Regenerate: `python tools/delta_report.py --events events/curl.json` — reads only the events file and the history DB; every number above is a pure function of those two artifacts.*
+*Regenerate: `python tools/delta_report.py --events events/curl.json` — reads only the events file and the history DB; every number above is a pure function of those two artifacts. Charts: `python tools/make_charts.py`.*
