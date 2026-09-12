@@ -153,3 +153,61 @@ dwell time (nDPI median lurk ≈ weeks under continuous fuzzing vs curl's 4.5 ye
 different discovery population); **D-H1 verbatim** (degenerate at C function grain — subsumed
 by D-H1′); **Phase M / wave-1 classes** (revert, cve-followup — no such labels in the
 OSS-Fuzz set).
+
+## Mechanism-matched specificity battery — pre-registered 2026-09-12 (for unseen data)
+
+The engine's exposure vectors are named for what they *should* mark (crypto, IO, concurrency,
+memory-danger…). The stronger claim than "exposure ≈ CVEs" is **specificity**: the *right*
+vector marks the *right* failure type, and it does so **beyond a line count**. These are
+registered from curl's *exploratory* CWE×vector table, so — per protocol rule 3 — they are
+**never scored on curl's full table that suggested them**. They evaluate on **unseen data**:
+a CWE-labeled repo #3 (below), or a held-out curl temporal split (register on pre-2020 CVEs,
+test on post-2020). curl's failure supply (323 CWE-labeled events) gives the families power;
+the two named vectors that curl *can't* test are called out.
+
+Each signal set is the engine's raw keyword columns. Metric = **defect-lift beyond size**:
+AUC(signal | matched controls) and, one-sided, AUC(signal) > AUC(LOC) — the bar
+gitgalaxy#2987 sets for a signal to earn a gated formula slot. α=0.01, Bonferroni across the
+family.
+
+| id | failure family (example CWEs) | matched signal set | registered direction |
+|---|---|---|---|
+| **S-H1** | memory-safety (126/416/122/125/415/121/124/787) | `state_pointers + state_memory_alloc + state_cast_hits + state_danger` | memory-CVE functions carry more, at equal length, than matched non-CVE siblings **and** than non-memory CVE functions; AUC > LOC |
+| **S-H2** | cert/auth (295/297/305/294/299) | `arch_crypto + def_auth` | cert/auth-CVE files carry more than matched controls **and** than non-auth CVE files; AUC > LOC |
+| **S-H3** | info-leak (200/201/319/488/522) | `arch_io + api_exposure` | leak-CVE files carry more egress surface than matched controls **and** than non-leak CVE files; AUC > LOC |
+| **S-H4** | concurrency (362/367) — *repo-#3 dependent* | `arch_concurrency + def_sync_locks` | race/TOCTOU-CVE functions carry more than matched controls; AUC > LOC. **Untestable on curl** (single-threaded, ~0 such CVEs) — requires a concurrency-bearing repo |
+| **S-H0** | *the discriminant* | all four sets | the family→best-matched-signal **confusion matrix is diagonal** — each family's own set ranks its own failures above other families'. This is the real specificity claim: the vectors are specific, not one undifferentiated "danger" blob |
+
+Failure verdicts published either way. A vector that lifts *generally* but is **not** specific
+(S-H0 off-diagonal) is itself a finding — it would mean "danger" is one blob, not a set of
+mechanism-specific signals, and it caps what the score-contract program can gate.
+
+### Repo-#3 selection criteria (this battery drives them)
+Beyond the repo-#2 hard criteria (OSV GIT ranges with introduced+fixed, ≥50 events,
+GitGalaxy-supported language, full history), repo #3 must add what curl and nDPI each lack:
+- **CWE labels on the vulnerability data** — *required* for any mechanism-matched test.
+  nDPI's OSS-Fuzz feed has none, so nDPI runs the general battery only, never S-H*.
+- **Concurrency-bearing with real race/TOCTOU CVEs** — for S-H4 (curl has ~none).
+- **Mixed network / non-network CVEs** — so S-H3's IO test has a contrast (curl is
+  all-network: no non-IO group to separate against).
+Candidates to weigh against these: redis, postgres, nginx (concurrency + mixed surface),
+a managed-language service; openssl only if its `CHANGES.md` CVE→PR trail is parsed to real
+fix commits (its OSV SHAs are version-tag proxies — see docs/repo2_survey.md).
+
+### Held-out curl result — 2026-09-12 (split at median fix-date 2022-06-25; test half only)
+
+Full detail: `docs/specificity_curl_heldout.md` (tool: `tools/specificity_split.py`).
+
+| id | verdict | evidence |
+|---|---|---|
+| **S-H1** memory ↔ danger cluster | **✗ not supported (genuine null)** — signal well-populated (state_pointers 70% nonzero) yet AUC ties LOC (0.588 vs 0.590); no defect-lift out-of-sample | specificity_curl_heldout.md |
+| **S-H3** info-leak ↔ arch_io/arch_api | **✗ not supported (genuine null)** — populated; AUC 0.54 vs LOC 0.57; no lift | specificity_curl_heldout.md |
+| **S-H2** cert/auth ↔ arch_crypto/def_auth | **⚠ degenerate — no verdict** — `def_auth` is 0 across all 1.05M rows, `arch_crypto` 0.1%; the matched signal is absent (D-H1-class vocabulary gap), AUC pins at 0.509. Untestable on curl; deferred to a repo with live crypto/auth vocabulary | specificity_curl_heldout.md |
+| **S-H0** the discriminant (diagonal?) | **✗ not supported** (caveat: cert/auth column dead) — among the *live* signal-sets the **memory** set ranks highest even for info-leak's positives; the populated "danger" signals read as a general code-mass proxy, not mechanism-specific | specificity_curl_heldout.md |
+
+**Reading.** Predicting *which* file gets *which* CVE from pre-event structural *standing*
+does not work on curl (coheres with H1/RW-H1: standing ≈ LOC) — the real security signal is
+in the fix **delta/grammar**, not standing. cert/auth couldn't be tested (dead vocabulary),
+which is itself an engine signal: `def_auth`/`arch_crypto` under-fire on C (cf.
+gitgalaxy#2984/#2979). This is a *within-curl temporal* result; the independent cross-repo
+test remains repo #3 — and it must carry live crypto/auth + concurrency vocabulary.
