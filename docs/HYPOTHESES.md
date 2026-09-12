@@ -259,3 +259,33 @@ evaluated and published regardless.
 **What this sharpens:** structural exposure is a general size/activity proxy whose
 event-signatures are repo- and discovery-specific; the durable, cross-repo predictive law is
 **recidivism** (history beats structure). That is the rung-7 baseline, now confirmed twice.
+
+### Stage-2 (D-H1′, N-FIRST, equivalence CIs) — 2026-09-12
+
+Detail: `docs/ndpi_stage2.md` (tool: `tools/ndpi_stage2.py`).
+
+- **D-H1′ / D-H2′ (branch-per-danger guard deficit, nDPI): ✗ not supported.** Guard rate
+  `struct_branch/(ptr+danger+alloc+cast+1)` — implicated functions 0.634 vs siblings 0.600
+  (p=0.75, *wrong* direction); the fix doesn't raise it (D-H2′ null). Non-degenerate this time
+  (branch-guards exist where `def_safety` didn't), so a real "no", not a vocabulary artifact.
+- **Equivalence (TOST) on the three replicated nulls (nDPI): all ✓ EQUIVALENT-NULL.** N-H1
+  effect 0.000, 95% CI [0, 0.0008] ⊂ ±0.10; N-H2 0.000, CI [−0.011, 0.039] ⊂ ±0.10; N-RW1
+  0.000, CI [0, 0] ⊂ ±0.05. The nulls are **confirmed near-zero**, not merely underpowered —
+  the structural nulls genuinely replicate.
+- **N-FIRST (first-CVE profile, nDPI): ✓ SUPPORTED — but the mechanism is CENTRALITY, not
+  fine structure.** Structural exposure separates first-CVE files from size-matched clean files
+  (AUC 0.755). Orchestrator verification: that raw AUC is inflated — the [0.66,1.5]× LOC match
+  is loose (positives +25 LOC larger within the band) and AUC(LOC)≈0.50 is forced by matching,
+  so the "+0.25 over LOC" is circular. Dividing size out, a real component survives
+  (**AUC(density) 0.624, density-win 78%**) — carried by *total* exposure (`api_exposure`/
+  **centrality**) against *peripheral* never-CVE files: the hot-files effect (reflection #4)
+  that also drives recidivism, **not** the fine danger-structure the density/specificity tests
+  killed (memory density-win 43%). curl context far weaker (density-win 62%). So the file that
+  gets its *first* bug is a **central/hot** one — a genuine but coarse signal, to be cleanly
+  separated from residual size + activity by tighter matching + a per-vector decomposition,
+  **registered for repo #3.**
+
+**Net after Stage 2:** the two-repo picture is unchanged and now airtight — recidivism is the
+lone replicated positive; aggregate/fine-structural exposure is size (the three nulls are
+*equivalence-confirmed*); and the only "structure predicts the first bug" signal that survives
+is **centrality**, which is the same hot-files axis, not a new structural predictor.
