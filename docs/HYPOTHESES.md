@@ -193,3 +193,21 @@ GitGalaxy-supported language, full history), repo #3 must add what curl and nDPI
 Candidates to weigh against these: redis, postgres, nginx (concurrency + mixed surface),
 a managed-language service; openssl only if its `CHANGES.md` CVE→PR trail is parsed to real
 fix commits (its OSV SHAs are version-tag proxies — see docs/repo2_survey.md).
+
+### Held-out curl result — 2026-09-12 (split at median fix-date 2022-06-25; test half only)
+
+Full detail: `docs/specificity_curl_heldout.md` (tool: `tools/specificity_split.py`).
+
+| id | verdict | evidence |
+|---|---|---|
+| **S-H1** memory ↔ danger cluster | **✗ not supported (genuine null)** — signal well-populated (state_pointers 70% nonzero) yet AUC ties LOC (0.588 vs 0.590); no defect-lift out-of-sample | specificity_curl_heldout.md |
+| **S-H3** info-leak ↔ arch_io/arch_api | **✗ not supported (genuine null)** — populated; AUC 0.54 vs LOC 0.57; no lift | specificity_curl_heldout.md |
+| **S-H2** cert/auth ↔ arch_crypto/def_auth | **⚠ degenerate — no verdict** — `def_auth` is 0 across all 1.05M rows, `arch_crypto` 0.1%; the matched signal is absent (D-H1-class vocabulary gap), AUC pins at 0.509. Untestable on curl; deferred to a repo with live crypto/auth vocabulary | specificity_curl_heldout.md |
+| **S-H0** the discriminant (diagonal?) | **✗ not supported** (caveat: cert/auth column dead) — among the *live* signal-sets the **memory** set ranks highest even for info-leak's positives; the populated "danger" signals read as a general code-mass proxy, not mechanism-specific | specificity_curl_heldout.md |
+
+**Reading.** Predicting *which* file gets *which* CVE from pre-event structural *standing*
+does not work on curl (coheres with H1/RW-H1: standing ≈ LOC) — the real security signal is
+in the fix **delta/grammar**, not standing. cert/auth couldn't be tested (dead vocabulary),
+which is itself an engine signal: `def_auth`/`arch_crypto` under-fire on C (cf.
+gitgalaxy#2984/#2979). This is a *within-curl temporal* result; the independent cross-repo
+test remains repo #3 — and it must carry live crypto/auth + concurrency vocabulary.
