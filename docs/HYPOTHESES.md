@@ -289,3 +289,30 @@ Detail: `docs/ndpi_stage2.md` (tool: `tools/ndpi_stage2.py`).
 lone replicated positive; aggregate/fine-structural exposure is size (the three nulls are
 *equivalence-confirmed*); and the only "structure predicts the first bug" signal that survives
 is **centrality**, which is the same hot-files axis, not a new structural predictor.
+
+### G-H1 / G-H2 — the LOC-floor grammar re-test (2026-09-12)
+
+Registered on gitgalaxy#2982 (comment 5649412476) **before any floor-restricted statistic was
+computed**; only the fix-size distributions were inspected to set the floors. The question:
+the cross-repo grammar failure was confounded with fix size (nDPI fixes median net-LOC +1 vs
+curl +6) — a one-line bounds-check cannot express a structural signature. Restricting BOTH
+repos to fixes above a churn floor de-confounds them. Detail: `docs/grammar_floor.md`
+(tool: `tools/grammar_floor.py`).
+
+| id | verdict | evidence |
+|---|---|---|
+| **G-H2** curl's grammar survives the floor | **✓ SUPPORTED** | persists at ≥5 (branch p=0.0001) and ≥10 (p=0.0008, n=115/108); fix-shaped composite 72%/39% and 69%/37%; thins only at ≥20 where n=72 halves power. **Not** an artifact of tiny commits. |
+| **G-H1** the grammar returns on nDPI under a size floor | **✗ not supported** | no floor revives it — at ≥10 (n=50/46) branch p=0.44, `state_pointers` p=0.93 (*wrong* direction), fix-shaped composite **68% fix vs 67% control** (no differential). |
+
+**This is pre-registered outcome (b): fix size is NOT the explanation.** The grammar is
+**genuinely curl-specific** — a property of *human-reported CVE fixes*, not a consequence of
+nDPI's small commits. Conservative detail: nDPI's controls are *larger* than its fixes at
+every floor (median net-LOC 3.0 vs 4.8 at ≥10), so the fixes were not size-handicapped.
+
+**What remains open.** With size eliminated, the surviving explanation for the curl↔nDPI
+divergence is **discovery process** (human-reported vs fuzzer-found). That cannot be tested by
+comparing repos — repo is confounded with language, era, and team — it requires **both
+provenance classes inside one repository** (e.g. curl commits fixing OSS-Fuzz/ASAN findings vs
+curl commits fixing human-reported CVEs, labeled from commit-message provenance). Registered
+as the next experiment; until it runs, the fix-grammar stands as **single-repo, single-
+discovery-process, and explicitly not general**.
