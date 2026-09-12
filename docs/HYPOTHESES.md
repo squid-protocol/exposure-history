@@ -21,6 +21,11 @@ fixing them looks like. Every question was written down as a prediction *before*
    know things the sum washes out.
 4. **Vulnerabilities lurk ~4.5 years** between being written and being fixed — a huge
    window for any early warning to matter.
+5. **The negative controls behave.** Reverts measurably *remove* structure (the instrument's
+   sanity check — passed); and CVE-fix *follow-ups* turn out to be administrative (build /
+   cmake / test fixes), not more security logic — so neither "incomplete fixes look thinner"
+   nor "follow-ups finish the job" held. Two more registered predictions died on contact; the
+   record keeps working.
 
 **What this points at:** the question worth owning is not "rank everything by risk"
 (history wins that) but **"which file gets its *first* security bug?"** — where history is
@@ -72,6 +77,9 @@ it. Nothing here is yet a cross-language or cross-ecosystem claim.
 | RW-H1 | Structural exposure beats LOC at ordering a 20%-LOC review budget (effort-aware, from repowise's Popt result) | 2026-09-12, pre-analysis | **✗ not supported** — 52W/48L/82T, p=0.38; exposure ≈ LOC even at ordering, on CVE labels | rw_hypotheses.md |
 | RW-H2 | Prior CVE-fix count beats any static ranking (recall@budget + AUC) | 2026-09-12, pre-analysis | **✓ SUPPORTED decisively** — median recall .444 vs .000; 77W/27L vs exposure, 71W/10L vs LOC, both p<1e-4. **Recidivism is the rung-7 baseline to beat.** | rw_hypotheses.md |
 | R2-H1 | Danger density marks the vulnerable function: at equal length, more pointer/danger/alloc/cast constructs than siblings | 2026-09-12, for **repo #2** (curl read p=0.032, below α — suggestive only) | **pending repo #2** | signal_anatomy.md Phase D control row |
+| W1-H1 | Reverts are net-removal: grammar-signal deltas predominantly negative (where other classes are net-positive); median event net-LOC < 0 | 2026-09-12, pre-batch | **✓ SUPPORTED** — net-LOC median −1.0 (60 events <0 / 24 >0, sign p=5.4e-05) vs +2.0..+6.5 for every other class; net-grammar median −1.0 (57/23, p=9.2e-05); revert < control 1-sided MW p<1e-4. A clean instrument sanity check. | wave1_hypotheses.md |
+| W1-H2 | Fixes that later needed a follow-up carry the fix-shaped composite at a LOWER rate than fixes that stuck (one-sided) | 2026-09-12, pre-batch | **✗ not supported** — direction wrong: needs-follow-up 0.71 (10/14) vs stuck 0.65 (110/168), Fisher p=0.77. Incomplete fixes are not structurally thinner. | wave1_hypotheses.md |
+| W1-H3 | CVE-fix follow-ups carry the fix grammar (branch/pointer adds) at a rate closer to fixes than to controls | 2026-09-12, pre-batch | **✗ not supported** — follow-ups are THIN: loose (branch/ptr+) rate 0.20 (3/15), below controls (0.45) and fixes (0.71). The follow-ups are administrative (build/cmake/test), not added security logic; n=15 small. | wave1_hypotheses.md |
 
 ## What one repo taught us (the reflection)
 
