@@ -149,9 +149,17 @@ def event_deltas(con, repo, sha):
         p: sum((r[f"risk_{c}"] or 0) for c in STRUCTURAL_COLUMNS) for p, r in before.items()
     }
     ranked = sorted(parent_scores.values())
+    import bisect
     def pct(v):
-        import bisect
         return 100.0 * bisect.bisect_left(ranked, v) / max(len(ranked) - 1, 1)
+    # Per-vector rankings too: "which vector flags which weakness type" needs
+    # each implicated file's standing per vector, not just the aggregate.
+    vec_ranked = {
+        c: sorted((r[f"risk_{c}"] or 0) for r in before.values()) for c in STRUCTURAL_COLUMNS
+    }
+    def vec_pct(c, v):
+        lst = vec_ranked[c]
+        return 100.0 * bisect.bisect_left(lst, v) / max(len(lst) - 1, 1)
     touched, untouched = [], []
     for path, arow in after.items():
         st = statuses.get(path)
@@ -168,6 +176,9 @@ def event_deltas(con, repo, sha):
             "vectors": d,
             "loc_delta": (arow["total_loc"] or 0) - (brow["total_loc"] or 0),
             "pre_percentile": pct(parent_scores.get(st["old_path"] if st else path, 0)),
+            "pre_vector_percentiles": {
+                c: vec_pct(c, (brow[f"risk_{c}"] or 0)) for c in STRUCTURAL_COLUMNS
+            },
         }
         (touched if st and st["status"] == "touched" else untouched).append(rec)
     repo_mean = sum(parent_scores.values()) / len(parent_scores) if parent_scores else 0.0
@@ -342,6 +353,52 @@ def main() -> int:
             md.append(f"| {cls} | {len(v)} | {median(v):.1f} | {q(v, .25):.1f} | {q(v, .75):.1f} |")
     md.append(f"\nfix-files sit above control-files with one-sided MW p = {p_tgt:.4f} "
               f"(controls < fixes).\n")
+
+    # --- CWE x vector: which vector flags which weakness type ----------------
+    CWE_FAMILY = {
+        "CWE-119": "memory", "CWE-122": "memory", "CWE-125": "memory", "CWE-126": "memory",
+        "CWE-131": "memory", "CWE-415": "memory", "CWE-416": "memory", "CWE-787": "memory",
+        "CWE-476": "memory", "CWE-590": "memory", "CWE-121": "memory", "CWE-124": "memory",
+        "CWE-295": "cert/auth", "CWE-297": "cert/auth", "CWE-305": "cert/auth",
+        "CWE-287": "cert/auth", "CWE-290": "cert/auth", "CWE-620": "cert/auth",
+        "CWE-200": "info-leak", "CWE-201": "info-leak", "CWE-522": "info-leak",
+        "CWE-311": "info-leak", "CWE-319": "info-leak",
+    }
+    cwe_events = defaultdict(list)  # family -> [(event, deltas)]
+    for e, d in by_class.get("security-fix", []) + by_class.get("introduced", []):
+        fam = CWE_FAMILY.get(e.get("cwe"), "other") if e.get("cwe") else "unlabeled"
+        cwe_events[fam].append((e, d))
+    md.append("## CWE × vector — which exposure vector flags which weakness type?\n")
+    md.append("Median **pre-event per-vector percentile** of implicated files (each file "
+              "ranked per vector among all files in its parent snapshot). Reading guide: a "
+              "high cell means files that later carried this weakness class already stood "
+              "out on that vector before the event. Control-file rows give the baseline "
+              "'changed files look like this anyway' profile.\n")
+    show_vecs = ["cognitive_load", "safety_score", "state_flux", "api_exposure",
+                 "verification", "tech_debt", "documentation", "concurrency"]
+    md.append("| class (events) | " + " | ".join(show_vecs) + " |")
+    md.append("|---|" + "---|" * len(show_vecs))
+    def vec_profile_row(label, recs):
+        cells = []
+        for c in show_vecs:
+            vals = [f["pre_vector_percentiles"][c] for _, d in recs for f in d["touched"]]
+            cells.append(f"{median(vals):.0f}" if vals else "–")
+        md.append(f"| {label} | " + " | ".join(cells) + " |")
+    for fam in sorted(cwe_events, key=lambda k: -len(cwe_events[k])):
+        vec_profile_row(f"{fam} ({len(cwe_events[fam])})", cwe_events[fam])
+    vec_profile_row(f"control baseline ({len(by_class.get('control', []))})",
+                    by_class.get("control", []))
+    md.append("")
+    # per-family structural delta of the FIX (does fixing a memory bug read
+    # differently than fixing a cert check?)
+    md.append("**Fix-delta by weakness family** (median event Δ, security fixes only): ")
+    fix_by_fam = defaultdict(list)
+    for e, d in by_class.get("security-fix", []):
+        fam = CWE_FAMILY.get(e.get("cwe"), "other") if e.get("cwe") else "unlabeled"
+        fix_by_fam[fam].append(sum(f["structural"] for f in d["touched"]) / len(d["touched"]))
+    md.append(" · ".join(f"{fam} {fmt(median(v))} (n={len(v)})"
+                         for fam, v in sorted(fix_by_fam.items(), key=lambda t: -len(t[1]))))
+    md.append("")
 
     # --- first look over time (event-sampled; caveats named) -----------------
     md.append("## First look over time (event-sampled snapshots, 5-year eras)\n")

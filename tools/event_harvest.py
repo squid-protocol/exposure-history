@@ -120,8 +120,10 @@ def main() -> int:
                     if not sha_exists(repo, sha):
                         missing.append((cve, cls, sha))
                         continue
+                    cwe = entry.get("database_specific", {}).get("CWE", {})
                     events.append({"id": cve, "class": cls, "sha": sha,
                                    "severity": entry.get("database_specific", {}).get("severity"),
+                                   "cwe": cwe.get("id"), "cwe_desc": cwe.get("desc"),
                                    "summary": entry.get("summary")})
     # de-dup (same sha can fix/introduce several CVEs) -- keep first label
     seen, unique = set(), []
