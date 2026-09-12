@@ -115,3 +115,41 @@ After one repository: the signal layer and contract-shaped formulas correlate wi
 security events; aggregate exposure does not; the specific function-level profile of
 CVE-prone code is registered as a prediction awaiting repo #2 — which is the program's
 single highest-value next step.
+
+## Repo #2 (nDPI) replication battery — pre-registered 2026-09-12
+
+Registered **while the nDPI scan was in flight (~[228]/610 commits) and before any nDPI
+delta, grammar, ranking, or function-grain result had been computed** — no nDPI analysis
+artifact existed at registration (epic gitgalaxy#2982, comment 5648589175). Dataset:
+`events/ndpi.json` — 121 security-fix, 73 introduced (OSS-Fuzz-bisected), 111 size-matched
+control; `pool_head 7787711`. nDPI uses the original three classes, so
+`delta_report`/`signal_anatomy`/`rw_analyses` run unchanged.
+
+**Correction & reporting.** Each lettered claim is one registered test at α=0.01; within a
+multi-cell (per-vector) table, Bonferroni across cells; a battery-wide Bonferroni
+(α=0.01/k) is reported alongside as a sensitivity. Verdicts published either way. Directions
+are pre-set to curl's observed direction (legitimate — registered for unseen nDPI data).
+
+| id | maps to (curl) | registered nDPI direction | test / α | for nulls: equivalence δ |
+|---|---|---|---|---|
+| **N-H3** | H3 ✓ | fixes' `risk_safety_score` Δ below controls (curl direction) | 1-sided MW, α=0.01 | — |
+| **N-GRAM** | grammar ✓ | fixes net-add `struct_branch` **and** `state_pointers` vs controls | 1-sided MW ×2, Bonferroni | — |
+| **N-FIXSHAPE** | fix-shaped 66/38/40 ✓ | security-fix fix-shaped rate > control **and** > introduced | 1-sided Fisher ×2, Bonferroni | — |
+| **N-RW2** | RW-H2 ✓ | prior-CVE-fix count beats exposure- and LOC-ranking at recall@20%LOC + AUC | 1-sided, α=0.01 | — |
+| **D-H1′** | repo-#2 reg. | implicated functions' branch-guard rate `branch/(ptr+danger+alloc+cast+1)` < loc-matched siblings; fix raises it | 1-sided MW pairs, α=0.01 | — |
+| **R2-H1** | repo-#2 reg. (curl p=0.032) | at equal length, implicated functions carry more pointer/danger/alloc/cast than siblings | 1-sided MW, α=0.01 | — |
+| **N-FIRST** | repo-#2 reg. | pre-event structural exposure separates first-CVE files from age/size-matched non-CVE files | AUC, α=0.01 | — |
+| **N-H1** | H1 ✗ (p=0.77) | fixes' event-median structural Δ < controls | 1-sided MW, α=0.01 + effect-size CI | ±0.10 exposure units |
+| **N-H2** | H2 ✗ (p=0.023) | introduced > controls | 1-sided MW, α=0.01 + effect-size CI | ±0.10 exposure units |
+| **N-RW1** | RW-H1 ✗ | exposure recall@20%LOC > LOC recall@budget | 1-sided, α=0.01 + effect-size CI | ±0.05 recall |
+
+**Null-replication rule (N-H1/N-H2/N-RW1):** "null replicated" is declared only if BOTH
+(a) non-significant at α=0.01 in curl's direction AND (b) the effect's 95% CI lies within δ
+(TOST/equivalence) — a repeated p>α on nDPI's smaller n is otherwise just lower power. A
+**flip to significant is reported as a new signal**, not hidden.
+
+**Explicitly NOT a clean replication on nDPI** (reported as contrast, not pass/fail):
+dwell time (nDPI median lurk ≈ weeks under continuous fuzzing vs curl's 4.5 years — a
+different discovery population); **D-H1 verbatim** (degenerate at C function grain — subsumed
+by D-H1′); **Phase M / wave-1 classes** (revert, cve-followup — no such labels in the
+OSS-Fuzz set).
