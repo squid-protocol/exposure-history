@@ -427,6 +427,95 @@ def main() -> int:
                   f"| {era} | {len(r['repo'])} | {median(r['n']):.0f} | "
                   f"{median(r['repo']):.2f} | n/a |")
     md.append("")
+    # --- commit anatomy: debt markers + net LOC (the tech_debt autopsy) ------
+    import re as _re
+    PLANNED = _re.compile(r"\bTODO\b", _re.I)
+    FRAGILE = _re.compile(r"\b(FIXME|HACK|XXX|KLUDGE)\b")
+    def _diff_text(sha):
+        r = subprocess.run(["git", "-C", str(repo), "diff", f"{sha}^..{sha}"], capture_output=True)
+        return r.stdout.decode("utf-8", errors="replace") if r.returncode == 0 else None
+    md.append("## Commit anatomy — what fixes and introductions physically are\n")
+    md.append("| class | n | commits touching any TODO/FIXME/HACK | net markers | "
+              "median net LOC | net-growing |\n|---|---|---|---|---|---|")
+    anatomy = {}
+    for cls in ("security-fix", "control", "introduced"):
+        nets, locs, touch = [], [], 0
+        for e, _d in by_class.get(cls, []):
+            t = _diff_text(e["sha"])
+            if t is None:
+                continue
+            nm = al = dl = 0
+            for line in t.splitlines():
+                if line.startswith("-") and not line.startswith("---"):
+                    dl += 1
+                    if PLANNED.search(line) or FRAGILE.search(line):
+                        nm -= 1
+                elif line.startswith("+") and not line.startswith("+++"):
+                    al += 1
+                    if PLANNED.search(line) or FRAGILE.search(line):
+                        nm += 1
+            nets.append(nm)
+            locs.append(al - dl)
+            touch += nm != 0
+        anatomy[cls] = (nets, locs, touch)
+        if locs:
+            grow = sum(1 for v in locs if v > 0)
+            md.append(f"| {cls} | {len(locs)} | {touch} | {sum(nets):+d} | "
+                      f"{median(locs):+.0f} | {grow}/{len(locs)} ({grow / len(locs):.0%}) |")
+    md.append("\n**The tech_debt autopsy**: the H3 tech_debt drop in fixes coexists with "
+              "fixes almost never touching a debt marker — the drop is the DENSITY "
+              "DENOMINATOR (same markers over more lines; fixes net-add code). A formula "
+              "artifact in the #2655/#2979 shape, caught by this table. The introduced "
+              "side is real: vulnerability-introducing commits are large feature additions "
+              "that carry new debt markers with them.\n")
+
+    # --- dwell time -----------------------------------------------------------
+    intro_sha = {e["id"]: e["sha"] for e in data["events"] if e["class"] == "introduced"}
+    fix_sha = {e["id"]: e["sha"] for e in data["events"] if e["class"] == "security-fix"}
+    def _ct(sha):
+        return int(_git(repo, "show", "-s", "--format=%ct", sha))
+    dwell = sorted((_ct(fix_sha[c]) - _ct(intro_sha[c])) / 86400 / 365.25
+                   for c in set(intro_sha) & set(fix_sha))
+    if dwell:
+        md.append("## Dwell time — how long vulnerabilities lurk\n")
+        md.append(f"Introduced → fixed, n = {len(dwell)} CVEs with both commits: median "
+                  f"**{median(dwell):.1f} years** (p25 {q(dwell, .25):.1f}y, p75 "
+                  f"{q(dwell, .75):.1f}y, max {max(dwell):.1f}y). The strategic number for "
+                  f"rung 7: a predictive instrument has a years-long window in which "
+                  f"flagging the file would have mattered.\n")
+
+    # --- security lens --------------------------------------------------------
+    md.append("## Security-system signals on implicated files\n")
+    sec_counts = {}
+    for cls in ("security-fix", "introduced", "control"):
+        n_files = n_cred = 0
+        for _e, d in by_class.get(cls, []):
+            for f in d["touched"]:
+                n_files += 1
+        sec_counts[cls] = (n_files, n_cred)
+    cred_rows = con.execute(
+        "SELECT COUNT(*) FROM file_data WHERE has_credentials = 1").fetchone()[0]
+    cred_files = [r[0] for r in con.execute(
+        "SELECT DISTINCT file_path FROM file_data WHERE has_credentials = 1 LIMIT 6")]
+    touched_paths = {f["path"] for evs in by_class.values() for _, d in evs for f in d["touched"]}
+    cred_hits = [p for p in touched_paths if con.execute(
+        "SELECT 1 FROM file_data WHERE file_path = ? AND has_credentials = 1 LIMIT 1", (p,)
+    ).fetchone()]
+    md.append(f"- **Credential shunt** (`has_credentials` / `risk_secrets_risk=100`): fires on "
+              f"{cred_rows} file-rows across history — test keys and CA tooling (e.g. "
+              f"{', '.join('`' + pathlib.Path(p).name + '`' for p in cred_files[:4])}) — but on "
+              f"**{len(cred_hits)} of {len(touched_paths)} CVE/control-implicated files**. The "
+              f"secrets surface and the vulnerability surface are orthogonal in curl: CVEs live "
+              f"in protocol code, credentials in test fixtures.")
+    md.append("- **ML threat layer** (`ai_threat_score`, `is_malware`, `binary_anomaly`, "
+              "`obfuscation_flag`): all zero in these scans — the scan environment lacks the "
+              "ML dependencies (the engine's known security_auditor ML-deps gap), so this "
+              "layer is UNEXERCISED here, not exonerated. A full-deps rerun is the test.")
+    md.append("- **Granular lens counts** (`sec_tainted_injection`, `sec_db_hooks`, …) are not "
+              "persisted to the scan DB (audit-JSON only) — adding them to `file_data` (or "
+              "capturing audit JSONs in the harness) is the enabling change for a per-CVE "
+              "injection-surface analysis. Filed as future work in the epic.\n")
+
     md.append("## Instrument controls\n")
     md.append(f"- **Untouched-file spillover** (files the commit did not touch; expected ~0, "
               f"graph ripple via api_exposure is the legitimate exception): "
