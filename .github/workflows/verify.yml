@@ -1,0 +1,88 @@
+# Verify — fast, no-DB, no-galaxyscope CI for temporal-crucible.
+#
+# This repo's real dependency (dbs/curl_out/curl_galaxy_master.db, ~2.6GB) is
+# gitignored and is NOT a CI dependency. Instead this job runs the analysis
+# tools end-to-end against a small fixture DB + fixture git repo committed
+# under tests/fixtures/ (see tools/make_fixture_db.py for how that fixture
+# was built and how to regenerate it), and schema-checks the committed
+# dataset/ export.
+#
+# Every tool in tools/ is stdlib-only (checked by grepping every import --
+# see the PR description / CONTRIBUTING.md); there is nothing to `pip install`.
+name: Verify
+
+on:
+  pull_request:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  verify:
+    name: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Pinned to match the interpreter this repo is developed against
+      # (python3 --version on the maintainer's box is 3.12.3).
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # --- no third-party deps -------------------------------------------
+      # Every tools/*.py import is stdlib (argparse, gzip, json, sqlite3,
+      # subprocess, urllib.request, ...); nothing to install. If that ever
+      # stops being true, add a requirements.txt and a `pip install -r`
+      # step here rather than editing this comment.
+
+      - name: Byte-compile every tool
+        run: python -m py_compile tools/*.py
+
+      - name: Restore the fixture pool clone (tests/fixtures/fixture_repo.tar.gz)
+        run: |
+          mkdir -p /tmp/pool/curl
+          tar xzf tests/fixtures/fixture_repo.tar.gz -C /tmp/pool/curl
+
+      - name: Stage the fixture DB where scan_pair.py's out_dir_for() looks
+        run: |
+          mkdir -p dbs/curl_out
+          cp tests/fixtures/fixture.db dbs/curl_out/fixture.db
+
+      - name: Run delta_report.py end-to-end against the fixture
+        env:
+          EXPOSURE_POOL: /tmp/pool
+        run: |
+          python tools/delta_report.py \
+            --events tests/fixtures/fixture_events.json \
+            --out /tmp/fixture_report.md
+          echo "--- report head ---"
+          head -n 20 /tmp/fixture_report.md
+
+      - name: Run signal_anatomy.py end-to-end against the fixture
+        env:
+          EXPOSURE_POOL: /tmp/pool
+        run: |
+          python tools/signal_anatomy.py \
+            --events tests/fixtures/fixture_events.json \
+            --out /tmp/fixture_signal.md
+          echo "--- signal anatomy head ---"
+          head -n 20 /tmp/fixture_signal.md
+
+      # The dataset/*.jsonl.gz are gitignored (regenerable, kept out of git by
+      # the repo's .gitignore); only dataset/<repo>.manifest.json is committed.
+      # So CI regenerates the export from the fixture DB + fixture pool, then
+      # schema-checks THAT -- this exercises export_dataset.py end-to-end and
+      # validates the exporter⇄schema_check contract without needing the large
+      # gz artifacts in git. (If committed-dataset drift detection is ever
+      # wanted, track dataset/ and point schema_check at it instead.)
+      - name: Regenerate + schema-check the dataset export from the fixture
+        env:
+          EXPOSURE_POOL: /tmp/pool
+        run: |
+          python tools/export_dataset.py --events tests/fixtures/fixture_events.json
+          python tools/schema_check.py --dataset-dir dataset --repo curl
+
+      - name: Clean up the staged fixture DB
+        if: always()
+        run: rm -f dbs/curl_out/fixture.db

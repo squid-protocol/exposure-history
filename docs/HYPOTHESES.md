@@ -21,6 +21,11 @@ fixing them looks like. Every question was written down as a prediction *before*
    know things the sum washes out.
 4. **Vulnerabilities lurk ~4.5 years** between being written and being fixed — a huge
    window for any early warning to matter.
+5. **The negative controls behave.** Reverts measurably *remove* structure (the instrument's
+   sanity check — passed); and CVE-fix *follow-ups* turn out to be administrative (build /
+   cmake / test fixes), not more security logic — so neither "incomplete fixes look thinner"
+   nor "follow-ups finish the job" held. Two more registered predictions died on contact; the
+   record keeps working.
 
 **What this points at:** the question worth owning is not "rank everything by risk"
 (history wins that) but **"which file gets its *first* security bug?"** — where history is
@@ -72,6 +77,9 @@ it. Nothing here is yet a cross-language or cross-ecosystem claim.
 | RW-H1 | Structural exposure beats LOC at ordering a 20%-LOC review budget (effort-aware, from repowise's Popt result) | 2026-09-12, pre-analysis | **✗ not supported** — 52W/48L/82T, p=0.38; exposure ≈ LOC even at ordering, on CVE labels | rw_hypotheses.md |
 | RW-H2 | Prior CVE-fix count beats any static ranking (recall@budget + AUC) | 2026-09-12, pre-analysis | **✓ SUPPORTED decisively** — median recall .444 vs .000; 77W/27L vs exposure, 71W/10L vs LOC, both p<1e-4. **Recidivism is the rung-7 baseline to beat.** | rw_hypotheses.md |
 | R2-H1 | Danger density marks the vulnerable function: at equal length, more pointer/danger/alloc/cast constructs than siblings | 2026-09-12, for **repo #2** (curl read p=0.032, below α — suggestive only) | **pending repo #2** | signal_anatomy.md Phase D control row |
+| W1-H1 | Reverts are net-removal: grammar-signal deltas predominantly negative (where other classes are net-positive); median event net-LOC < 0 | 2026-09-12, pre-batch | **✓ SUPPORTED** — net-LOC median −1.0 (60 events <0 / 24 >0, sign p=5.4e-05) vs +2.0..+6.5 for every other class; net-grammar median −1.0 (57/23, p=9.2e-05); revert < control 1-sided MW p<1e-4. A clean instrument sanity check. | wave1_hypotheses.md |
+| W1-H2 | Fixes that later needed a follow-up carry the fix-shaped composite at a LOWER rate than fixes that stuck (one-sided) | 2026-09-12, pre-batch | **✗ not supported** — direction wrong: needs-follow-up 0.71 (10/14) vs stuck 0.65 (110/168), Fisher p=0.77. Incomplete fixes are not structurally thinner. | wave1_hypotheses.md |
+| W1-H3 | CVE-fix follow-ups carry the fix grammar (branch/pointer adds) at a rate closer to fixes than to controls | 2026-09-12, pre-batch | **✗ not supported** — follow-ups are THIN: loose (branch/ptr+) rate 0.20 (3/15), below controls (0.45) and fixes (0.71). The follow-ups are administrative (build/cmake/test), not added security logic; n=15 small. | wave1_hypotheses.md |
 
 ## What one repo taught us (the reflection)
 
@@ -107,3 +115,41 @@ After one repository: the signal layer and contract-shaped formulas correlate wi
 security events; aggregate exposure does not; the specific function-level profile of
 CVE-prone code is registered as a prediction awaiting repo #2 — which is the program's
 single highest-value next step.
+
+## Repo #2 (nDPI) replication battery — pre-registered 2026-09-12
+
+Registered **while the nDPI scan was in flight (~[228]/610 commits) and before any nDPI
+delta, grammar, ranking, or function-grain result had been computed** — no nDPI analysis
+artifact existed at registration (epic gitgalaxy#2982, comment 5648589175). Dataset:
+`events/ndpi.json` — 121 security-fix, 73 introduced (OSS-Fuzz-bisected), 111 size-matched
+control; `pool_head 7787711`. nDPI uses the original three classes, so
+`delta_report`/`signal_anatomy`/`rw_analyses` run unchanged.
+
+**Correction & reporting.** Each lettered claim is one registered test at α=0.01; within a
+multi-cell (per-vector) table, Bonferroni across cells; a battery-wide Bonferroni
+(α=0.01/k) is reported alongside as a sensitivity. Verdicts published either way. Directions
+are pre-set to curl's observed direction (legitimate — registered for unseen nDPI data).
+
+| id | maps to (curl) | registered nDPI direction | test / α | for nulls: equivalence δ |
+|---|---|---|---|---|
+| **N-H3** | H3 ✓ | fixes' `risk_safety_score` Δ below controls (curl direction) | 1-sided MW, α=0.01 | — |
+| **N-GRAM** | grammar ✓ | fixes net-add `struct_branch` **and** `state_pointers` vs controls | 1-sided MW ×2, Bonferroni | — |
+| **N-FIXSHAPE** | fix-shaped 66/38/40 ✓ | security-fix fix-shaped rate > control **and** > introduced | 1-sided Fisher ×2, Bonferroni | — |
+| **N-RW2** | RW-H2 ✓ | prior-CVE-fix count beats exposure- and LOC-ranking at recall@20%LOC + AUC | 1-sided, α=0.01 | — |
+| **D-H1′** | repo-#2 reg. | implicated functions' branch-guard rate `branch/(ptr+danger+alloc+cast+1)` < loc-matched siblings; fix raises it | 1-sided MW pairs, α=0.01 | — |
+| **R2-H1** | repo-#2 reg. (curl p=0.032) | at equal length, implicated functions carry more pointer/danger/alloc/cast than siblings | 1-sided MW, α=0.01 | — |
+| **N-FIRST** | repo-#2 reg. | pre-event structural exposure separates first-CVE files from age/size-matched non-CVE files | AUC, α=0.01 | — |
+| **N-H1** | H1 ✗ (p=0.77) | fixes' event-median structural Δ < controls | 1-sided MW, α=0.01 + effect-size CI | ±0.10 exposure units |
+| **N-H2** | H2 ✗ (p=0.023) | introduced > controls | 1-sided MW, α=0.01 + effect-size CI | ±0.10 exposure units |
+| **N-RW1** | RW-H1 ✗ | exposure recall@20%LOC > LOC recall@budget | 1-sided, α=0.01 + effect-size CI | ±0.05 recall |
+
+**Null-replication rule (N-H1/N-H2/N-RW1):** "null replicated" is declared only if BOTH
+(a) non-significant at α=0.01 in curl's direction AND (b) the effect's 95% CI lies within δ
+(TOST/equivalence) — a repeated p>α on nDPI's smaller n is otherwise just lower power. A
+**flip to significant is reported as a new signal**, not hidden.
+
+**Explicitly NOT a clean replication on nDPI** (reported as contrast, not pass/fail):
+dwell time (nDPI median lurk ≈ weeks under continuous fuzzing vs curl's 4.5 years — a
+different discovery population); **D-H1 verbatim** (degenerate at C function grain — subsumed
+by D-H1′); **Phase M / wave-1 classes** (revert, cve-followup — no such labels in the
+OSS-Fuzz set).
