@@ -1,5 +1,8 @@
 dbs/
 *.db
+# ...except the committed CI fixture DB (small, schema-identical subset; see
+# tools/make_fixture_db.py). Negation must come after the *.db rule.
+!tests/fixtures/fixture.db
 __pycache__/
 *.pyc
 dataset/*.jsonl.gz
