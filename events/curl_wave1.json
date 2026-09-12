@@ -1,0 +1,910 @@
+{
+ "repo": "curl",
+ "source": "wave1 (gitgalaxy#2982 pre-registration)",
+ "pool_head": "04bfe8fbbf552a3baf38c629bf9dd59916b3c559",
+ "counts": {
+  "revert": 130,
+  "cve-followup": 17
+ },
+ "events": [
+  {
+   "id": "revert-6e9880366fb2",
+   "class": "revert",
+   "sha": "6e9880366fb2d6cccca532262e4c8218860203e4",
+   "summary": "Revert \"uint-bset: add slot0 member\""
+  },
+  {
+   "id": "revert-0618ffe50d0e",
+   "class": "revert",
+   "sha": "0618ffe50d0e69e247d88a8050c49a5b746a19bd",
+   "summary": "Revert \"url: remove ssh_config_matches\""
+  },
+  {
+   "id": "revert-4beffe7737d9",
+   "class": "revert",
+   "sha": "4beffe7737d935e87cc188b8258ca5cc4f6b6b59",
+   "summary": "Revert \"tool: add a retry delay for transfers to same origin on 429\""
+  },
+  {
+   "id": "revert-e9eddedf3807",
+   "class": "revert",
+   "sha": "e9eddedf38078ac92c0028431271cebbc895686e",
+   "summary": "Revert \"md5/md4: enable unaligned access fast path on powerpc64\""
+  },
+  {
+   "id": "revert-905b718de3fb",
+   "class": "revert",
+   "sha": "905b718de3fb9287c7c0037b2737aa395f01ad3c",
+   "summary": "Revert \"GHA: update gnutls/gnutls to 3.8.11 from 3.8.10\""
+  },
+  {
+   "id": "revert-66c7e92ae4ab",
+   "class": "revert",
+   "sha": "66c7e92ae4ab824d5c838a207f742af1df6edaec",
+   "summary": "Revert \"cf_socket_recv: don't count reading zero bytes as first byte\""
+  },
+  {
+   "id": "revert-c83fa990bd37",
+   "class": "revert",
+   "sha": "c83fa990bd37a251b0aed4726dfda3503756bf47",
+   "summary": "Revert \"asyn-thrdd: use condition var more carefully\""
+  },
+  {
+   "id": "revert-fb15a986c0d9",
+   "class": "revert",
+   "sha": "fb15a986c0d947ae6b9dd64c92706c8c0cdfc138",
+   "summary": "Revert \"async-threaded resolver: use ref counter\""
+  },
+  {
+   "id": "revert-4afe3e7d8ae1",
+   "class": "revert",
+   "sha": "4afe3e7d8ae11f3bcb69d59f09050ddb625cce5c",
+   "summary": "Revert \"openssl: fix out of scope variables in goto\""
+  },
+  {
+   "id": "revert-290607f9d441",
+   "class": "revert",
+   "sha": "290607f9d4418a95435b2e4fc91bea25524fc362",
+   "summary": "Revert: cmake: enable `CURL_USE_PKGCONFIG` for cross-`MINGW`"
+  },
+  {
+   "id": "revert-061278d2eccd",
+   "class": "revert",
+   "sha": "061278d2eccd97fe649120b1743d1e0dd92f4705",
+   "summary": "Revert \"GHA/macos: improve, fix gcc/llvm, add new test matrix\""
+  },
+  {
+   "id": "revert-25321de30e71",
+   "class": "revert",
+   "sha": "25321de30e710cdc479d95ffef88947ec1912ca1",
+   "summary": "Revert \"lib: send eos flag\""
+  },
+  {
+   "id": "revert-49140cd188b5",
+   "class": "revert",
+   "sha": "49140cd188b5d4fba3ad0caa562199ed4ba2df72",
+   "summary": "Revert \"ci: update nghttp2/nghttp2 to v1.62.0\""
+  },
+  {
+   "id": "revert-d7332e3e46c3",
+   "class": "revert",
+   "sha": "d7332e3e46c3ef401b34e6a1a129eb4dd846c452",
+   "summary": "Revert \"CI: run Circle macOS builds on x86 for now\""
+  },
+  {
+   "id": "revert-907eea08041d",
+   "class": "revert",
+   "sha": "907eea08041d7ab3f6441a0202ed4b47ea7fc52f",
+   "summary": "Revert \"urldata: move async resolver state from easy handle to connectdata\""
+  },
+  {
+   "id": "revert-15c40a32b7a1",
+   "class": "revert",
+   "sha": "15c40a32b7a153138941584e5717772e4da7a17c",
+   "summary": "Revert \"KNOWN_BUGS: build for iOS simulator on macOS 13.2 with Xcode 14\""
+  },
+  {
+   "id": "revert-f540a39b8b33",
+   "class": "revert",
+   "sha": "f540a39b8b338e578aea17c57d4192bb5bc0118b",
+   "summary": "Revert \"schannel: reverse the order of certinfo insertions\""
+  },
+  {
+   "id": "revert-eef076baa696",
+   "class": "revert",
+   "sha": "eef076baa696662c7393156a5b90b81042e83a17",
+   "summary": "Revert \"urlapi: respect CURLU_ALLOW_SPACE and CURLU_NO_AUTHORITY for redirects\""
+  },
+  {
+   "id": "revert-c2df780a97d9",
+   "class": "revert",
+   "sha": "c2df780a97d9913eb20a55d4caad95c29d688976",
+   "summary": "Revert \"multi: remove PENDING + MSGSENT handles from the main linked list\""
+  },
+  {
+   "id": "revert-f5e0f52dd3ba",
+   "class": "revert",
+   "sha": "f5e0f52dd3ba8152c0ec37c2113586ce2e6bcff3",
+   "summary": "Revert \"rtsp: use dynbuf instead of custom reallocs\""
+  },
+  {
+   "id": "revert-aa31f9a85692",
+   "class": "revert",
+   "sha": "aa31f9a8569299e672447e257d6caddfa15875a4",
+   "summary": "Revert \"GHA: add Microsoft C++ Code Analysis\""
+  },
+  {
+   "id": "revert-4fc773774226",
+   "class": "revert",
+   "sha": "4fc7737742260025e346e4bfc99bc5fdd9096db4",
+   "summary": "Revert \"x509asn1: avoid freeing unallocated pointers\""
+  },
+  {
+   "id": "revert-18383fbf72b3",
+   "class": "revert",
+   "sha": "18383fbf72b31b9ae58f17df8e75158a818c31eb",
+   "summary": "Revert \"sendf: change Curl_read_plain to wrap Curl_recv_plain\""
+  },
+  {
+   "id": "revert-988c1c12f51d",
+   "class": "revert",
+   "sha": "988c1c12f51d4126702288d3c4ec7e5a08030321",
+   "summary": "Revert \"GHA: add scorecard.yml\""
+  },
+  {
+   "id": "revert-aec8d30624d1",
+   "class": "revert",
+   "sha": "aec8d30624d18c4b47b9fc2d929c5981d5428082",
+   "summary": "Revert \"schannel: when importing PFX, disable key persistence\""
+  },
+  {
+   "id": "revert-3bf54f90f387",
+   "class": "revert",
+   "sha": "3bf54f90f3875062c0aa984cb90ddd35565d01cd",
+   "summary": "Revert \"form-escape.d: double the back-slashes for proper man page output\""
+  },
+  {
+   "id": "revert-45a7821eefc5",
+   "class": "revert",
+   "sha": "45a7821eefc564d0da100dafbe26d1fd61134fa9",
+   "summary": "Revert \"src/tool_filetime: disable -Wformat on mingw for this file\""
+  },
+  {
+   "id": "revert-180180a44d8e",
+   "class": "revert",
+   "sha": "180180a44d8e7a54b772af02eb90e0eab1c61d37",
+   "summary": "Revert \"build: remove checks for WinSock 1\""
+  },
+  {
+   "id": "revert-c364f5f6fa72",
+   "class": "revert",
+   "sha": "c364f5f6fa72d25e6462cf7e0bb62d8c530e4266",
+   "summary": "Revert \"http2: skip immediate parsing of payload following protocol switch\""
+  },
+  {
+   "id": "revert-9bf79d0a5ab4",
+   "class": "revert",
+   "sha": "9bf79d0a5ab4a02ee1dd2b144489717c6c443250",
+   "summary": "Revert \"ftp: Expression 'ftpc->wait_data_conn' is always false\""
+  },
+  {
+   "id": "revert-0a513555561d",
+   "class": "revert",
+   "sha": "0a513555561d8ee4c1de930996ecc0cf73154378",
+   "summary": "Revert \"Revert \"socketpair: fix potential hangs\"\""
+  },
+  {
+   "id": "revert-3e70c3430a37",
+   "class": "revert",
+   "sha": "3e70c3430a370a31eff2c1d8fea29edaca8f1127",
+   "summary": "Revert \"socketpair: fix potential hangs\""
+  },
+  {
+   "id": "revert-2ee761c19b60",
+   "class": "revert",
+   "sha": "2ee761c19b60b9f1054a91e492aa81cee2da0a87",
+   "summary": "Revert \"c-hyper: handle body on HYPER_TASK_EMPTY\""
+  },
+  {
+   "id": "revert-bcca174cfa72",
+   "class": "revert",
+   "sha": "bcca174cfa727ffa0442d059609e60591080599a",
+   "summary": "Revert \"Revert 'multi: implement wait using winsock events'\""
+  },
+  {
+   "id": "revert-3057c6cd736d",
+   "class": "revert",
+   "sha": "3057c6cd736dc40483311ee73f7b697cf519158b",
+   "summary": "Revert \"cmake: make libcurl library output name configurable\""
+  },
+  {
+   "id": "revert-d16fb4d05654",
+   "class": "revert",
+   "sha": "d16fb4d0565487ba4c84fd8cc147759f3725a2d6",
+   "summary": "Revert \"CI/github: work-around for brew breakage on macOS\""
+  },
+  {
+   "id": "revert-2260e0ebe6d4",
+   "class": "revert",
+   "sha": "2260e0ebe6d45529495231b3e37a0c58fb92a6a2",
+   "summary": "Revert \"multi: implement wait using winsock events\""
+  },
+  {
+   "id": "revert-259c70a9303e",
+   "class": "revert",
+   "sha": "259c70a9303eb65611441550d1cbe54d914356f8",
+   "summary": "Revert \"libcurl.pc: make it relocatable\""
+  },
+  {
+   "id": "revert-25222b14eff0",
+   "class": "revert",
+   "sha": "25222b14eff03662f851687841b8b5b48d741d00",
+   "summary": "Revert \"multi: implement wait using winsock events\""
+  },
+  {
+   "id": "revert-d618986a1cba",
+   "class": "revert",
+   "sha": "d618986a1cbaf5826dbb12fe0544c645906810a6",
+   "summary": "Revert \"buildconf: use find -execdir\""
+  },
+  {
+   "id": "revert-18e63b167924",
+   "class": "revert",
+   "sha": "18e63b1679248c9a884201871379bfd0b13fc3f3",
+   "summary": "Revert \"ssh: ignore timeouts during disconnect\""
+  },
+  {
+   "id": "revert-f6c6a159f523",
+   "class": "revert",
+   "sha": "f6c6a159f52315b018f883fde177463aaeac4749",
+   "summary": "Revert \"sendf: make failf() use the mvsnprintf() return code\""
+  },
+  {
+   "id": "revert-5afa07fab57a",
+   "class": "revert",
+   "sha": "5afa07fab57a8a06be0a6de577352d622f51b7ba",
+   "summary": "Revert \"file: on Windows, refuse paths that start with \\\\\""
+  },
+  {
+   "id": "revert-12585bf9aea7",
+   "class": "revert",
+   "sha": "12585bf9aea700c32779bd26ef2340c3d1004415",
+   "summary": "Revert \"cirrus-ci: disable the FreeBSD 13 builds\""
+  },
+  {
+   "id": "revert-8aa04e9a2493",
+   "class": "revert",
+   "sha": "8aa04e9a24932b830bc5eaf6838dea5a3329341e",
+   "summary": "Revert \"pause: force-drain the transfer on unpause\""
+  },
+  {
+   "id": "revert-b572e0be59d2",
+   "class": "revert",
+   "sha": "b572e0be59d2e36b015166897467d0b7284746a8",
+   "summary": "Revert \"sha256: Added SecureTransport implementation\""
+  },
+  {
+   "id": "revert-8cd4e6d81fbf",
+   "class": "revert",
+   "sha": "8cd4e6d81fbf2b179f996146b3b111694fd8716e",
+   "summary": "Revert \"mime: latch last read callback status.\""
+  },
+  {
+   "id": "revert-d7242f4757de",
+   "class": "revert",
+   "sha": "d7242f4757de67f02b13fac850c3472598f999ca",
+   "summary": "Revert \"mime: do not perform more than one read in a row\""
+  },
+  {
+   "id": "revert-e002f6c0cbec",
+   "class": "revert",
+   "sha": "e002f6c0cbec7f87fd7ed478cc463bbb9a33b085",
+   "summary": "Revert \"mime: fix the binary encoder to handle large data properly\""
+  },
+  {
+   "id": "revert-31e637d224af",
+   "class": "revert",
+   "sha": "31e637d224afd4f1f219093df6341611d2a0ef75",
+   "summary": "Revert \"checksrc: fix regexp for ASSIGNWITHINCONDITION\""
+  },
+  {
+   "id": "revert-ea7744a07ebd",
+   "class": "revert",
+   "sha": "ea7744a07ebd957eccb9a867eee0c3e3d67efff5",
+   "summary": "Revert \"FTP: url-decode path before evaluation\""
+  },
+  {
+   "id": "revert-48016832dc17",
+   "class": "revert",
+   "sha": "48016832dc179a6cfd819bb7925f4723904eaaaa",
+   "summary": "Revert \"cmake: add SMB to list of disabled protocols if HTTP_ONLY is specified\""
+  },
+  {
+   "id": "revert-db8ec1fa38a8",
+   "class": "revert",
+   "sha": "db8ec1fa38a899d3542dd89ac8be0a6f00c805ac",
+   "summary": "Revert all SASL authzid (new feature) commits"
+  },
+  {
+   "id": "revert-c6b58137237a",
+   "class": "revert",
+   "sha": "c6b58137237a89081b4efc33ae0ecf7282e40132",
+   "summary": "Revert \"progress: CURL_DISABLE_PROGRESS_METER\""
+  },
+  {
+   "id": "revert-d934059afd85",
+   "class": "revert",
+   "sha": "d934059afd8568201d0646d6bfd201f39b6bc412",
+   "summary": "Revert \"multi: support verbose conncache closure handle\""
+  },
+  {
+   "id": "revert-c07fc5e2925c",
+   "class": "revert",
+   "sha": "c07fc5e2925ca4807fdffde2746e80b0ede6a8b7",
+   "summary": "Revert \"ntlm: remove USE_WIN32_CRYPTO check to get USE_NTLM2SESSION set\""
+  },
+  {
+   "id": "revert-299d9660f85b",
+   "class": "revert",
+   "sha": "299d9660f85b7dbc1613931b35e0c5cdf856bf44",
+   "summary": "Revert \"cookies: extend domain checks to non psl builds\""
+  },
+  {
+   "id": "revert-ebe658c1e5a6",
+   "class": "revert",
+   "sha": "ebe658c1e5a6577178981a7f406794699305be5c",
+   "summary": "Revert \"http_negotiate: do not close connection until negotiation is completed\""
+  },
+  {
+   "id": "revert-7608f9a2d57c",
+   "class": "revert",
+   "sha": "7608f9a2d57c26320a35f07d36fe20f6bde92fc4",
+   "summary": "Revert \"libssh: no data pointer == nothing to do\""
+  },
+  {
+   "id": "revert-d9abebc7ee2a",
+   "class": "revert",
+   "sha": "d9abebc7ee2a4cfde42c790ae97a2d8c6911f3a9",
+   "summary": "Revert \"url: a short host name + port is not a scheme\""
+  },
+  {
+   "id": "revert-d29c455d8cb6",
+   "class": "revert",
+   "sha": "d29c455d8cb6bb76f5fbc9d8ccc72502da9478f8",
+   "summary": "Revert \"TODO: remove configure --disable-pthreads\""
+  },
+  {
+   "id": "revert-5c39ccd83f05",
+   "class": "revert",
+   "sha": "5c39ccd83f051de3fc803584c1405b4fb5f9f899",
+   "summary": "Revert \"ftplistparser: keep state between invokes\""
+  },
+  {
+   "id": "revert-10b195d3b06e",
+   "class": "revert",
+   "sha": "10b195d3b06e2251a3a962363cf46d6af53258ce",
+   "summary": "Revert \"ftplistparser: keep state between invokes\""
+  },
+  {
+   "id": "revert-2536e2450b4b",
+   "class": "revert",
+   "sha": "2536e2450b4b0364d83c315ad2ee01b67f514db0",
+   "summary": "Revert \"openssl: Don't add verify locations when verifypeer==0\""
+  },
+  {
+   "id": "revert-98eee3396d7e",
+   "class": "revert",
+   "sha": "98eee3396d7e225d74208cc13c21dce853b10082",
+   "summary": "Revert \"hostip: fix compiler warning: 'variable set but not used'\""
+  },
+  {
+   "id": "revert-16d1f369403c",
+   "class": "revert",
+   "sha": "16d1f369403cbb04bd7b085eabbeebf159473fc2",
+   "summary": "Revert \"KNOWN_BUGS: 2.5 curl should not offer \"ALPN: h2\" when using https-proxy\""
+  },
+  {
+   "id": "revert-272613df020c",
+   "class": "revert",
+   "sha": "272613df020c29a445738856dda29a9803b9bedb",
+   "summary": "Revert \"curl/system.h: fix compilation with gcc on AIX PPC and IA64 HP-UX\""
+  },
+  {
+   "id": "revert-671f0b506c01",
+   "class": "revert",
+   "sha": "671f0b506c01897a606fe62ef96369e4bf3ca08a",
+   "summary": "Revert \"curl: don't set CURLOPT_INTERLEAVEDATA\""
+  },
+  {
+   "id": "revert-b2df2d47e58d",
+   "class": "revert",
+   "sha": "b2df2d47e58d1150f11ea2f42aac6b84fa7f4d00",
+   "summary": "Revert \"multi_done: wait for name resolve to finish if still ongoing\""
+  },
+  {
+   "id": "revert-7c145bb2a0a6",
+   "class": "revert",
+   "sha": "7c145bb2a0a6c176ffdd65421a40026bcae07375",
+   "summary": "Revert \"src/Makefile.am: avoid explicit $<\""
+  },
+  {
+   "id": "revert-65154588f678",
+   "class": "revert",
+   "sha": "65154588f6784c3f20cb552a3926f26aead33e8c",
+   "summary": "Revert \"configure: prefer 'long long' to int64_t for curl_off_t\""
+  },
+  {
+   "id": "revert-13314ffd65c5",
+   "class": "revert",
+   "sha": "13314ffd65c5b7386d041be8111b90e1d150e117",
+   "summary": "Revert \"tests: use consistent environment variables for setting charset\""
+  },
+  {
+   "id": "revert-fba9dec5c53a",
+   "class": "revert",
+   "sha": "fba9dec5c53ac180ff253ff6087b9f07e33ad292",
+   "summary": "Revert \"KNOWN_BUGS: SOCKS proxy not working via IPv6\""
+  },
+  {
+   "id": "revert-93b0d907d574",
+   "class": "revert",
+   "sha": "93b0d907d57453b481cd9aa15bd258942e4dd34e",
+   "summary": "Revert \"Proxy-Connection: stop sending this header by default\""
+  },
+  {
+   "id": "revert-cb9ba5cf8dfc",
+   "class": "revert",
+   "sha": "cb9ba5cf8dfca61d8ce96086330ccde967c2d418",
+   "summary": "Revert \"travis: Install libtool for OS X builds\""
+  },
+  {
+   "id": "revert-cd79e0329fe0",
+   "class": "revert",
+   "sha": "cd79e0329fe0deba7c2f895475e40fed4c85c616",
+   "summary": "Revert \"winbuild: trying to set some files eol=crlf for git\""
+  },
+  {
+   "id": "revert-d5e7f50e6394",
+   "class": "revert",
+   "sha": "d5e7f50e6394cf92e5d9d133ec0b6dabdc4561f8",
+   "summary": "Revert \"sshserver: remove use of AuthorizedKeysFile2\""
+  },
+  {
+   "id": "revert-c338d8cf9c17",
+   "class": "revert",
+   "sha": "c338d8cf9c173858d176b73ef80787907bd2d3bf",
+   "summary": "Revert \"multiplex: allow only once HTTP/2 is actually used\""
+  },
+  {
+   "id": "revert-c341311a0e87",
+   "class": "revert",
+   "sha": "c341311a0e875f4fc5229721c2f6ef19414f514e",
+   "summary": "Revert \"cleanup: general removal of TODO (and similar) comments\""
+  },
+  {
+   "id": "revert-4c62066cec18",
+   "class": "revert",
+   "sha": "4c62066cec18b8fa98bc1aa02ab80e4b489d5bc1",
+   "summary": "Revert \"openssl: engine: remove double-free\""
+  },
+  {
+   "id": "revert-0e91737615f8",
+   "class": "revert",
+   "sha": "0e91737615f85e1a51ca84cfd5a5a804b4a6819d",
+   "summary": "Revert \"has: generate the curl/has.h header\""
+  },
+  {
+   "id": "revert-0b8e9c8522a7",
+   "class": "revert",
+   "sha": "0b8e9c8522a7d81fe9e87eb8dc4adaefe5cd3184",
+   "summary": "Revert \"configure: disable libidn by default\""
+  },
+  {
+   "id": "revert-2eb02480ef9d",
+   "class": "revert",
+   "sha": "2eb02480ef9d8a077be333a7cc36e04e722d96b4",
+   "summary": "Revert \"HTTP: don't abort connections with pending Negotiate authentication\""
+  },
+  {
+   "id": "revert-ffc2aeec6e8e",
+   "class": "revert",
+   "sha": "ffc2aeec6e8e6e36312a73867992513711890677",
+   "summary": "Revert \"telnet.c: fix handling of 0 being returned from custom read function\""
+  },
+  {
+   "id": "revert-2008c92513ce",
+   "class": "revert",
+   "sha": "2008c92513cee98ded80ed9ffaf984edc0c97c33",
+   "summary": "Revert \"repository: ignore patch files generated by git\""
+  },
+  {
+   "id": "revert-ca4506b46a8f",
+   "class": "revert",
+   "sha": "ca4506b46a8fffaf27cef64ea113312b498eb25e",
+   "summary": "Revert \"pop3: Added debug information to assist with test864 failure\""
+  },
+  {
+   "id": "revert-cf7008670bc0",
+   "class": "revert",
+   "sha": "cf7008670bc0dac29e3abbc91a39b45ef4174419",
+   "summary": "Revert \"ftpserver.pl: Corrected logic from commit 27b7b1062f9d97\""
+  },
+  {
+   "id": "revert-8fe8fd2b1729",
+   "class": "revert",
+   "sha": "8fe8fd2b17291b995e2cc1671a1303d6a15d4cb4",
+   "summary": "Revert \"configure: don't error out on variable confusions, just warn\""
+  },
+  {
+   "id": "revert-7da3caaf954c",
+   "class": "revert",
+   "sha": "7da3caaf954c3688acbfcb0be7cf188bbfd65fa4",
+   "summary": "Revert \"DOCS: Added IMAP URL example for listing new messages\""
+  },
+  {
+   "id": "revert-45339625bc85",
+   "class": "revert",
+   "sha": "45339625bc85b29225a2035a57eceda43206dd1e",
+   "summary": "Revert \"curl.1: document the --time-cond option in the man page\""
+  },
+  {
+   "id": "revert-7ed25ccf0d1e",
+   "class": "revert",
+   "sha": "7ed25ccf0d1e5b8c7fd3bd90f0375a06011cd394",
+   "summary": "Revert \"WIN32 MemoryTracking: track wcsdup() _wcsdup() and _tcsdup() usage\""
+  },
+  {
+   "id": "revert-e73db5dcbdff",
+   "class": "revert",
+   "sha": "e73db5dcbdff6763da5f8c97fe1070b4711d5a0a",
+   "summary": "Revert \"getpart.pm: Strip carriage returns to fix Windows support\""
+  },
+  {
+   "id": "revert-4ed469a56fd2",
+   "class": "revert",
+   "sha": "4ed469a56fd2ff7d4c85a7cf14c871a54f06fa2e",
+   "summary": "Revert \"vc: remove explicit MSVC6 IDE project file and documentation\""
+  },
+  {
+   "id": "revert-75fa3542d0c4",
+   "class": "revert",
+   "sha": "75fa3542d0c4a4d0ee15cc31b15219876f532530",
+   "summary": "Revert \"configure: update req to 2.59\""
+  },
+  {
+   "id": "revert-4a5aa6682dae",
+   "class": "revert",
+   "sha": "4a5aa6682daeea7cd7cbbb47ce3e1c310e9261c2",
+   "summary": "Revert changes relative to lib/*.[ch] recent renaming"
+  },
+  {
+   "id": "revert-8e329bb7597c",
+   "class": "revert",
+   "sha": "8e329bb7597c0f2b98a02df34ace20970ededdc3",
+   "summary": "Revert \"Zero out auth structs before transfer\""
+  },
+  {
+   "id": "revert-3fc5779b919f",
+   "class": "revert",
+   "sha": "3fc5779b919f18bbb003eaf73af30ae85ec83169",
+   "summary": "Revert c44e674; add OpenSSL includes/defines."
+  },
+  {
+   "id": "revert-d95b8e0627d8",
+   "class": "revert",
+   "sha": "d95b8e0627d875f264fb37e78b36122e00a10472",
+   "summary": "Revert \"connect.c/ftp.c: Fixed dereferencing pointer breakin strict-aliasing\""
+  },
+  {
+   "id": "revert-af0888aaf6b4",
+   "class": "revert",
+   "sha": "af0888aaf6b444388d9b2770e310e9ef48354515",
+   "summary": "Revert: 634f7cfee40d4658 partially"
+  },
+  {
+   "id": "revert-d6c449e3b426",
+   "class": "revert",
+   "sha": "d6c449e3b4262aa29c1594d64379a8c26d9a5c38",
+   "summary": "Revert \"sspi: Added version information\""
+  },
+  {
+   "id": "revert-071f8d4182ec",
+   "class": "revert",
+   "sha": "071f8d4182ec86b236404e0af3dadfd0bf3270c8",
+   "summary": "Revert \"sspi - Small code tidy up\""
+  },
+  {
+   "id": "revert-d83233501f4d",
+   "class": "revert",
+   "sha": "d83233501f4d45d033562411b4e747b9740b7c4b",
+   "summary": "Revert \"Fixed 'extra tokens at end of #endif directive'.\""
+  },
+  {
+   "id": "revert-419a50f81759",
+   "class": "revert",
+   "sha": "419a50f817599600a47a374eca7506845ca6afb1",
+   "summary": "Revert \"Fixed 'Trailing whitespace' found by checksrc.\""
+  },
+  {
+   "id": "revert-975d23480c35",
+   "class": "revert",
+   "sha": "975d23480c35225b80259c4e6ad70cff3e8fae12",
+   "summary": "Revert \"sspi: Code tidy up to remove unused variable.\""
+  },
+  {
+   "id": "revert-13211705cd05",
+   "class": "revert",
+   "sha": "13211705cd05fb1c926328a864743294b4325c2c",
+   "summary": "Revert \"Add -lversion if build with SSPI.\""
+  },
+  {
+   "id": "revert-f9bb5d2984de",
+   "class": "revert",
+   "sha": "f9bb5d2984de26e09662dd41eae49ff5bf413e1d",
+   "summary": "Revert \"access the CA source file using HTTPS\""
+  },
+  {
+   "id": "revert-33d044a8628a",
+   "class": "revert",
+   "sha": "33d044a8628ac40418e1e5e698b0fd90c722a07f",
+   "summary": "Revert \"mk-ca-bundle.pl: use LWP::UserAgent for https\""
+  },
+  {
+   "id": "revert-9417e71f4a63",
+   "class": "revert",
+   "sha": "9417e71f4a635fef90058d1d4ebe4a766d6620b9",
+   "summary": "Revert \"configure: additional flag checks for fcntl() socket() and socketpair()\""
+  },
+  {
+   "id": "revert-e649a7baae27",
+   "class": "revert",
+   "sha": "e649a7baae27483f97b7b1f1c54f93cb2f5f40ea",
+   "summary": "Revert \"test582: enabled\""
+  },
+  {
+   "id": "revert-87374a47c9d2",
+   "class": "revert",
+   "sha": "87374a47c9d22521c8d31f1c4952db5fdb479903",
+   "summary": "Revert: use Host: name for SNI and cert name checks"
+  },
+  {
+   "id": "revert-a10f5b34ff79",
+   "class": "revert",
+   "sha": "a10f5b34ff7932060beb4d297be1241b81b64774",
+   "summary": "Revert \"security.c: buffer_read various fixes.\""
+  },
+  {
+   "id": "revert-7e0b0763fc60",
+   "class": "revert",
+   "sha": "7e0b0763fc609f99ec8938382a8ffada9493d7ab",
+   "summary": "Revert Joshua Kwan's patch committed 11 Sep 2009."
+  },
+  {
+   "id": "revert-781b82baf5e4",
+   "class": "revert",
+   "sha": "781b82baf5e481964d67971848e4f363915ef789",
+   "summary": "Reverted the zero-byte-in-name check to instead rely on the fact that strlen and the name length differ in those cases a"
+  },
+  {
+   "id": "revert-77da57057ff6",
+   "class": "revert",
+   "sha": "77da57057ff6eb1282e0b992cb2b17be5a1d88e7",
+   "summary": "Revert last change, it is inappropriate."
+  },
+  {
+   "id": "revert-8d581f7fe404",
+   "class": "revert",
+   "sha": "8d581f7fe404eaad2defdeeeae456eb8463bbc56",
+   "summary": "Revert delegating c-ares linking magic on libtool and auto-makefiles when using the uninstalled c-ares libtool archive b"
+  },
+  {
+   "id": "revert-80d2df7789c9",
+   "class": "revert",
+   "sha": "80d2df7789c904783589a1fc01e3f1be2234741c",
+   "summary": "Reverted my change to use Curl_connected_proxy() here. Clearly I wasn't thinking straight."
+  },
+  {
+   "id": "revert-a840cc700ae8",
+   "class": "revert",
+   "sha": "a840cc700ae8f24683b2bdcc15cf127edc4dd1e8",
+   "summary": "Revert change committed on Mon May 4 09:30:23 2009 UTC."
+  },
+  {
+   "id": "revert-1d95109ffa68",
+   "class": "revert",
+   "sha": "1d95109ffa685a30c806b4192874b2f387400aca",
+   "summary": "Revert sockfilt.c back to revision 1.42"
+  },
+  {
+   "id": "revert-3daa54d636f7",
+   "class": "revert",
+   "sha": "3daa54d636f736635e03f5a896ba66f64477592d",
+   "summary": "Revert last change since it breaks running the test suite when builddir is different from srcdir."
+  },
+  {
+   "id": "revert-0f77fe55b6ef",
+   "class": "revert",
+   "sha": "0f77fe55b6efbf090b30a3612b314cd2f8e27b3a",
+   "summary": "Reverted the const change--what was I thinking?"
+  },
+  {
+   "id": "revert-c7db74fe73a4",
+   "class": "revert",
+   "sha": "c7db74fe73a41cf54fea68c68bc4caefbaa85083",
+   "summary": "Revert the 512 change since newer versions of OpenSSH don't support DSA keys that small."
+  },
+  {
+   "id": "revert-268fe0932225",
+   "class": "revert",
+   "sha": "268fe09322258ae4af4581063111edf4a1597881",
+   "summary": "Revert ftpserver.pl back to revision 1.74 Adding change done in 1.76 This is done to back out changes done in revisions "
+  },
+  {
+   "id": "revert-7a557e984a9e",
+   "class": "revert",
+   "sha": "7a557e984a9ea73f5783a05ef6375cd8bedf1bbf",
+   "summary": "Revert runtests.pl back to revision 1.212 This is done to back out changes done from revisions 1.213 to 1.217"
+  },
+  {
+   "id": "revert-f1a55cbe6d10",
+   "class": "revert",
+   "sha": "f1a55cbe6d104bae7f6945538876d88dddd97e45",
+   "summary": "Revert ftp.pm back to revision 1.5 Adding copyright notice. This is done to back out changes done from revisions 1.6 to "
+  },
+  {
+   "id": "revert-adea16a2944f",
+   "class": "revert",
+   "sha": "adea16a2944f050d248a145fcadb3d1df263481f",
+   "summary": "Revert to KILL test servers until all test servers have proper TERM and INT signal handlers implemented."
+  },
+  {
+   "id": "revert-f335bac8a38e",
+   "class": "revert",
+   "sha": "f335bac8a38e816c4243474d7c7d186638d3aab4",
+   "summary": "Reverted the LIBCURL_VERSION_NUM change from October 6. As Dave Dribin reported, the define is used by the configure scr"
+  },
+  {
+   "id": "revert-044327a4885b",
+   "class": "revert",
+   "sha": "044327a4885bf6c1c0c6d1f98491d8c455fb1ee8",
+   "summary": "Reverted Tupone Alfredo's patch, as it broke NUMEROUS autobuilds. Let's do the changes in a slower and more controlled m"
+  },
+  {
+   "id": "revert-18dd8154e26a",
+   "class": "revert",
+   "sha": "18dd8154e26aac133001a7f4d9cc59b81700c4a8",
+   "summary": "Reverted the previous change and redid it differently as it seemed to not work. This is supposed to detect cross-compili"
+  },
+  {
+   "id": "revert-1c35cbcc07f8",
+   "class": "revert",
+   "sha": "1c35cbcc07f89913ed1025c05ab3dbd8683b7f01",
+   "summary": "Reverted the 'filetime' struct field back to a 'long' as time_t is sometimes unsigned and we want this to be able to hol"
+  },
+  {
+   "id": "revert-016abdfef6f9",
+   "class": "revert",
+   "sha": "016abdfef6f985bd45e65b0d673bd44182b6dd0a",
+   "summary": "Reverted v1.120, -G set request type after Kevin Roth pointed out the stupidity in doing this. -G should work with with "
+  },
+  {
+   "id": "followup-72dfda5f5ac3",
+   "class": "cve-followup",
+   "sha": "72dfda5f5ac3825fc26b82fa404225f3e7a0fc31",
+   "follows_fix": "3da249e1f0716c06644ed3522a37a8bf81808012",
+   "summary": "cmake: check libgsasl version at configure time"
+  },
+  {
+   "id": "followup-7bfdc6f44ae0",
+   "class": "cve-followup",
+   "sha": "7bfdc6f44ae0b2e93d9f12597ee55dde62535eeb",
+   "follows_fix": "bfbff7852f050232edd3e5ca5c6bf2021c340f5a",
+   "summary": "setopt: return OK earlier for the deprecated h2 dep options"
+  },
+  {
+   "id": "followup-1c3289c85e1a",
+   "class": "cve-followup",
+   "sha": "1c3289c85e1a7a939464d5c5e84382d2e250e611",
+   "follows_fix": "7541ae569d82fb308a5e2d94916027da4fa3ba3e",
+   "summary": "unit3303, unit3304: tidy-ups"
+  },
+  {
+   "id": "followup-7ca5f939c840",
+   "class": "cve-followup",
+   "sha": "7ca5f939c8403db7ede21e2ccb805a65d3329ef8",
+   "follows_fix": "4ae1d7cc2643e4773a136395f12bc02fc6867854",
+   "summary": "test1646: netrc parsing without user match but user in URL"
+  },
+  {
+   "id": "followup-7f7e4e3e689f",
+   "class": "cve-followup",
+   "sha": "7f7e4e3e689fd7ae36a690a041fe0e1c5a2ed6d2",
+   "follows_fix": "5e99b73cf441d9c369768b9cd48b5389b9a2503d",
+   "summary": "creds: create on service name only"
+  },
+  {
+   "id": "followup-9d104f566fd4",
+   "class": "cve-followup",
+   "sha": "9d104f566fd48fe19a833a0552f605ede82d0b20",
+   "follows_fix": "39d1976b7f709a516e3243338ebc0443bdd8d56d",
+   "summary": "ldap: drop duplicate `ldap_set_option()` on Windows"
+  },
+  {
+   "id": "followup-6b0a88561106",
+   "class": "cve-followup",
+   "sha": "6b0a88561106e332773fa676e7949552b0883d3f",
+   "follows_fix": "39d1976b7f709a516e3243338ebc0443bdd8d56d",
+   "summary": "ldap: fix to initialize cleartext connection on Windows"
+  },
+  {
+   "id": "followup-6225d7ba2f7d",
+   "class": "cve-followup",
+   "sha": "6225d7ba2f7dcad322776fc1cadae63e530de705",
+   "follows_fix": "b011e3fcfb06d6c0278595ee2ee297036fbe9793",
+   "summary": "CI: drop no longer used `install-wolfssl` step in Circle CI"
+  },
+  {
+   "id": "followup-4b07b7ebadfb",
+   "class": "cve-followup",
+   "sha": "4b07b7ebadfbff1d26622719b9048673a78f0bf0",
+   "follows_fix": "e9b9bbac22c26cf67316fa8e6c6b9e831af31949",
+   "summary": "netrc: fix pointer to bool conversion"
+  },
+  {
+   "id": "followup-f27b8dba7329",
+   "class": "cve-followup",
+   "sha": "f27b8dba73295cb5296a50f2c19c0739b502eb94",
+   "follows_fix": "73b65e94f3531179de45c6f3c836a610e3d0a846",
+   "summary": "fopen: allocate the dir after fopen"
+  },
+  {
+   "id": "followup-2cb0d346aaac",
+   "class": "cve-followup",
+   "sha": "2cb0d346aaacbe8aae7ba19f42190d802a038972",
+   "follows_fix": "3ee79c1674fd6f99e8efca52cd7510e08b766770",
+   "summary": "http: use per-request counter to check too large headers"
+  },
+  {
+   "id": "followup-83319e027179",
+   "class": "cve-followup",
+   "sha": "83319e0271791c540c1dbbc6ab06aaabafeb41c5",
+   "follows_fix": "3ee79c1674fd6f99e8efca52cd7510e08b766770",
+   "summary": "pingpong: don't use *bump_headersize"
+  },
+  {
+   "id": "followup-a2a894f55031",
+   "class": "cve-followup",
+   "sha": "a2a894f55031a09ee3739d5dd5ea0d8d3c05bb6d",
+   "follows_fix": "3ee79c1674fd6f99e8efca52cd7510e08b766770",
+   "summary": "http: use %u for printfing int"
+  },
+  {
+   "id": "followup-f446258f0269",
+   "class": "cve-followup",
+   "sha": "f446258f0269a62289cca0210157cb8558d0edc3",
+   "follows_fix": "13718030ad4b3209a7583b4f27f683cd3a6fa5f2",
+   "summary": "hostip: include easy_lock.h before using GLOBAL_INIT_IS_THREADSAFE"
+  },
+  {
+   "id": "followup-98770344b2d6",
+   "class": "cve-followup",
+   "sha": "98770344b2d6527c5b504fa740d7bbddbee1728e",
+   "follows_fix": "7f4a9a9b2a49547eae24d2e19bc5c346e9026479",
+   "summary": "sectransp: fix 7f4a9a9b2a49 commit about missing comma"
+  },
+  {
+   "id": "followup-2c26eeef12f0",
+   "class": "cve-followup",
+   "sha": "2c26eeef12f0204fb85d6bf40b4e7a1e2ddcdf24",
+   "follows_fix": "b09c8ee15771c614c4bf3ddac893cdb12187c844",
+   "summary": "vtls: fix addsessionid for non-proxy builds"
+  },
+  {
+   "id": "followup-6bb028dbda6c",
+   "class": "cve-followup",
+   "sha": "6bb028dbda6cbfe83f66de773544f71e4813160f",
+   "follows_fix": "7214288898f5625a6cc196e22a74232eada7861c",
+   "summary": "transfer: clear 'referer' in declaration"
+  }
+ ]
+}
