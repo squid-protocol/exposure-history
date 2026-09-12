@@ -56,7 +56,11 @@ def main() -> int:
     done = 0
     for e in picked:
         child = e["sha"]
-        parent = _git(repo, "rev-parse", f"{child}^")
+        try:
+            parent = _git(repo, "rev-parse", f"{child}^")
+        except subprocess.CalledProcessError:
+            print(f"skip {e['id']}: {child[:12]} has no parent (root commit)", flush=True)
+            continue
         for sha in (parent, child):
             status = scan_commit(repo, sha, out_dir)
             done += 1
