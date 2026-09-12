@@ -1,5 +1,33 @@
 # The hypothesis ledger
 
+## The plain-language summary (read this first)
+
+**What we did:** took 25 years of curl's security history (every CVE's fix commit and the
+commit that introduced it), scanned the repository at each of those moments, and asked
+whether GitGalaxy's measurements know anything about where security bugs live and what
+fixing them looks like. Every question was written down as a prediction *before* looking.
+
+**What we learned, in plain terms:**
+
+1. **The best predictor of the next security bug is where the last one was.** A reviewer
+   inspecting 20% of the codebase catches ~44% of future CVE files by revisiting past-CVE
+   files — and ~0% by following our risk score or file size. History wins, decisively.
+2. **Our per-file risk totals don't beat a line count** at finding or ranking CVE files.
+   Neither does anyone else's — the leading commercial tools tie a line count too.
+3. **But the raw ingredients carry real signal.** Security fixes have a recognizable shape
+   (added pointer-handling and branching, without the new allocations that mark feature
+   code); one formula built the contract-recommended way (`safety_score`) genuinely tracks
+   fixes; and the functions that get CVE fixes are the long, danger-dense ones. The pieces
+   know things the sum washes out.
+4. **Vulnerabilities lurk ~4.5 years** between being written and being fixed — a huge
+   window for any early warning to matter.
+
+**What this points at:** the question worth owning is not "rank everything by risk"
+(history wins that) but **"which file gets its *first* security bug?"** — where history is
+blind and only structure can answer. That prediction is registered below, awaiting a
+second repository.
+
+
 This is the temporal crucible's register of record — every confirmatory claim this program
 makes lives here, with its registration date, its registered direction and threshold, and
 its verdict **whatever that verdict was**. It is the sibling of keyword-rosetta's deviation
