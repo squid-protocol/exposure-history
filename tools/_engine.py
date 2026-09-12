@@ -30,7 +30,7 @@ DOCS_DIR = REPO_ROOT / "docs"
 # The uncommitted clone pool (the gitgalaxy/data arrangement): full clones of
 # the repos under study live here, never inside this repo.
 POOL_DIR = pathlib.Path(
-    os.environ.get("EXPOSURE_POOL", "/srv/storage_16tb/projects/exposure-history-pool")
+    os.environ.get("EXPOSURE_POOL", "/srv/storage_16tb/projects/temporal-crucible-pool")
 )
 
 # Rung-2 guard #1 (epic gitgalaxy#2982): scans run with git history DISABLED so
