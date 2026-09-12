@@ -111,6 +111,7 @@ def main() -> int:
     netloc = defaultdict(list)
     n_events = defaultdict(int)
     func_standing = []  # (implicated?, complexity, z, loc) at parent, fixes only
+    func_files = []  # same tuples grouped per touched file, for loc-matched pairs
 
     for e in data["events"]:
         parent, child = parent_child(repo, e["sha"])
@@ -156,12 +157,16 @@ def main() -> int:
                     "FROM function_data f JOIN file_data fd ON f.file_id = fd.id "
                     "WHERE fd.commit_hash = ? AND fd.file_path = ?",
                     (parent, st["old_path"])).fetchall()
+                per_file = []
                 for name, start, loc, cx, z in frows:
                     if start is None or loc is None:
                         continue
                     span = range(start, start + max(loc, 1))
                     hit = any(ln in changed for ln in span)
-                    func_standing.append((hit, cx or 0, z or 0.0, loc or 0))
+                    rec = (hit, cx or 0, z or 0.0, loc or 0)
+                    func_standing.append(rec)
+                    per_file.append(rec)
+                func_files.append(per_file)
 
     # ---------------- report
     md = [f"# Signal anatomy — {data['repo']}\n"]
@@ -228,6 +233,35 @@ def main() -> int:
         md.append("\nIf implicated functions stand out from their own file's siblings, the "
                   "instrument localizes below file granularity — the sharpest claim rung 7 "
                   "could make.\n")
+        # ---- the length-bias gate: loc-matched pairs, same file -------------
+        # Longer functions overlap a hunk more often by area alone. For each
+        # implicated function, take the loc-CLOSEST untouched sibling in the
+        # same file within [0.66x, 1.5x] loc; if complexity/z still separate,
+        # the localization is not a length artifact.
+        pairs = []
+        for per_file in func_files:
+            hits = [r for r in per_file if r[0]]
+            sibs = [r for r in per_file if not r[0]]
+            for h in hits:
+                cand = [s for s in sibs if 0.66 * h[3] <= s[3] <= 1.5 * h[3]]
+                if cand:
+                    pairs.append((h, min(cand, key=lambda s: abs(s[3] - h[3]))))
+        if pairs:
+            md.append(f"**Length-bias gate (loc-matched pairs, n={len(pairs)}, sibling within "
+                      f"0.66–1.5× loc in the same file):**\n")
+            md.append("| metric | implicated median | matched sibling median | p (sib < imp) |")
+            md.append("|---|---|---|---|")
+            for label, idx in (("complexity", 1), ("z-score", 2), ("loc (match check)", 3)):
+                a = [h[idx] for h, _ in pairs]
+                b = [s[idx] for _, s in pairs]
+                _, p = mann_whitney_u(b, a)
+                md.append(f"| {label} | {median(a):.2f} | {median(b):.2f} | {p:.4f} |")
+            wins = sum(1 for h, s in pairs if h[1] > s[1])
+            ties = sum(1 for h, s in pairs if h[1] == s[1])
+            md.append(f"\nPairwise: implicated more complex than its length-matched sibling in "
+                      f"{wins}/{len(pairs)} pairs ({ties} ties). If the gate holds, complexity "
+                      f"separates future-patched functions at equal length — a real "
+                      f"below-file signal, not hunk-area bias.\n")
 
     md.append("---\n*Counts are the engine's own extraction (persisted per commit in "
               "file_data/function_data); no diff-text keyword matching involved. Regenerate: "
