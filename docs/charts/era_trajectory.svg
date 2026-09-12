@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="720" height="380" role="img" aria-labelledby="title desc">
+<title id="title">Era trajectory — implicated-file exposure percentile</title>
+<desc id="desc">Single line, one series (blue): median pre-event exposure percentile of CVE-implicated files across six five-year eras, 2000-2029.</desc>
+<style>
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .tick { font-variant-numeric: tabular-nums; }
+</style>
+<rect x="0.5" y="0.5" width="719" height="379" rx="10" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)" stroke-width="1"/>
+<line x1="56.0" y1="324.0" x2="688.0" y2="324.0" stroke="#e1e0d9" stroke-width="1" stroke-linecap="butt"/>
+<text x="46.0" y="328.0" font-size="11" fill="#898781" text-anchor="end" font-weight="normal" class="tick">0</text>
+<line x1="56.0" y1="257.0" x2="688.0" y2="257.0" stroke="#e1e0d9" stroke-width="1" stroke-linecap="butt"/>
+<text x="46.0" y="261.0" font-size="11" fill="#898781" text-anchor="end" font-weight="normal" class="tick">25</text>
+<line x1="56.0" y1="190.0" x2="688.0" y2="190.0" stroke="#e1e0d9" stroke-width="1" stroke-linecap="butt"/>
+<text x="46.0" y="194.0" font-size="11" fill="#898781" text-anchor="end" font-weight="normal" class="tick">50</text>
+<line x1="56.0" y1="123.0" x2="688.0" y2="123.0" stroke="#e1e0d9" stroke-width="1" stroke-linecap="butt"/>
+<text x="46.0" y="127.0" font-size="11" fill="#898781" text-anchor="end" font-weight="normal" class="tick">75</text>
+<line x1="56.0" y1="56.0" x2="688.0" y2="56.0" stroke="#e1e0d9" stroke-width="1" stroke-linecap="butt"/>
+<text x="46.0" y="60.0" font-size="11" fill="#898781" text-anchor="end" font-weight="normal" class="tick">100</text>
+<line x1="56.0" y1="324.0" x2="688.0" y2="324.0" stroke="#c3c2b7" stroke-width="1.5" stroke-linecap="butt"/>
+<path d="M 56.0 324.0 L 56.0 256.1 L 182.4 221.3 L 308.8 109.2 L 435.2 93.2 L 561.6 94.1 L 688.0 91.9 L 688.0 324.0 Z" fill="#2a78d6" fill-opacity="0.10"/>
+<polyline points="56.0,256.1 182.4,221.3 308.8,109.2 435.2,93.2 561.6,94.1 688.0,91.9" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="56.0" cy="256.1" r="6" fill="#fcfcfb"/><circle cx="56.0" cy="256.1" r="4" fill="#2a78d6"/>
+<text x="56.0" y="348.0" font-size="11.5" fill="#0b0b0b" text-anchor="middle" font-weight="normal">2000–04</text>
+<circle cx="182.4" cy="221.3" r="6" fill="#fcfcfb"/><circle cx="182.4" cy="221.3" r="4" fill="#2a78d6"/>
+<text x="182.4" y="348.0" font-size="11.5" fill="#0b0b0b" text-anchor="middle" font-weight="normal">2005–09</text>
+<circle cx="308.8" cy="109.2" r="6" fill="#fcfcfb"/><circle cx="308.8" cy="109.2" r="4" fill="#2a78d6"/>
+<text x="308.8" y="348.0" font-size="11.5" fill="#0b0b0b" text-anchor="middle" font-weight="normal">2010–14</text>
+<circle cx="435.2" cy="93.2" r="6" fill="#fcfcfb"/><circle cx="435.2" cy="93.2" r="4" fill="#2a78d6"/>
+<text x="435.2" y="348.0" font-size="11.5" fill="#0b0b0b" text-anchor="middle" font-weight="normal">2015–19</text>
+<circle cx="561.6" cy="94.1" r="6" fill="#fcfcfb"/><circle cx="561.6" cy="94.1" r="4" fill="#2a78d6"/>
+<text x="561.6" y="348.0" font-size="11.5" fill="#0b0b0b" text-anchor="middle" font-weight="normal">2020–24</text>
+<circle cx="688.0" cy="91.9" r="6" fill="#fcfcfb"/><circle cx="688.0" cy="91.9" r="4" fill="#2a78d6"/>
+<text x="688.0" y="348.0" font-size="11.5" fill="#0b0b0b" text-anchor="middle" font-weight="normal">2025–29</text>
+<text x="56.0" y="242.1" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600" class="tick">25</text>
+<text x="688.0" y="77.9" font-size="12" fill="#0b0b0b" text-anchor="middle" font-weight="600" class="tick">87</text>
+<text x="56.0" y="28.0" font-size="15" fill="#0b0b0b" text-anchor="start" font-weight="600">Implicated-file exposure percentile by era</text>
+<text x="56.0" y="44.0" font-size="11" fill="#898781" text-anchor="start" font-weight="normal">Median pre-event structural-exposure percentile of security-fix + introduced touched files, per 5-year era.</text>
+</svg>

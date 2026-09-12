@@ -156,5 +156,26 @@ Introduced → fixed, n = 137 CVEs with both commits: median **4.5 years** (p25 
 - **LOC coupling** on touched files (is Δ just size change?): Spearman ρ = -0.187 over 875 files. The length-leak lesson says watch this; a high ρ routes to the score-contract program, not to a corpus tweak.
 - **Temporal ablation**: asserted exactly 0.0 across every delta in this run.
 
+## Charts
+
+Committed SVGs, regenerated from the history DB by `tools/make_charts.py` (same
+`delta_report`/`signal_anatomy` machinery, so every number matches the tables above).
+
+**Per-event structural delta by class** — the H1 null, made visual: all three classes cluster on the zero baseline; the movement lives in rare labeled outliers, not the distributions.
+
+![Per-event structural delta by class](charts/delta_distributions_by_class.svg)
+
+**Implicated-file exposure percentile by era** — CVE-implicated files climb from the 25th to the ~87th percentile as the codebase matures (event-sampled; see the era-table caveats).
+
+![Implicated-file exposure percentile by era](charts/era_trajectory.svg)
+
+**CWE family × exposure vector** — where each weakness family's files already stood, per vector, before the event.
+
+![CWE family by exposure vector heatmap](charts/cwe_vector_heatmap.svg)
+
+**Signature prevalence by class** — the fix-shaped differential: security fixes carry "branch/pointer-added without new allocs/casts" at 66% vs 38% (control) / 40% (introduced).
+
+![Signature prevalence by class](charts/signature_prevalence.svg)
+
 ---
-*Regenerate: `python tools/delta_report.py --events events/curl.json` — reads only the events file and the history DB; every number above is a pure function of those two artifacts.*
+*Regenerate: `python tools/delta_report.py --events events/curl.json` — reads only the events file and the history DB; every number above is a pure function of those two artifacts. Charts: `python tools/make_charts.py`.*
