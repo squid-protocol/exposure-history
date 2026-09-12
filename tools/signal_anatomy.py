@@ -110,6 +110,9 @@ def main() -> int:
     levels = defaultdict(lambda: defaultdict(list))  # class -> signal -> [pre-event pct]
     netloc = defaultdict(list)
     n_events = defaultdict(int)
+    PREV_SIGNALS = ["struct_branch", "state_pointers", "def_safety",
+                    "state_cast_hits", "state_memory_alloc"]
+    prevalence = defaultdict(lambda: defaultdict(int))
     func_standing = []  # (implicated?, complexity, z, loc) at parent, fixes only
     func_files = []  # same tuples grouped per touched file, for loc-matched pairs
 
@@ -145,6 +148,22 @@ def main() -> int:
         for c in fcols:
             deltas[e["class"]][c].append(sum(ev_delta[c]) / len(ev_delta[c]))
         netloc[e["class"]].append(sum(ev_loc) / len(ev_loc))
+        # prevalence flags (exploratory section): did this EVENT add/remove the construct
+        for s in PREV_SIGNALS:
+            tot = sum(ev_delta[s])
+            if tot > 0:
+                prevalence[e["class"]][f"+{s}"] += 1
+            elif tot < 0:
+                prevalence[e["class"]][f"-{s}"] += 1
+        b_up = sum(ev_delta["struct_branch"]) > 0
+        p_up = sum(ev_delta["state_pointers"]) > 0
+        ac_up = sum(ev_delta["state_cast_hits"]) > 0 or sum(ev_delta["state_memory_alloc"]) > 0
+        if b_up or p_up:
+            prevalence[e["class"]]["loose signature (branch+ or ptr+)"] += 1
+        if b_up and p_up:
+            prevalence[e["class"]]["strict signature (branch+ and ptr+)"] += 1
+        if (b_up or p_up) and not ac_up:
+            prevalence[e["class"]]["fix-shaped (branch/ptr+ WITHOUT new allocs/casts)"] += 1
 
         # ---------------- pass 2 (fixes only): implicated functions vs siblings
         if e["class"] == "security-fix":
@@ -211,6 +230,24 @@ def main() -> int:
                   f"{'n/a' if mi != mi else f'{mi:+.2f}'} | {p:.4f} |")
     md.append("")
 
+    md.append("## 1b · Signature prevalence (EXPLORATORY — descriptive shares, no p-values "
+              "claimed; class-discrimination confirmatory tests belong to Phase M / repo #2)\n")
+    md.append("Share of events whose touched files NET-added (or removed) each construct.\n")
+    classes = [c for c in ("security-fix", "control", "introduced") if n_events.get(c)]
+    md.append("| construct | " + " | ".join(classes) + " |")
+    md.append("|---|" + "---|" * len(classes))
+    prev_keys = ([f"+{s}" for s in PREV_SIGNALS] + ["-state_pointers", "-struct_branch",
+                 "loose signature (branch+ or ptr+)", "strict signature (branch+ and ptr+)",
+                 "fix-shaped (branch/ptr+ WITHOUT new allocs/casts)"])
+    for k in prev_keys:
+        md.append(f"| {k} | " + " | ".join(
+            f"{100 * prevalence[c][k] / n_events[c]:.0f}%" for c in classes) + " |")
+    md.append("\nReading: no single feature is a fingerprint (71% of fixes add branch-or-ptr, "
+              "but so do 45% of controls). The DIFFERENTIAL is the lead: introductions match "
+              "fixes on branches/pointers but differ sharply on allocations and casts — "
+              "'pointer/branch-heavy WITHOUT new allocs/casts' is fix-shaped; the same WITH "
+              "them is feature-shaped, which is where vulnerabilities are born. Multi-feature "
+              "classification is the ML dataset's job, not a threshold's.\n")
     md.append("## 2 · Assumed vs observed — where CVE files stand per signal, before the event\n")
     md.append("Median pre-event percentile of implicated files per signal (ranked among all "
               "files in the parent snapshot), fix-class vs the control-file baseline. A large "

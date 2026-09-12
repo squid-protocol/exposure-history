@@ -29,6 +29,25 @@ Per-signal mean delta over touched files, per event (median across events). One-
 | arch_import | +0.00 | +0.00 | +0.00 | 0.3646 |
 | state_graveyard | +0.00 | +0.00 | +0.00 | 0.3716 |
 
+## 1b · Signature prevalence (EXPLORATORY — descriptive shares, no p-values claimed; class-discrimination confirmatory tests belong to Phase M / repo #2)
+
+Share of events whose touched files NET-added (or removed) each construct.
+
+| construct | security-fix | control | introduced |
+|---|---|---|---|
+| +struct_branch | 62% | 39% | 59% |
+| +state_pointers | 54% | 27% | 67% |
+| +def_safety | 13% | 9% | 27% |
+| +state_cast_hits | 3% | 7% | 24% |
+| +state_memory_alloc | 3% | 2% | 19% |
+| -state_pointers | 12% | 8% | 12% |
+| -struct_branch | 10% | 12% | 19% |
+| loose signature (branch+ or ptr+) | 71% | 45% | 71% |
+| strict signature (branch+ and ptr+) | 45% | 21% | 55% |
+| fix-shaped (branch/ptr+ WITHOUT new allocs/casts) | 66% | 38% | 40% |
+
+Reading: no single feature is a fingerprint (71% of fixes add branch-or-ptr, but so do 45% of controls). The DIFFERENTIAL is the lead: introductions match fixes on branches/pointers but differ sharply on allocations and casts — 'pointer/branch-heavy WITHOUT new allocs/casts' is fix-shaped; the same WITH them is feature-shaped, which is where vulnerabilities are born. Multi-feature classification is the ML dataset's job, not a threshold's.
+
 ## 2 · Assumed vs observed — where CVE files stand per signal, before the event
 
 Median pre-event percentile of implicated files per signal (ranked among all files in the parent snapshot), fix-class vs the control-file baseline. A large gap in either direction is a keyword whose risk association differs from the 'change happens in hot files' baseline; sorted by |gap|.

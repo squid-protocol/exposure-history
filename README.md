@@ -13,6 +13,14 @@ The method is **event-pair scanning**: for each labeled event commit, scan its f
 and the commit itself with the real `galaxyscope` CLI, join per-file exposure across the two
 snapshots, and record the delta. No per-commit sweeps, no tag panels — two scans per label.
 
+## The hypothesis ledger
+
+Every confirmatory claim this program makes is pre-registered (direction, test, α) before
+its analysis runs, and its verdict is published either way — see
+[`docs/HYPOTHESES.md`](docs/HYPOTHESES.md), the register of record (3 of the first 5
+registered hypotheses died there; that is the record working). Exploratory tables are
+labeled in place and never re-tested on the data that suggested them.
+
 ## The four guards (pre-registered in the epic before any batch ran)
 
 1. **Temporal ablation** — scans run with `GITGALAXY_DISABLE_GIT_HISTORY=1`, so churn and
