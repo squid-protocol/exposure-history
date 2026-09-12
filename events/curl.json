@@ -1,0 +1,3385 @@
+{
+ "repo": "curl",
+ "source": "https://curl.se/docs/vuln.json",
+ "pool_head": "04bfe8fbbf552a3baf38c629bf9dd59916b3c559",
+ "counts": {
+  "security-fix": 186,
+  "introduced": 137,
+  "control": 185,
+  "missing_shas": 0
+ },
+ "events": [
+  {
+   "id": "CURL-CVE-2026-82209",
+   "class": "security-fix",
+   "sha": "95c1e8915dce64606bd753fd47fc0bd236e31cd6",
+   "severity": "Low",
+   "summary": "domain-scoped PSL domain cookie"
+  },
+  {
+   "id": "CURL-CVE-2026-82209",
+   "class": "introduced",
+   "sha": "e77b5b7453c1e8ccd7ec0816890d98e2f392e465",
+   "severity": "Low",
+   "summary": "domain-scoped PSL domain cookie"
+  },
+  {
+   "id": "CURL-CVE-2026-82208",
+   "class": "security-fix",
+   "sha": "ed0338befd1d865a8ea1fbaa90013a096dedd07a",
+   "severity": "Low",
+   "summary": "wolfSSL CA-cache hit overrides callback"
+  },
+  {
+   "id": "CURL-CVE-2026-82208",
+   "class": "introduced",
+   "sha": "0f2876b2c33f6784a27b6f7345bd8cd95b46352a",
+   "severity": "Low",
+   "summary": "wolfSSL CA-cache hit overrides callback"
+  },
+  {
+   "id": "CURL-CVE-2026-80255",
+   "class": "security-fix",
+   "sha": "4f6aa41a0145e930e766775dbe860883d350aa0a",
+   "severity": "Low",
+   "summary": "secure cookie attribute bypass with tab"
+  },
+  {
+   "id": "CURL-CVE-2026-80255",
+   "class": "introduced",
+   "sha": "1aea05a6c2699e80c75936d58569851555acd603",
+   "severity": "Low",
+   "summary": "secure cookie attribute bypass with tab"
+  },
+  {
+   "id": "CURL-CVE-2026-80231",
+   "class": "security-fix",
+   "sha": "7be1e70cb6bcd83e130ecfe8cb91b6a7dcdeff42",
+   "severity": "Low",
+   "summary": "native CA store conn reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-80231",
+   "class": "introduced",
+   "sha": "148534db57dda611cf8516e92e4d6e35fc1e5074",
+   "severity": "Low",
+   "summary": "native CA store conn reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-80230",
+   "class": "security-fix",
+   "sha": "5267ed859d545534d0c21675a2b70af5a3b6e3ef",
+   "severity": "Low",
+   "summary": "OpenSSL pinning bypass"
+  },
+  {
+   "id": "CURL-CVE-2026-80230",
+   "class": "introduced",
+   "sha": "8363656cb4e0c60a11d8531ead0ec43120b50591",
+   "severity": "Low",
+   "summary": "OpenSSL pinning bypass"
+  },
+  {
+   "id": "CURL-CVE-2026-80229",
+   "class": "security-fix",
+   "sha": "7ea37abc6ac0120ba5f6d94be8d196f7cf1506bb",
+   "severity": "Low",
+   "summary": "OpenSSL provider use-after-free"
+  },
+  {
+   "id": "CURL-CVE-2026-80229",
+   "class": "introduced",
+   "sha": "f2ce6c46b9dcc46ced0ce43fa95176ea7599a854",
+   "severity": "Low",
+   "summary": "OpenSSL provider use-after-free"
+  },
+  {
+   "id": "CURL-CVE-2026-19931",
+   "class": "security-fix",
+   "sha": "7103a93b05bc69ea98ed9d05d02fa9eeba533f2f",
+   "severity": "Medium",
+   "summary": "Negotiate ambient user conn reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-19931",
+   "class": "introduced",
+   "sha": "6c6035532383e300c712e4c1cd9fdd749ed5cf59",
+   "severity": "Medium",
+   "summary": "Negotiate ambient user conn reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-18924",
+   "class": "security-fix",
+   "sha": "90325ff0444cbdff368bda5d26d6405a0bb6ee43",
+   "severity": "Low",
+   "summary": "HTTP/2 server push UAF"
+  },
+  {
+   "id": "CURL-CVE-2026-18924",
+   "class": "introduced",
+   "sha": "ea7134ac874a66107e54ff93657ac565cf2ec4aa",
+   "severity": "Low",
+   "summary": "HTTP/2 server push UAF"
+  },
+  {
+   "id": "CURL-CVE-2026-13608",
+   "class": "security-fix",
+   "sha": "ea71c3b6b60e563651ea8596a975aef0c8199519",
+   "severity": "Low",
+   "summary": "OpenLDAP SASL authentication bypass"
+  },
+  {
+   "id": "CURL-CVE-2026-13608",
+   "class": "introduced",
+   "sha": "eeca818b1e8d1e61c2d4d833aed56ce4c510a9d4",
+   "severity": "Low",
+   "summary": "OpenLDAP SASL authentication bypass"
+  },
+  {
+   "id": "CURL-CVE-2026-12064",
+   "class": "security-fix",
+   "sha": "ab3bb8cd8be8f9d4acb97da0418abc279182041e",
+   "severity": "Low",
+   "summary": "proto-default skips SSH verification"
+  },
+  {
+   "id": "CURL-CVE-2026-12064",
+   "class": "introduced",
+   "sha": "18270893abdb19f0ca170c118f8a2847dbd304be",
+   "severity": "Low",
+   "summary": "proto-default skips SSH verification"
+  },
+  {
+   "id": "CURL-CVE-2026-11856",
+   "class": "security-fix",
+   "sha": "5c6b4880357ab3e72967c1c45cae0f96ffabc535",
+   "severity": "Medium",
+   "summary": "cross-origin Digest auth state leak"
+  },
+  {
+   "id": "CURL-CVE-2026-11856",
+   "class": "introduced",
+   "sha": "334d78cd18a7310144383929bdcef34ffbf6159b",
+   "severity": "Medium",
+   "summary": "cross-origin Digest auth state leak"
+  },
+  {
+   "id": "CURL-CVE-2026-11586",
+   "class": "security-fix",
+   "sha": "849317ff5c5a5e13f50ec3d001e46ddffa77d8a4",
+   "severity": "Low",
+   "summary": "WS Auto-PONG memory exhaustion"
+  },
+  {
+   "id": "CURL-CVE-2026-11586",
+   "class": "introduced",
+   "sha": "0b091328773c64e23f5c4739da74527093c6a5ab",
+   "severity": "Low",
+   "summary": "WS Auto-PONG memory exhaustion"
+  },
+  {
+   "id": "CURL-CVE-2026-11564",
+   "class": "security-fix",
+   "sha": "d69bfad3fa3daf5e72331f6870667607828d5891",
+   "severity": "Low",
+   "summary": "Native CA trust persist"
+  },
+  {
+   "id": "CURL-CVE-2026-11564",
+   "class": "introduced",
+   "sha": "eefd03c572996e5de4dec4fe295ad6f103e0eefc",
+   "severity": "Low",
+   "summary": "Native CA trust persist"
+  },
+  {
+   "id": "CURL-CVE-2026-11352",
+   "class": "security-fix",
+   "sha": "56eca2afb4806f1032872fa97d1834b3c1385276",
+   "severity": "Low",
+   "summary": "QUIC zero-length UDP datagrams busy-loop"
+  },
+  {
+   "id": "CURL-CVE-2026-11352",
+   "class": "introduced",
+   "sha": "6a3d0b6d631d5e9bec797306b5b41a9f440a088d",
+   "severity": "Low",
+   "summary": "QUIC zero-length UDP datagrams busy-loop"
+  },
+  {
+   "id": "CURL-CVE-2026-10536",
+   "class": "security-fix",
+   "sha": "bfbff7852f050232edd3e5ca5c6bf2021c340f5a",
+   "severity": "Low",
+   "summary": "HTTP/2 stream-dependency tree UAF"
+  },
+  {
+   "id": "CURL-CVE-2026-10536",
+   "class": "introduced",
+   "sha": "71b7e0161032927cdfb4e75ea40f65b8898b3956",
+   "severity": "Low",
+   "summary": "HTTP/2 stream-dependency tree UAF"
+  },
+  {
+   "id": "CURL-CVE-2026-9547",
+   "class": "security-fix",
+   "sha": "0b8dbbc63c98777e4584cb9fbd71df3464008ad1",
+   "severity": "Low",
+   "summary": "SSH improper host validation"
+  },
+  {
+   "id": "CURL-CVE-2026-9547",
+   "class": "introduced",
+   "sha": "507cf6a13db0375eadd4655b4c64710db29e9cf2",
+   "severity": "Low",
+   "summary": "SSH improper host validation"
+  },
+  {
+   "id": "CURL-CVE-2026-9546",
+   "class": "security-fix",
+   "sha": "862e8a74a84478d82973471b4f49dc2746c1780e",
+   "severity": "Low",
+   "summary": "sending old referer"
+  },
+  {
+   "id": "CURL-CVE-2026-9546",
+   "class": "introduced",
+   "sha": "2cb868242dc2ac9cd52ee64987ef51d5964a56f9",
+   "severity": "Low",
+   "summary": "sending old referer"
+  },
+  {
+   "id": "CURL-CVE-2026-9545",
+   "class": "security-fix",
+   "sha": "7b9613fa9b1a5e04301a3920eef58e8138dad05e",
+   "severity": "Low",
+   "summary": "exposing HTTP/3 early data"
+  },
+  {
+   "id": "CURL-CVE-2026-9545",
+   "class": "introduced",
+   "sha": "962097b8dd44ed5b9e7984bc1cdffdbdd566857f",
+   "severity": "Low",
+   "summary": "exposing HTTP/3 early data"
+  },
+  {
+   "id": "CURL-CVE-2026-9080",
+   "class": "security-fix",
+   "sha": "5ab34cba42e4ee4282fe8bab43f311d51b9bf9bd",
+   "severity": "Low",
+   "summary": "UAF after pause in socket callback"
+  },
+  {
+   "id": "CURL-CVE-2026-9080",
+   "class": "introduced",
+   "sha": "cfc657a48dbafb4194676d4c9d841388b3a22210",
+   "severity": "Low",
+   "summary": "UAF after pause in socket callback"
+  },
+  {
+   "id": "CURL-CVE-2026-9079",
+   "class": "security-fix",
+   "sha": "88c7e16cceec816a2df45c899d49b1e85513f193",
+   "severity": "Medium",
+   "summary": "stale proxy password leak"
+  },
+  {
+   "id": "CURL-CVE-2026-9079",
+   "class": "introduced",
+   "sha": "d5e83eb745762f48d8fafadc5df5dd3ae8d8941e",
+   "severity": "Medium",
+   "summary": "stale proxy password leak"
+  },
+  {
+   "id": "CURL-CVE-2026-8932",
+   "class": "security-fix",
+   "sha": "7541ae569d82fb308a5e2d94916027da4fa3ba3e",
+   "severity": "Low",
+   "summary": "incomplete mTLS config matching in conn reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-8932",
+   "class": "introduced",
+   "sha": "a1d6ad26100bc493c7b04f1301b1634b7f5aa8b4",
+   "severity": "Low",
+   "summary": "incomplete mTLS config matching in conn reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-8927",
+   "class": "security-fix",
+   "sha": "5c225384b8d52c67ce8259c6e4203bc57aacb567",
+   "severity": "Medium",
+   "summary": "env-set cross-proxy Digest auth state leak"
+  },
+  {
+   "id": "CURL-CVE-2026-8927",
+   "class": "introduced",
+   "sha": "fc6eff13b5414caf6edf22d73a3239e074a04216",
+   "severity": "Medium",
+   "summary": "env-set cross-proxy Digest auth state leak"
+  },
+  {
+   "id": "CURL-CVE-2026-8926",
+   "class": "security-fix",
+   "sha": "4ae1d7cc2643e4773a136395f12bc02fc6867854",
+   "severity": "Low",
+   "summary": "password leak with netrc and user in URL"
+  },
+  {
+   "id": "CURL-CVE-2026-8926",
+   "class": "introduced",
+   "sha": "e9b9bbac22c26cf67316fa8e6c6b9e831af31949",
+   "severity": "Low",
+   "summary": "password leak with netrc and user in URL"
+  },
+  {
+   "id": "CURL-CVE-2026-8925",
+   "class": "security-fix",
+   "sha": "3da249e1f0716c06644ed3522a37a8bf81808012",
+   "severity": "Medium",
+   "summary": "SASL double-free"
+  },
+  {
+   "id": "CURL-CVE-2026-8925",
+   "class": "introduced",
+   "sha": "ab650379a8c25ca952f651476d25b4cdd77bb3fc",
+   "severity": "Medium",
+   "summary": "SASL double-free"
+  },
+  {
+   "id": "CURL-CVE-2026-8924",
+   "class": "security-fix",
+   "sha": "51beed175dbfc37da3113f6acce60c630c070ce8",
+   "severity": "Low",
+   "summary": "trailing dot domain super cookie"
+  },
+  {
+   "id": "CURL-CVE-2026-8458",
+   "class": "security-fix",
+   "sha": "5e99b73cf441d9c369768b9cd48b5389b9a2503d",
+   "severity": "Low",
+   "summary": "wrong reuse for different services"
+  },
+  {
+   "id": "CURL-CVE-2026-8458",
+   "class": "introduced",
+   "sha": "97c272e5d173ad5f706443e2477f0a84f0044edd",
+   "severity": "Low",
+   "summary": "wrong reuse for different services"
+  },
+  {
+   "id": "CURL-CVE-2026-8286",
+   "class": "security-fix",
+   "sha": "a86efdd7ca5433de9231e650f18247de8319ad16",
+   "severity": "Low",
+   "summary": "wrong STARTTLS connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-8286",
+   "class": "introduced",
+   "sha": "a1701eea289fe7ea80651f801cf992838a491dde",
+   "severity": "Low",
+   "summary": "wrong STARTTLS connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-7168",
+   "class": "security-fix",
+   "sha": "c1cfdf59acbaf9504c4578d4cf56cdd7c8594507",
+   "severity": "Medium",
+   "summary": "cross-proxy Digest auth state leak"
+  },
+  {
+   "id": "CURL-CVE-2026-7009",
+   "class": "security-fix",
+   "sha": "51905671e07f087e28e5741063646c379fe17d89",
+   "severity": "Medium",
+   "summary": "OCSP stapling bypass with Apple SecTrust"
+  },
+  {
+   "id": "CURL-CVE-2026-6429",
+   "class": "security-fix",
+   "sha": "b4024bf808bd558026fdc6096e8457f199ace306",
+   "severity": "Medium",
+   "summary": "netrc credential leak with reused proxy connection"
+  },
+  {
+   "id": "CURL-CVE-2026-6429",
+   "class": "introduced",
+   "sha": "01165e08e0d131b399fba2190f17af67e66f0888",
+   "severity": "Medium",
+   "summary": "netrc credential leak with reused proxy connection"
+  },
+  {
+   "id": "CURL-CVE-2026-6276",
+   "class": "security-fix",
+   "sha": "3a19987a87f393d9394fe5acc7643f6c263c92db",
+   "severity": "Low",
+   "summary": "stale custom cookie host causes cookie leak"
+  },
+  {
+   "id": "CURL-CVE-2026-6276",
+   "class": "introduced",
+   "sha": "e15e51384a423be31318b3c9c7d612a1aae661fd",
+   "severity": "Low",
+   "summary": "stale custom cookie host causes cookie leak"
+  },
+  {
+   "id": "CURL-CVE-2026-6253",
+   "class": "security-fix",
+   "sha": "188c2f166a20fa97c2325b2da7d0e5cecc13725f",
+   "severity": "Medium",
+   "summary": "proxy credentials leak over redirect-to proxy"
+  },
+  {
+   "id": "CURL-CVE-2026-6253",
+   "class": "introduced",
+   "sha": "3b60bb725913ce7339aefef0a14b12df4c24db60",
+   "severity": "Medium",
+   "summary": "proxy credentials leak over redirect-to proxy"
+  },
+  {
+   "id": "CURL-CVE-2026-5773",
+   "class": "security-fix",
+   "sha": "74a169575d6412dc0ff532acdf94de35a6c2a571",
+   "severity": "Low",
+   "summary": "wrong reuse of SMB connection"
+  },
+  {
+   "id": "CURL-CVE-2026-5773",
+   "class": "introduced",
+   "sha": "aec2e865f06669b9cb5d26cc1148d70bc418b163",
+   "severity": "Low",
+   "summary": "wrong reuse of SMB connection"
+  },
+  {
+   "id": "CURL-CVE-2026-5545",
+   "class": "security-fix",
+   "sha": "33e43985b8f3b9e66691d06e70be0395849856cd",
+   "severity": "Medium",
+   "summary": "wrong reuse of HTTP Negotiate connection"
+  },
+  {
+   "id": "CURL-CVE-2026-5545",
+   "class": "introduced",
+   "sha": "e56ae1426cb7a0a4a427cf8d6099a821fdaae428",
+   "severity": "Medium",
+   "summary": "wrong reuse of HTTP Negotiate connection"
+  },
+  {
+   "id": "CURL-CVE-2026-4873",
+   "class": "security-fix",
+   "sha": "507e7be573b0a76fca597b75ff7cb27a66e7d865",
+   "severity": "Low",
+   "summary": "connection reuse ignores TLS requirement"
+  },
+  {
+   "id": "CURL-CVE-2026-4873",
+   "class": "introduced",
+   "sha": "ec3bb8f727405642a471b4b1b9eb0118fc003104",
+   "severity": "Low",
+   "summary": "connection reuse ignores TLS requirement"
+  },
+  {
+   "id": "CURL-CVE-2026-3805",
+   "class": "security-fix",
+   "sha": "e090be9f73a7a71459ef678c7cc4b1f75e3ea883",
+   "severity": "Medium",
+   "summary": "use after free in SMB connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-3805",
+   "class": "introduced",
+   "sha": "f4831daa9b2a97e8a2921d6b62cc4dfdd0d8646e",
+   "severity": "Medium",
+   "summary": "use after free in SMB connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2026-3784",
+   "class": "security-fix",
+   "sha": "5f13a7645e565c5c1a06f3ef86e97afb856fb364",
+   "severity": "Low",
+   "summary": "wrong proxy connection reuse with credentials"
+  },
+  {
+   "id": "CURL-CVE-2026-3783",
+   "class": "security-fix",
+   "sha": "e3d7401a32a46516c9e5ee877e613e62ed35bddc",
+   "severity": "Medium",
+   "summary": "token leak with redirect and netrc"
+  },
+  {
+   "id": "CURL-CVE-2026-3783",
+   "class": "introduced",
+   "sha": "06c1bea72faabb6fad4b7ef818aafaa336c9a7aa",
+   "severity": "Medium",
+   "summary": "token leak with redirect and netrc"
+  },
+  {
+   "id": "CURL-CVE-2026-1965",
+   "class": "security-fix",
+   "sha": "f1a39f221d57354990e3eeeddc3404aede2aff70",
+   "severity": "Medium",
+   "summary": "bad reuse of HTTP Negotiate connection"
+  },
+  {
+   "id": "CURL-CVE-2025-15224",
+   "class": "security-fix",
+   "sha": "16d5f2a5660c61cc27bd5f1c7f512391d1c927aa",
+   "severity": "Low",
+   "summary": "libssh key passphrase bypass without agent set"
+  },
+  {
+   "id": "CURL-CVE-2025-15224",
+   "class": "introduced",
+   "sha": "c92d2e14cfb0db662f958effd2ac86f995cf1b5a",
+   "severity": "Low",
+   "summary": "libssh key passphrase bypass without agent set"
+  },
+  {
+   "id": "CURL-CVE-2025-15079",
+   "class": "security-fix",
+   "sha": "adca486c125d9a6d9565b9607a19dce803a8b479",
+   "severity": "Low",
+   "summary": "libssh global known_hosts override"
+  },
+  {
+   "id": "CURL-CVE-2025-14819",
+   "class": "security-fix",
+   "sha": "cd046f6c93b39d673a58c18648d8906e954c4f5d",
+   "severity": "Low",
+   "summary": "OpenSSL partial chain store policy bypass"
+  },
+  {
+   "id": "CURL-CVE-2025-14819",
+   "class": "introduced",
+   "sha": "3c16697ebd796f799227be293e8689aec5f8190d",
+   "severity": "Low",
+   "summary": "OpenSSL partial chain store policy bypass"
+  },
+  {
+   "id": "CURL-CVE-2025-14524",
+   "class": "security-fix",
+   "sha": "1a822275d333dc6da6043497160fd04c8fa48640",
+   "severity": "Low",
+   "summary": "bearer token leak on cross-protocol redirect"
+  },
+  {
+   "id": "CURL-CVE-2025-14017",
+   "class": "security-fix",
+   "sha": "39d1976b7f709a516e3243338ebc0443bdd8d56d",
+   "severity": "Medium",
+   "summary": "broken TLS options for threaded LDAPS"
+  },
+  {
+   "id": "CURL-CVE-2025-14017",
+   "class": "introduced",
+   "sha": "ccba0d10b6baf5c73cae8cf4fb3f29f0f55c5a34",
+   "severity": "Medium",
+   "summary": "broken TLS options for threaded LDAPS"
+  },
+  {
+   "id": "CURL-CVE-2025-13034",
+   "class": "security-fix",
+   "sha": "3d91ca8cdb3b434226e743946d428b4dd3acf2c9",
+   "severity": "Medium",
+   "summary": "No QUIC certificate pinning with GnuTLS"
+  },
+  {
+   "id": "CURL-CVE-2025-13034",
+   "class": "introduced",
+   "sha": "3210101088dfa3d6a125d213226b092f2f866722",
+   "severity": "Medium",
+   "summary": "No QUIC certificate pinning with GnuTLS"
+  },
+  {
+   "id": "CURL-CVE-2025-10966",
+   "class": "security-fix",
+   "sha": "b011e3fcfb06d6c0278595ee2ee297036fbe9793",
+   "severity": "Low",
+   "summary": "missing SFTP host verification with wolfSSH"
+  },
+  {
+   "id": "CURL-CVE-2025-10966",
+   "class": "introduced",
+   "sha": "6773c7ca65cf2183295e56603f9b86a5ce816a06",
+   "severity": "Low",
+   "summary": "missing SFTP host verification with wolfSSH"
+  },
+  {
+   "id": "CURL-CVE-2025-10148",
+   "class": "security-fix",
+   "sha": "84db7a9eae8468c0445b15aa806fa7fa806fa0f2",
+   "severity": "Low",
+   "summary": "predictable WebSocket mask"
+  },
+  {
+   "id": "CURL-CVE-2025-10148",
+   "class": "introduced",
+   "sha": "d78e129d50b2d190f1c1bde2ad1f62f02f152db0",
+   "severity": "Low",
+   "summary": "predictable WebSocket mask"
+  },
+  {
+   "id": "CURL-CVE-2025-9086",
+   "class": "security-fix",
+   "sha": "c6ae07c6a541e0e96d0040afb62b45dd37711300",
+   "severity": "Low",
+   "summary": "Out of bounds read for cookie path"
+  },
+  {
+   "id": "CURL-CVE-2025-5399",
+   "class": "security-fix",
+   "sha": "d1145df24de8f80e6b167fbc4f28b86bcd0c6832",
+   "severity": "Low",
+   "summary": "WebSocket endless loop"
+  },
+  {
+   "id": "CURL-CVE-2025-5399",
+   "class": "introduced",
+   "sha": "3588df9478d7c27046b34cdb510728a26bedabc7",
+   "severity": "Low",
+   "summary": "WebSocket endless loop"
+  },
+  {
+   "id": "CURL-CVE-2025-5025",
+   "class": "security-fix",
+   "sha": "e1f65937a96a451292e9231339672797da86ecc5",
+   "severity": "Medium",
+   "summary": "No QUIC certificate pinning with wolfSSL"
+  },
+  {
+   "id": "CURL-CVE-2025-5025",
+   "class": "introduced",
+   "sha": "5f78cf503c786a1d48d13528dde038bccfa6c67c",
+   "severity": "Medium",
+   "summary": "No QUIC certificate pinning with wolfSSL"
+  },
+  {
+   "id": "CURL-CVE-2025-4947",
+   "class": "security-fix",
+   "sha": "a85f1df4803bbd272905c9e712537b41afeafbd3",
+   "severity": "Medium",
+   "summary": "QUIC certificate check skip with wolfSSL"
+  },
+  {
+   "id": "CURL-CVE-2025-4947",
+   "class": "introduced",
+   "sha": "4c46e277b2a0c0489de0e0fcb91f315c62f0369c",
+   "severity": "Medium",
+   "summary": "QUIC certificate check skip with wolfSSL"
+  },
+  {
+   "id": "CURL-CVE-2025-0725",
+   "class": "security-fix",
+   "sha": "76f83f0db23846e254d940ec7fe141010077eb88",
+   "severity": "Low",
+   "summary": "gzip integer overflow"
+  },
+  {
+   "id": "CURL-CVE-2025-0725",
+   "class": "introduced",
+   "sha": "019c4088cfcca0d2b7c5cc4f52ca5dac0c616089",
+   "severity": "Low",
+   "summary": "gzip integer overflow"
+  },
+  {
+   "id": "CURL-CVE-2025-0665",
+   "class": "security-fix",
+   "sha": "ff5091aa9f73802e894b1cbdf24ab84e103200e2",
+   "severity": "Low",
+   "summary": "eventfd double close"
+  },
+  {
+   "id": "CURL-CVE-2025-0665",
+   "class": "introduced",
+   "sha": "92124838c6b7e09e3f35ff84e1eb63cf0105c9b5",
+   "severity": "Low",
+   "summary": "eventfd double close"
+  },
+  {
+   "id": "CURL-CVE-2025-0167",
+   "class": "security-fix",
+   "sha": "0e120c5b925e8ca75d5319e319e5ce4b8080d8eb",
+   "severity": "Low",
+   "summary": "netrc and default credential leak"
+  },
+  {
+   "id": "CURL-CVE-2025-0167",
+   "class": "introduced",
+   "sha": "46620b97431e19c53ce82e55055c85830f088cf4",
+   "severity": "Low",
+   "summary": "netrc and default credential leak"
+  },
+  {
+   "id": "CURL-CVE-2024-11053",
+   "class": "security-fix",
+   "sha": "e9b9bbac22c26cf67316fa8e6c6b9e831af31949",
+   "severity": "Low",
+   "summary": "netrc and redirect credential leak"
+  },
+  {
+   "id": "CURL-CVE-2024-9681",
+   "class": "security-fix",
+   "sha": "a94973805df96269bf3f3bf0a20ccb9887313316",
+   "severity": "Low",
+   "summary": "HSTS subdomain overwrites parent cache entry"
+  },
+  {
+   "id": "CURL-CVE-2024-9681",
+   "class": "introduced",
+   "sha": "7385610d0c74c6a254fea5e4cd6e1d559d848c8c",
+   "severity": "Low",
+   "summary": "HSTS subdomain overwrites parent cache entry"
+  },
+  {
+   "id": "CURL-CVE-2024-8096",
+   "class": "security-fix",
+   "sha": "aeb1a281cab13c7ba791cb104e556b20e713941f",
+   "severity": "Medium",
+   "summary": "OCSP stapling bypass with GnuTLS"
+  },
+  {
+   "id": "CURL-CVE-2024-8096",
+   "class": "introduced",
+   "sha": "f13669a375f5bfd14797bda91642cabe076974fa",
+   "severity": "Medium",
+   "summary": "OCSP stapling bypass with GnuTLS"
+  },
+  {
+   "id": "CURL-CVE-2024-7264",
+   "class": "security-fix",
+   "sha": "27959ecce75cdb2809c0bdb3286e60e08fadb519",
+   "severity": "Low",
+   "summary": "ASN.1 date parser overread"
+  },
+  {
+   "id": "CURL-CVE-2024-7264",
+   "class": "introduced",
+   "sha": "3a24cb7bc456366cbc3a03f7ab6d2576105a1f2d",
+   "severity": "Low",
+   "summary": "ASN.1 date parser overread"
+  },
+  {
+   "id": "CURL-CVE-2024-6874",
+   "class": "security-fix",
+   "sha": "686d54baf1df6e0775898f484d1670742898b3b2",
+   "severity": "Low",
+   "summary": "macidn punycode buffer overread"
+  },
+  {
+   "id": "CURL-CVE-2024-6874",
+   "class": "introduced",
+   "sha": "add22feeef07858307be5722e1869e082554290e",
+   "severity": "Low",
+   "summary": "macidn punycode buffer overread"
+  },
+  {
+   "id": "CURL-CVE-2024-6197",
+   "class": "security-fix",
+   "sha": "3a537a4db9e65e545ec45b1b5d5575ee09a2569d",
+   "severity": "Medium",
+   "summary": "freeing stack buffer in utf8asn1str"
+  },
+  {
+   "id": "CURL-CVE-2024-6197",
+   "class": "introduced",
+   "sha": "623c3a8fa0bdb2751f14b3741760d81910b7ec64",
+   "severity": "Medium",
+   "summary": "freeing stack buffer in utf8asn1str"
+  },
+  {
+   "id": "CURL-CVE-2024-2466",
+   "class": "security-fix",
+   "sha": "3d0fd382a29b95561b90b7ea3e7eb04dfdd43538",
+   "severity": "Medium",
+   "summary": "TLS certificate check bypass with mbedTLS"
+  },
+  {
+   "id": "CURL-CVE-2024-2466",
+   "class": "introduced",
+   "sha": "fa714830e92cba7b16b9d3f2cc92a72ee9d821fa",
+   "severity": "Medium",
+   "summary": "TLS certificate check bypass with mbedTLS"
+  },
+  {
+   "id": "CURL-CVE-2024-2398",
+   "class": "security-fix",
+   "sha": "deca8039991886a559b67bcd6701db800a5cf764",
+   "severity": "Medium",
+   "summary": "HTTP/2 push headers memory-leak"
+  },
+  {
+   "id": "CURL-CVE-2024-2379",
+   "class": "security-fix",
+   "sha": "aedbbdf18e689a5eee8dc39600914f5eda6c409c",
+   "severity": "Low",
+   "summary": "QUIC certificate check bypass with wolfSSL"
+  },
+  {
+   "id": "CURL-CVE-2024-2379",
+   "class": "introduced",
+   "sha": "5d044ad9480a9f556f4b6a252d7533b1ba7fe57e",
+   "severity": "Low",
+   "summary": "QUIC certificate check bypass with wolfSSL"
+  },
+  {
+   "id": "CURL-CVE-2024-2004",
+   "class": "security-fix",
+   "sha": "17d302e56221f5040092db77d4f85086e8a20e0e",
+   "severity": "Low",
+   "summary": "Usage of disabled protocol"
+  },
+  {
+   "id": "CURL-CVE-2024-2004",
+   "class": "introduced",
+   "sha": "e6f8445edef8e7996d1cfb141d6df184efef972c",
+   "severity": "Low",
+   "summary": "Usage of disabled protocol"
+  },
+  {
+   "id": "CURL-CVE-2024-0853",
+   "class": "security-fix",
+   "sha": "c28e9478cb2548848eca9b765d0d409bfb18668c",
+   "severity": "Low",
+   "summary": "OCSP verification bypass with TLS session reuse"
+  },
+  {
+   "id": "CURL-CVE-2024-0853",
+   "class": "introduced",
+   "sha": "395365ad2d9a6c3f1a35d5e268a6af2824129832",
+   "severity": "Low",
+   "summary": "OCSP verification bypass with TLS session reuse"
+  },
+  {
+   "id": "CURL-CVE-2023-46219",
+   "class": "security-fix",
+   "sha": "73b65e94f3531179de45c6f3c836a610e3d0a846",
+   "severity": "Low",
+   "summary": "HSTS long filename clears contents"
+  },
+  {
+   "id": "CURL-CVE-2023-46219",
+   "class": "introduced",
+   "sha": "20f9dd6bae50b7223171b17ba7798946e74f877f",
+   "severity": "Low",
+   "summary": "HSTS long filename clears contents"
+  },
+  {
+   "id": "CURL-CVE-2023-46218",
+   "class": "security-fix",
+   "sha": "2b0994c29a721c91c572cff7808c572a24d251eb",
+   "severity": "Medium",
+   "summary": "cookie mixed case PSL bypass"
+  },
+  {
+   "id": "CURL-CVE-2023-38546",
+   "class": "security-fix",
+   "sha": "61275672b46d9abb3285740467b882e22ed75da8",
+   "severity": "Low",
+   "summary": "cookie injection with none file"
+  },
+  {
+   "id": "CURL-CVE-2023-38546",
+   "class": "introduced",
+   "sha": "74d5a6fb3b9a96d9fa51ba90996e94c878ebd151",
+   "severity": "Low",
+   "summary": "cookie injection with none file"
+  },
+  {
+   "id": "CURL-CVE-2023-38545",
+   "class": "security-fix",
+   "sha": "fb4415d8aee6c1045be932a34fe6107c2f5ed147",
+   "severity": "High",
+   "summary": "SOCKS5 heap buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2023-38545",
+   "class": "introduced",
+   "sha": "4a4b63daaa01ef59b131d91e8e6e6dfe275c0f08",
+   "severity": "High",
+   "summary": "SOCKS5 heap buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2023-38039",
+   "class": "security-fix",
+   "sha": "3ee79c1674fd6f99e8efca52cd7510e08b766770",
+   "severity": "Medium",
+   "summary": "HTTP headers eat all memory"
+  },
+  {
+   "id": "CURL-CVE-2023-38039",
+   "class": "introduced",
+   "sha": "4d94fac9f0d1dd02b8308291e4c47651142dc28b",
+   "severity": "Medium",
+   "summary": "HTTP headers eat all memory"
+  },
+  {
+   "id": "CURL-CVE-2023-28322",
+   "class": "security-fix",
+   "sha": "7815647d6582c0a4900be2e1de6c5e61272c496b",
+   "severity": "Low",
+   "summary": "more POST-after-PUT confusion"
+  },
+  {
+   "id": "CURL-CVE-2023-28322",
+   "class": "introduced",
+   "sha": "546572da0457f37c698c02d0a08d90fdfcbeedec",
+   "severity": "Low",
+   "summary": "more POST-after-PUT confusion"
+  },
+  {
+   "id": "CURL-CVE-2023-28321",
+   "class": "security-fix",
+   "sha": "199f2d440d8659b42670c1b796220792b01a97bf",
+   "severity": "Low",
+   "summary": "IDN wildcard match"
+  },
+  {
+   "id": "CURL-CVE-2023-28321",
+   "class": "introduced",
+   "sha": "9631fa740708b1890197fad01e25b34b7e8eb80e",
+   "severity": "Low",
+   "summary": "IDN wildcard match"
+  },
+  {
+   "id": "CURL-CVE-2023-28320",
+   "class": "security-fix",
+   "sha": "13718030ad4b3209a7583b4f27f683cd3a6fa5f2",
+   "severity": "Low",
+   "summary": "siglongjmp race condition"
+  },
+  {
+   "id": "CURL-CVE-2023-28320",
+   "class": "introduced",
+   "sha": "3c49b405de4fbf1fd7127f91908261268640e54f",
+   "severity": "Low",
+   "summary": "siglongjmp race condition"
+  },
+  {
+   "id": "CURL-CVE-2023-28319",
+   "class": "security-fix",
+   "sha": "8e21b1a05f3c0ee098dbcb6c3d84cb61f102a122",
+   "severity": "Medium",
+   "summary": "UAF in SSH sha256 fingerprint check"
+  },
+  {
+   "id": "CURL-CVE-2023-28319",
+   "class": "introduced",
+   "sha": "3467e89bb97e6c87c77e82a046c59cb4b2d29a74",
+   "severity": "Medium",
+   "summary": "UAF in SSH sha256 fingerprint check"
+  },
+  {
+   "id": "CURL-CVE-2023-27538",
+   "class": "security-fix",
+   "sha": "af369db4d3833272b8ed443f7fcc2e757a0872eb",
+   "severity": "Low",
+   "summary": "SSH connection too eager reuse still"
+  },
+  {
+   "id": "CURL-CVE-2023-27538",
+   "class": "introduced",
+   "sha": "2147284cad624325f5b0034c2f394db62086d9e6",
+   "severity": "Low",
+   "summary": "SSH connection too eager reuse still"
+  },
+  {
+   "id": "CURL-CVE-2023-27537",
+   "class": "security-fix",
+   "sha": "dca4cdf071be095bcdc7126eaa77a8946ea4790b",
+   "severity": "Low",
+   "summary": "HSTS double free"
+  },
+  {
+   "id": "CURL-CVE-2023-27537",
+   "class": "introduced",
+   "sha": "076a2f629119222aeeb50f5a03bf9f9052fabb9a",
+   "severity": "Low",
+   "summary": "HSTS double free"
+  },
+  {
+   "id": "CURL-CVE-2023-27536",
+   "class": "security-fix",
+   "sha": "cb49e67303dbafbab1cebf4086e3ec15b7d56ee5",
+   "severity": "Low",
+   "summary": "GSS delegation too eager connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2023-27536",
+   "class": "introduced",
+   "sha": "ebf42c4be76df40ec6d3bf32f229bbb274e2c32f",
+   "severity": "Low",
+   "summary": "GSS delegation too eager connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2023-27535",
+   "class": "security-fix",
+   "sha": "8f4608468b890dce2dad9f91d5607ee7e9c1aba1",
+   "severity": "Medium",
+   "summary": "FTP too eager connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2023-27535",
+   "class": "introduced",
+   "sha": "177dbc7be07125582ddb7416dba7140b88ab9f62",
+   "severity": "Medium",
+   "summary": "FTP too eager connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2023-27534",
+   "class": "security-fix",
+   "sha": "4e2b52b5f7a3bf50a0f1494155717b02cc1df6d6",
+   "severity": "Low",
+   "summary": "SFTP path ~ resolving discrepancy"
+  },
+  {
+   "id": "CURL-CVE-2023-27534",
+   "class": "introduced",
+   "sha": "ba6f20a2442ab1ebfe947cff19a552f92114a29a",
+   "severity": "Low",
+   "summary": "SFTP path ~ resolving discrepancy"
+  },
+  {
+   "id": "CURL-CVE-2023-27533",
+   "class": "security-fix",
+   "sha": "538b1e79a6e7b0bb829ab4cecc828d32105d0684",
+   "severity": "Low",
+   "summary": "TELNET option IAC injection"
+  },
+  {
+   "id": "CURL-CVE-2023-23916",
+   "class": "security-fix",
+   "sha": "119fb187192a9ea13dc90d9d20c215fc82799ab9",
+   "severity": "Medium",
+   "summary": "HTTP multi-header compression denial of service"
+  },
+  {
+   "id": "CURL-CVE-2023-23916",
+   "class": "introduced",
+   "sha": "dbcced8e32b50c068ac297106f0502ee200a1ebd",
+   "severity": "Medium",
+   "summary": "HTTP multi-header compression denial of service"
+  },
+  {
+   "id": "CURL-CVE-2023-23915",
+   "class": "security-fix",
+   "sha": "076a2f629119222aeeb50f5a03bf9f9052fabb9a",
+   "severity": "Low",
+   "summary": "HSTS amnesia with --parallel"
+  },
+  {
+   "id": "CURL-CVE-2022-43552",
+   "class": "security-fix",
+   "sha": "4f20188ac644afe174be6005ef4f6ffba232b8b2",
+   "severity": "Low",
+   "summary": "HTTP Proxy deny use after free"
+  },
+  {
+   "id": "CURL-CVE-2022-43552",
+   "class": "introduced",
+   "sha": "b7eeb6e67fca686f840eacd6b8394edb58b07482",
+   "severity": "Low",
+   "summary": "HTTP Proxy deny use after free"
+  },
+  {
+   "id": "CURL-CVE-2022-43551",
+   "class": "security-fix",
+   "sha": "9e71901634e276dd050481c4320f046bebb1bc28",
+   "severity": "Medium",
+   "summary": "Another HSTS bypass via IDN"
+  },
+  {
+   "id": "CURL-CVE-2022-42916",
+   "class": "security-fix",
+   "sha": "53bcf55b4538067e6dc36242168866becb987bb7",
+   "severity": "Medium",
+   "summary": "HSTS bypass via IDN"
+  },
+  {
+   "id": "CURL-CVE-2022-42915",
+   "class": "security-fix",
+   "sha": "55e1875729f9d9fc7315cec611bffbd2c817ad89",
+   "severity": "Medium",
+   "summary": "HTTP proxy double free"
+  },
+  {
+   "id": "CURL-CVE-2022-42915",
+   "class": "introduced",
+   "sha": "51c0ebcff2140c38ff389b4fcfb8216f5e9d198c",
+   "severity": "Medium",
+   "summary": "HTTP proxy double free"
+  },
+  {
+   "id": "CURL-CVE-2022-35260",
+   "class": "security-fix",
+   "sha": "c97ec984fb2bc919a3aa863e0476dffa377b184c",
+   "severity": "Low",
+   "summary": ".netrc parser out-of-bounds access"
+  },
+  {
+   "id": "CURL-CVE-2022-35260",
+   "class": "introduced",
+   "sha": "eeaae10c0fb27aa066fdc296074edeacfdeb6522",
+   "severity": "Low",
+   "summary": ".netrc parser out-of-bounds access"
+  },
+  {
+   "id": "CURL-CVE-2022-32221",
+   "class": "security-fix",
+   "sha": "a64e3e59938abd7d667e4470a18072a24d7e9de9",
+   "severity": "Medium",
+   "summary": "POST following PUT confusion"
+  },
+  {
+   "id": "CURL-CVE-2022-35252",
+   "class": "security-fix",
+   "sha": "8dfc93e573ca740544a2d79ebb0ed786592c65c3",
+   "severity": "Low",
+   "summary": "control code in cookie denial of service"
+  },
+  {
+   "id": "CURL-CVE-2022-35252",
+   "class": "introduced",
+   "sha": "ae1912cb0d494b48d514d937826c9fe83ec96c4d",
+   "severity": "Low",
+   "summary": "control code in cookie denial of service"
+  },
+  {
+   "id": "CURL-CVE-2022-32208",
+   "class": "security-fix",
+   "sha": "6ecdf5136b52af747e7bda08db9a748256b1cd09",
+   "severity": "Low",
+   "summary": "FTP-KRB bad message verification"
+  },
+  {
+   "id": "CURL-CVE-2022-32208",
+   "class": "introduced",
+   "sha": "54967d2a3ab5559631407f7b7f67ef48c2dda6dd",
+   "severity": "Low",
+   "summary": "FTP-KRB bad message verification"
+  },
+  {
+   "id": "CURL-CVE-2022-32207",
+   "class": "security-fix",
+   "sha": "20f9dd6bae50b7223171b17ba7798946e74f877f",
+   "severity": "Medium",
+   "summary": "Non-preserved file permissions"
+  },
+  {
+   "id": "CURL-CVE-2022-32207",
+   "class": "introduced",
+   "sha": "b834890a3fa3f525cd8ef4e99554cdb4558d7e1b",
+   "severity": "Medium",
+   "summary": "Non-preserved file permissions"
+  },
+  {
+   "id": "CURL-CVE-2022-32206",
+   "class": "security-fix",
+   "sha": "3a09fbb7f264c67c438d01a30669ce325aa508e2",
+   "severity": "Medium",
+   "summary": "HTTP compression denial of service"
+  },
+  {
+   "id": "CURL-CVE-2022-32205",
+   "class": "security-fix",
+   "sha": "48d7064a49148f03942380967da739dcde1cdc24",
+   "severity": "Low",
+   "summary": "Set-Cookie denial of service"
+  },
+  {
+   "id": "CURL-CVE-2022-32205",
+   "class": "introduced",
+   "sha": "ed35d6590e72c23c568af1e3b8ac6e4e2d883888",
+   "severity": "Low",
+   "summary": "Set-Cookie denial of service"
+  },
+  {
+   "id": "CURL-CVE-2022-30115",
+   "class": "security-fix",
+   "sha": "fae6fea209a2d4db1582f608bd8cc8000721733a",
+   "severity": "Medium",
+   "summary": "HSTS bypass via trailing dot"
+  },
+  {
+   "id": "CURL-CVE-2022-30115",
+   "class": "introduced",
+   "sha": "b27ad8e1d3e68eb3214fcbb398ca436873aa7c67",
+   "severity": "Medium",
+   "summary": "HSTS bypass via trailing dot"
+  },
+  {
+   "id": "CURL-CVE-2022-27782",
+   "class": "security-fix",
+   "sha": "1645e9b44505abd5cbaf65da5282c3f33b5924a5",
+   "severity": "Medium",
+   "summary": "TLS and SSH connection too eager reuse"
+  },
+  {
+   "id": "CURL-CVE-2022-27781",
+   "class": "security-fix",
+   "sha": "5c7da89d404bf59c8dd82a001119a16d18365917",
+   "severity": "Low",
+   "summary": "CERTINFO never-ending busy-loop"
+  },
+  {
+   "id": "CURL-CVE-2022-27781",
+   "class": "introduced",
+   "sha": "f6c335d63f2da025a0a3efde1fe59e3bb7189b70",
+   "severity": "Low",
+   "summary": "CERTINFO never-ending busy-loop"
+  },
+  {
+   "id": "CURL-CVE-2022-27780",
+   "class": "security-fix",
+   "sha": "914aaab9153764ef8fa4178215b8ad89d3ac263a",
+   "severity": "Medium",
+   "summary": "percent-encoded path separator in URL host"
+  },
+  {
+   "id": "CURL-CVE-2022-27780",
+   "class": "introduced",
+   "sha": "9a8564a920188e49d5bd8c1c8573ddef97f6e03a",
+   "severity": "Medium",
+   "summary": "percent-encoded path separator in URL host"
+  },
+  {
+   "id": "CURL-CVE-2022-27779",
+   "class": "security-fix",
+   "sha": "7e92d12b4e6911f424678a133b19de670e183a59",
+   "severity": "Medium",
+   "summary": "cookie for trailing dot TLD"
+  },
+  {
+   "id": "CURL-CVE-2022-27778",
+   "class": "security-fix",
+   "sha": "8c7ee9083d0d719d0a77ab20d9cc2ae84eeea7f3",
+   "severity": "Medium",
+   "summary": "curl removes wrong file on error"
+  },
+  {
+   "id": "CURL-CVE-2022-27778",
+   "class": "introduced",
+   "sha": "08a96c6e4e6cf6a1917a117db1b5394713e3f01f",
+   "severity": "Medium",
+   "summary": "curl removes wrong file on error"
+  },
+  {
+   "id": "CURL-CVE-2022-27776",
+   "class": "security-fix",
+   "sha": "6e659993952aa5f90f48864be84a1bbb047fc258",
+   "severity": "Low",
+   "summary": "Auth/cookie leak on redirect"
+  },
+  {
+   "id": "CURL-CVE-2022-27775",
+   "class": "security-fix",
+   "sha": "058f98dc3fe595f21dc26a5b9b1699e519ba5705",
+   "severity": "Low",
+   "summary": "Bad local IPv6 connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2022-27775",
+   "class": "introduced",
+   "sha": "2d0e9b40d3237b1450cbbfbcb996da244d964898",
+   "severity": "Low",
+   "summary": "Bad local IPv6 connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2022-27774",
+   "class": "security-fix",
+   "sha": "139a54ed0a172adaaf1a78d6f4fff50b2c3f9e08",
+   "severity": "Medium",
+   "summary": "Credential leak on redirect"
+  },
+  {
+   "id": "CURL-CVE-2022-22576",
+   "class": "security-fix",
+   "sha": "852aa5ad351ea53e5f01d2f44b5b4370c2bf5425",
+   "severity": "Medium",
+   "summary": "OAUTH2 bearer bypass in connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2022-22576",
+   "class": "introduced",
+   "sha": "19a05c908f7d8be82de6f69f533317d8a0db49dd",
+   "severity": "Medium",
+   "summary": "OAUTH2 bearer bypass in connection reuse"
+  },
+  {
+   "id": "CURL-CVE-2021-22947",
+   "class": "security-fix",
+   "sha": "8ef147c43646e91fdaad5d0e7b60351f842e5c68",
+   "severity": "Medium",
+   "summary": "STARTTLS protocol injection via MITM"
+  },
+  {
+   "id": "CURL-CVE-2021-22946",
+   "class": "security-fix",
+   "sha": "364f174724ef115c63d5e5dc1d3342c8a43b1cca",
+   "severity": "Medium",
+   "summary": "Protocol downgrade required TLS bypassed"
+  },
+  {
+   "id": "CURL-CVE-2021-22945",
+   "class": "security-fix",
+   "sha": "43157490a5054bd24256fe12876931e8abc9df49",
+   "severity": "Medium",
+   "summary": "UAF and double free in MQTT sending"
+  },
+  {
+   "id": "CURL-CVE-2021-22945",
+   "class": "introduced",
+   "sha": "2522903b792ac5a802f780df60dc4647c58e2477",
+   "severity": "Medium",
+   "summary": "UAF and double free in MQTT sending"
+  },
+  {
+   "id": "CURL-CVE-2021-22926",
+   "class": "security-fix",
+   "sha": "fd9b40bf8dfd43edcbc0d254d613d95a11061c05",
+   "severity": "Medium",
+   "summary": "CURLOPT_SSLCERT mix-up with Secure Transport"
+  },
+  {
+   "id": "CURL-CVE-2021-22926",
+   "class": "introduced",
+   "sha": "d2fe616e7e44a106ac976aaeaa441ad7d8a6df11",
+   "severity": "Medium",
+   "summary": "CURLOPT_SSLCERT mix-up with Secure Transport"
+  },
+  {
+   "id": "CURL-CVE-2021-22925",
+   "class": "security-fix",
+   "sha": "894f6ec730597eb243618d33cc84d71add8d6a8a",
+   "severity": "Medium",
+   "summary": "TELNET stack contents disclosure again"
+  },
+  {
+   "id": "CURL-CVE-2021-22924",
+   "class": "security-fix",
+   "sha": "5ea3145850ebff1dc2b13d17440300a01ca38161",
+   "severity": "Medium",
+   "summary": "Bad connection reuse due to flawed path name checks"
+  },
+  {
+   "id": "CURL-CVE-2021-22924",
+   "class": "introduced",
+   "sha": "89721ff04af70f527baae1368f3b992777bf6526",
+   "severity": "Medium",
+   "summary": "Bad connection reuse due to flawed path name checks"
+  },
+  {
+   "id": "CURL-CVE-2021-22923",
+   "class": "security-fix",
+   "sha": "265b14d6b37c4298bd5556fabcbc37d36f911693",
+   "severity": "Medium",
+   "summary": "Metalink download sends credentials"
+  },
+  {
+   "id": "CURL-CVE-2021-22923",
+   "class": "introduced",
+   "sha": "b5fdbe848bc3d088445817aa890d3f2f74ac5b02",
+   "severity": "Medium",
+   "summary": "Metalink download sends credentials"
+  },
+  {
+   "id": "CURL-CVE-2021-22901",
+   "class": "security-fix",
+   "sha": "7f4a9a9b2a49547eae24d2e19bc5c346e9026479",
+   "severity": "High",
+   "summary": "TLS session caching disaster"
+  },
+  {
+   "id": "CURL-CVE-2021-22901",
+   "class": "introduced",
+   "sha": "a304051620b92e12b6b1b4e19edc57b34ea332b6",
+   "severity": "High",
+   "summary": "TLS session caching disaster"
+  },
+  {
+   "id": "CURL-CVE-2021-22898",
+   "class": "security-fix",
+   "sha": "39ce47f219b09c380b81f89fe54ac586c8db6bde",
+   "severity": "Medium",
+   "summary": "TELNET stack contents disclosure"
+  },
+  {
+   "id": "CURL-CVE-2021-22897",
+   "class": "security-fix",
+   "sha": "bbb71507b7bab52002f9b1e0880bed6a32834511",
+   "severity": "Low",
+   "summary": "Schannel cipher selection surprise"
+  },
+  {
+   "id": "CURL-CVE-2021-22897",
+   "class": "introduced",
+   "sha": "9aefbff30d280c60fc9d8cc3e0b2f19fc70a2f28",
+   "severity": "Low",
+   "summary": "Schannel cipher selection surprise"
+  },
+  {
+   "id": "CURL-CVE-2021-22890",
+   "class": "security-fix",
+   "sha": "b09c8ee15771c614c4bf3ddac893cdb12187c844",
+   "severity": "Low",
+   "summary": "TLS 1.3 session ticket proxy host mix-up"
+  },
+  {
+   "id": "CURL-CVE-2021-22890",
+   "class": "introduced",
+   "sha": "549310e907e82e44c59548351d4c6ac4aaada114",
+   "severity": "Low",
+   "summary": "TLS 1.3 session ticket proxy host mix-up"
+  },
+  {
+   "id": "CURL-CVE-2021-22876",
+   "class": "security-fix",
+   "sha": "7214288898f5625a6cc196e22a74232eada7861c",
+   "severity": "Low",
+   "summary": "Automatic referer leaks credentials"
+  },
+  {
+   "id": "CURL-CVE-2021-22876",
+   "class": "introduced",
+   "sha": "f30ffef477636dc10a72eb30590a84a0218e5935",
+   "severity": "Low",
+   "summary": "Automatic referer leaks credentials"
+  },
+  {
+   "id": "CURL-CVE-2020-8286",
+   "class": "security-fix",
+   "sha": "d9d01672785b8ac04aab1abb6de95fe3072ae199",
+   "severity": "Medium",
+   "summary": "Inferior OCSP verification"
+  },
+  {
+   "id": "CURL-CVE-2020-8286",
+   "class": "introduced",
+   "sha": "d1cf5d570663dac157740cb5e49d24614f185da7",
+   "severity": "Medium",
+   "summary": "Inferior OCSP verification"
+  },
+  {
+   "id": "CURL-CVE-2020-8285",
+   "class": "security-fix",
+   "sha": "69a358f2186e04cf44698b5100332cbf1ee7f01d",
+   "severity": "Medium",
+   "summary": "FTP wildcard stack overflow"
+  },
+  {
+   "id": "CURL-CVE-2020-8285",
+   "class": "introduced",
+   "sha": "0825cd80a62c21725fb3615f1fdd3aa6cc5f0f34",
+   "severity": "Medium",
+   "summary": "FTP wildcard stack overflow"
+  },
+  {
+   "id": "CURL-CVE-2020-8284",
+   "class": "security-fix",
+   "sha": "ec9cc725d598ac77de7b6df8afeec292b3c8ad46",
+   "severity": "Low",
+   "summary": "trusting FTP PASV responses"
+  },
+  {
+   "id": "CURL-CVE-2020-8231",
+   "class": "security-fix",
+   "sha": "3c9e021f86872baae412a427e807fbfa2f3e8a22",
+   "severity": "Low",
+   "summary": "wrong connect-only connection"
+  },
+  {
+   "id": "CURL-CVE-2020-8231",
+   "class": "introduced",
+   "sha": "c43127414d89ccb9ef6517081f68986d991bcfb3",
+   "severity": "Low",
+   "summary": "wrong connect-only connection"
+  },
+  {
+   "id": "CURL-CVE-2020-8177",
+   "class": "security-fix",
+   "sha": "8236aba58542c5f89f1d41ca09d84579efb05e22",
+   "severity": "Medium",
+   "summary": "curl overwrite local file with -J"
+  },
+  {
+   "id": "CURL-CVE-2020-8177",
+   "class": "introduced",
+   "sha": "80675818e0417be8c991513b328c5507e93b47e5",
+   "severity": "Medium",
+   "summary": "curl overwrite local file with -J"
+  },
+  {
+   "id": "CURL-CVE-2020-8169",
+   "class": "security-fix",
+   "sha": "600a8cded447cd7118ed50142c576567c0cf5158",
+   "severity": "Medium",
+   "summary": "Partial password leak over DNS on HTTP redirect"
+  },
+  {
+   "id": "CURL-CVE-2020-8169",
+   "class": "introduced",
+   "sha": "46e164069d1a5230e4e64cbd2ff46c46cce056bb",
+   "severity": "Medium",
+   "summary": "Partial password leak over DNS on HTTP redirect"
+  },
+  {
+   "id": "CURL-CVE-2019-5481",
+   "class": "security-fix",
+   "sha": "9069838b30fb3b48af0123e39f664cea683254a5",
+   "severity": "Medium",
+   "summary": "FTP-KRB double free"
+  },
+  {
+   "id": "CURL-CVE-2019-5481",
+   "class": "introduced",
+   "sha": "0649433da53c7165f839e24e889e131e2894dd32",
+   "severity": "Medium",
+   "summary": "FTP-KRB double free"
+  },
+  {
+   "id": "CURL-CVE-2019-5482",
+   "class": "security-fix",
+   "sha": "facb0e4662415b5f28163e853dc6742ac5fafb3d",
+   "severity": "Medium",
+   "summary": "TFTP small blocksize heap buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2019-5482",
+   "class": "introduced",
+   "sha": "0516ce7786e9500c2e447d48aa9b3f24a6ca70f9",
+   "severity": "Medium",
+   "summary": "TFTP small blocksize heap buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2019-5436",
+   "class": "security-fix",
+   "sha": "2576003415625d7b5f0e390902f8097830b82275",
+   "severity": "Low",
+   "summary": "TFTP receive buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2019-5435",
+   "class": "security-fix",
+   "sha": "5fc28510a4664f46459d9a40187d81cc08571e60",
+   "severity": "Low",
+   "summary": "Integer overflows in URL parser"
+  },
+  {
+   "id": "CURL-CVE-2019-5435",
+   "class": "introduced",
+   "sha": "fb30ac5a2d63773c529c19259754e2b306ac2e2e",
+   "severity": "Low",
+   "summary": "Integer overflows in URL parser"
+  },
+  {
+   "id": "CURL-CVE-2018-16890",
+   "class": "security-fix",
+   "sha": "b780b30d1377adb10bbe774835f49e9b237fb9bb",
+   "severity": "Medium",
+   "summary": "NTLM type-2 out-of-bounds buffer read"
+  },
+  {
+   "id": "CURL-CVE-2018-16890",
+   "class": "introduced",
+   "sha": "86724581b6c02d160b52f817550cfdfc9c93af62",
+   "severity": "Medium",
+   "summary": "NTLM type-2 out-of-bounds buffer read"
+  },
+  {
+   "id": "CURL-CVE-2019-3822",
+   "class": "security-fix",
+   "sha": "50c9484278c63b958655a717844f0721263939cc",
+   "severity": "High",
+   "summary": "NTLMv2 type-3 header stack buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2019-3823",
+   "class": "security-fix",
+   "sha": "39df4073e5413fcdbb5a38da0c1ce6f1c0ceb484",
+   "severity": "Low",
+   "summary": "SMTP end-of-response out-of-bounds read"
+  },
+  {
+   "id": "CURL-CVE-2019-3823",
+   "class": "introduced",
+   "sha": "2766262a68688c1dd8143f9c4be84b46c408b70a",
+   "severity": "Low",
+   "summary": "SMTP end-of-response out-of-bounds read"
+  },
+  {
+   "id": "CURL-CVE-2018-16842",
+   "class": "security-fix",
+   "sha": "d530e92f59ae9bb2d47066c3c460b25d2ffeb211",
+   "severity": "Low",
+   "summary": "warning message out-of-buffer read"
+  },
+  {
+   "id": "CURL-CVE-2018-16842",
+   "class": "introduced",
+   "sha": "d9ca9154d111e1287cc7ef06ec543094a4433f1f",
+   "severity": "Low",
+   "summary": "warning message out-of-buffer read"
+  },
+  {
+   "id": "CURL-CVE-2018-16840",
+   "class": "security-fix",
+   "sha": "81d135d67155c5295b1033679c606165d4e28f3f",
+   "severity": "Low",
+   "summary": "use after free in handle close"
+  },
+  {
+   "id": "CURL-CVE-2018-16840",
+   "class": "introduced",
+   "sha": "b46cfbc068ebe90f18e9777b9e877e4934c1b5e3",
+   "severity": "Low",
+   "summary": "use after free in handle close"
+  },
+  {
+   "id": "CURL-CVE-2018-16839",
+   "class": "security-fix",
+   "sha": "f3a24d7916b9173c69a3e0ee790102993833d6c5",
+   "severity": "Low",
+   "summary": "SASL password overflow via integer overflow"
+  },
+  {
+   "id": "CURL-CVE-2018-16839",
+   "class": "introduced",
+   "sha": "c56f9797e7feb7c2dc93bc389d4b85cc75220d77",
+   "severity": "Low",
+   "summary": "SASL password overflow via integer overflow"
+  },
+  {
+   "id": "CURL-CVE-2018-14618",
+   "class": "security-fix",
+   "sha": "57d299a499155d4b327e341c6024e293b0418243",
+   "severity": "High",
+   "summary": "NTLM password overflow via integer overflow"
+  },
+  {
+   "id": "CURL-CVE-2018-14618",
+   "class": "introduced",
+   "sha": "be285cde3f52571087816759220a68cb994d9307",
+   "severity": "High",
+   "summary": "NTLM password overflow via integer overflow"
+  },
+  {
+   "id": "CURL-CVE-2018-0500",
+   "class": "security-fix",
+   "sha": "ba1dbd78e5f1ed67c1b8d37ac89d90e5e330b628",
+   "severity": "High",
+   "summary": "SMTP send heap buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2018-0500",
+   "class": "introduced",
+   "sha": "e40e9d7f0decc799e3ccfe2c418632f8bb52031a",
+   "severity": "High",
+   "summary": "SMTP send heap buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2018-1000300",
+   "class": "security-fix",
+   "sha": "583b42cb3b809b1bf597af160468ccba728c2248",
+   "severity": "High",
+   "summary": "FTP shutdown response buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2018-1000301",
+   "class": "security-fix",
+   "sha": "8c7b3737d29ed5c0575bf592063de8a51450812d",
+   "severity": "Medium",
+   "summary": "RTSP bad headers buffer over-read"
+  },
+  {
+   "id": "CURL-CVE-2018-1000301",
+   "class": "introduced",
+   "sha": "bc4582b68a673d3b0f5a2e7d971605de2c8b3730",
+   "severity": "Medium",
+   "summary": "RTSP bad headers buffer over-read"
+  },
+  {
+   "id": "CURL-CVE-2018-1000122",
+   "class": "security-fix",
+   "sha": "d52dc4760f6d9ca1937eefa2093058a952465128",
+   "severity": "Medium",
+   "summary": "RTSP RTP buffer over-read"
+  },
+  {
+   "id": "CURL-CVE-2018-1000121",
+   "class": "security-fix",
+   "sha": "9889db043393092e9d4b5a42720bba0b3d58deba",
+   "severity": "Low",
+   "summary": "LDAP NULL pointer dereference"
+  },
+  {
+   "id": "CURL-CVE-2018-1000121",
+   "class": "introduced",
+   "sha": "2e056353b00d0944bdb2f8e948cc40a4dc0f3dfb",
+   "severity": "Low",
+   "summary": "LDAP NULL pointer dereference"
+  },
+  {
+   "id": "CURL-CVE-2018-1000120",
+   "class": "security-fix",
+   "sha": "535432c0adb62fe167ec09621500470b6fa4eb0f",
+   "severity": "High",
+   "summary": "FTP path trickery leads to NIL byte out of bounds write"
+  },
+  {
+   "id": "CURL-CVE-2018-1000120",
+   "class": "introduced",
+   "sha": "6e1e9caa32da099569bb95e64faf0b5f3cf103b5",
+   "severity": "High",
+   "summary": "FTP path trickery leads to NIL byte out of bounds write"
+  },
+  {
+   "id": "CURL-CVE-2018-1000007",
+   "class": "security-fix",
+   "sha": "af32cd3859336ab963591ca0df9b1e33a7ee066b",
+   "severity": "Low",
+   "summary": "HTTP authentication leak in redirects"
+  },
+  {
+   "id": "CURL-CVE-2018-1000005",
+   "class": "security-fix",
+   "sha": "fa3dbb9a147488a2943bda809c66fc497efe06cb",
+   "severity": "Low",
+   "summary": "HTTP/2 trailer out-of-bounds read"
+  },
+  {
+   "id": "CURL-CVE-2018-1000005",
+   "class": "introduced",
+   "sha": "0761a51ee0551ad9e523cbdba24ce00d22fff9c1",
+   "severity": "Low",
+   "summary": "HTTP/2 trailer out-of-bounds read"
+  },
+  {
+   "id": "CURL-CVE-2017-8818",
+   "class": "security-fix",
+   "sha": "9b5e12a5491d2e6b68e0c88ca56f3a9ef9fba400",
+   "severity": "High",
+   "summary": "SSL out of buffer access"
+  },
+  {
+   "id": "CURL-CVE-2017-8818",
+   "class": "introduced",
+   "sha": "70f1db321a2b39c75f679b5b052aa1ac0636bd50",
+   "severity": "High",
+   "summary": "SSL out of buffer access"
+  },
+  {
+   "id": "CURL-CVE-2017-8817",
+   "class": "security-fix",
+   "sha": "0b664ba968437715819bfe4c7ada5679d16ebbc3",
+   "severity": "Medium",
+   "summary": "FTP wildcard out of bounds read"
+  },
+  {
+   "id": "CURL-CVE-2017-8816",
+   "class": "security-fix",
+   "sha": "7f2a1df6f5fc598750b2c6f34465c8d924db28cc",
+   "severity": "Medium",
+   "summary": "NTLM buffer overflow via integer overflow"
+  },
+  {
+   "id": "CURL-CVE-2017-1000257",
+   "class": "security-fix",
+   "sha": "13c9a9ded3ae744a1e11cbc14e9146d9fa427040",
+   "severity": "Medium",
+   "summary": "IMAP FETCH response out of bounds read"
+  },
+  {
+   "id": "CURL-CVE-2017-1000254",
+   "class": "security-fix",
+   "sha": "5ff2c5ff25750aba1a8f64fbcad8e5b891512584",
+   "severity": "Medium",
+   "summary": "FTP PWD response parser out of bounds read"
+  },
+  {
+   "id": "CURL-CVE-2017-1000254",
+   "class": "introduced",
+   "sha": "415d2e7cb7dd4f40b7c857f0fba23487dcd030a0",
+   "severity": "Medium",
+   "summary": "FTP PWD response parser out of bounds read"
+  },
+  {
+   "id": "CURL-CVE-2017-1000101",
+   "class": "security-fix",
+   "sha": "453e7a7a03a2cec749abd3878a48e728c515cca7",
+   "severity": "Medium",
+   "summary": "URL globbing out of bounds read"
+  },
+  {
+   "id": "CURL-CVE-2017-1000101",
+   "class": "introduced",
+   "sha": "5ca96cb84410270e233c92bf1b2583cba40c3fad",
+   "severity": "Medium",
+   "summary": "URL globbing out of bounds read"
+  },
+  {
+   "id": "CURL-CVE-2017-1000100",
+   "class": "security-fix",
+   "sha": "358b2b131ad6c095696f20dcfa62b8305263f898",
+   "severity": "High",
+   "summary": "TFTP sends more than buffer size"
+  },
+  {
+   "id": "CURL-CVE-2017-1000100",
+   "class": "introduced",
+   "sha": "56d9624b566ac15ffb4b4b6eef220a5000b767e0",
+   "severity": "High",
+   "summary": "TFTP sends more than buffer size"
+  },
+  {
+   "id": "CURL-CVE-2017-1000099",
+   "class": "security-fix",
+   "sha": "c9332fa5e84f24da300b42b1a931ade929d3e27d",
+   "severity": "Medium",
+   "summary": "FILE buffer read out of bounds"
+  },
+  {
+   "id": "CURL-CVE-2017-1000099",
+   "class": "introduced",
+   "sha": "7c312f84ea930d89c0f0f774b50032c4f9ae30e4",
+   "severity": "Medium",
+   "summary": "FILE buffer read out of bounds"
+  },
+  {
+   "id": "CURL-CVE-2017-9502",
+   "class": "security-fix",
+   "sha": "5d7952f52e410e1d4a8ff1965e5cc6fc1bde86aa",
+   "severity": "High",
+   "summary": "URL file scheme drive letter buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2017-9502",
+   "class": "introduced",
+   "sha": "1d4202ade602dd4f1192c69aed5cc905e7a9b4e2",
+   "severity": "High",
+   "summary": "URL file scheme drive letter buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2017-7468",
+   "class": "security-fix",
+   "sha": "33cfcfd9f0378625d3bddbd2c8ac5aad4b646f26",
+   "severity": "High",
+   "summary": "TLS session resumption client cert bypass (again)"
+  },
+  {
+   "id": "CURL-CVE-2017-7468",
+   "class": "introduced",
+   "sha": "95c717bbd9c327c38b4efcc37d5cda29b8ee2a36",
+   "severity": "High",
+   "summary": "TLS session resumption client cert bypass (again)"
+  },
+  {
+   "id": "CURL-CVE-2017-7407",
+   "class": "security-fix",
+   "sha": "8e65877870c1fac920b65219adec720df810aab9",
+   "severity": "Medium",
+   "summary": "--write-out out of buffer read"
+  },
+  {
+   "id": "CURL-CVE-2017-7407",
+   "class": "introduced",
+   "sha": "d073ec0a719bfad28b791f1ead089be655b896e9",
+   "severity": "Medium",
+   "summary": "--write-out out of buffer read"
+  },
+  {
+   "id": "CURL-CVE-2017-2629",
+   "class": "security-fix",
+   "sha": "ca6ea6d9be5102a2246dff6e17b3ee9ad4ec64d0",
+   "severity": "Medium",
+   "summary": "SSL_VERIFYSTATUS ignored"
+  },
+  {
+   "id": "CURL-CVE-2017-2629",
+   "class": "introduced",
+   "sha": "cb4e2be7c6d42ca0780f8e0a747cecf9ba45f151",
+   "severity": "Medium",
+   "summary": "SSL_VERIFYSTATUS ignored"
+  },
+  {
+   "id": "CURL-CVE-2016-9594",
+   "class": "security-fix",
+   "sha": "f81b2277a8e7e9ce8809ccd30c25b8aa72101215",
+   "severity": "High",
+   "summary": "uninitialized random"
+  },
+  {
+   "id": "CURL-CVE-2016-9594",
+   "class": "introduced",
+   "sha": "f682156a4fc6c43fb38db4abda49b9a1bc1ed368",
+   "severity": "High",
+   "summary": "uninitialized random"
+  },
+  {
+   "id": "CURL-CVE-2016-9586",
+   "class": "security-fix",
+   "sha": "3ab3c16db6a5674f53cf23d56512a405fde0b2c9",
+   "severity": "Medium",
+   "summary": "printf floating point buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2016-9952",
+   "class": "security-fix",
+   "sha": "0354eed41085baa5ba8777019ebf5e9ef32c001d",
+   "severity": "Medium",
+   "summary": "Win CE Schannel cert wildcard matches too much"
+  },
+  {
+   "id": "CURL-CVE-2016-9952",
+   "class": "introduced",
+   "sha": "4ab2d26cb83dfbb74ba9eeaaa4835b4dd12883d4",
+   "severity": "Medium",
+   "summary": "Win CE Schannel cert wildcard matches too much"
+  },
+  {
+   "id": "CURL-CVE-2016-8615",
+   "class": "security-fix",
+   "sha": "cff89bc088b7884098ea0c5378bbda3d49c437bc",
+   "severity": "High",
+   "summary": "cookie injection for other servers"
+  },
+  {
+   "id": "CURL-CVE-2016-8617",
+   "class": "security-fix",
+   "sha": "efd24d57426bd77c9b5860e6b297904703750412",
+   "severity": "Medium",
+   "summary": "OOB write via unchecked multiplication"
+  },
+  {
+   "id": "CURL-CVE-2016-8617",
+   "class": "introduced",
+   "sha": "00b00c693127d9e3a4eedce4c8cdf6e87087192d",
+   "severity": "Medium",
+   "summary": "OOB write via unchecked multiplication"
+  },
+  {
+   "id": "CURL-CVE-2016-8618",
+   "class": "security-fix",
+   "sha": "8732ec40db652c53fa58cd13e2acb8eab6e40874",
+   "severity": "Medium",
+   "summary": "double free in curl_maprintf"
+  },
+  {
+   "id": "CURL-CVE-2016-8619",
+   "class": "security-fix",
+   "sha": "3d6460edeee21d7d790ec570d0887bed1f4366dd",
+   "severity": "High",
+   "summary": "double free in krb5 code"
+  },
+  {
+   "id": "CURL-CVE-2016-8619",
+   "class": "introduced",
+   "sha": "def69c30879c0246bccb02d79e06b937e39d0ba4",
+   "severity": "High",
+   "summary": "double free in krb5 code"
+  },
+  {
+   "id": "CURL-CVE-2016-8621",
+   "class": "security-fix",
+   "sha": "96a80b5a262fb6dd2ddcea7987296f3b9a405618",
+   "severity": "Medium",
+   "summary": "curl_getdate read out of bounds"
+  },
+  {
+   "id": "CURL-CVE-2016-8621",
+   "class": "introduced",
+   "sha": "f6433211ae9afb30ec461e6633dafc6d8c77eaa9",
+   "severity": "Medium",
+   "summary": "curl_getdate read out of bounds"
+  },
+  {
+   "id": "CURL-CVE-2016-8622",
+   "class": "security-fix",
+   "sha": "53e71e47d6b81650d26ec33a58d0dca24c7ffb2c",
+   "severity": "Medium",
+   "summary": "URL unescape heap overflow via integer truncation"
+  },
+  {
+   "id": "CURL-CVE-2016-8622",
+   "class": "introduced",
+   "sha": "75ca568fa1c19de4c5358fed246686de8467c238",
+   "severity": "Medium",
+   "summary": "URL unescape heap overflow via integer truncation"
+  },
+  {
+   "id": "CURL-CVE-2016-8623",
+   "class": "security-fix",
+   "sha": "c5be3d7267c725dbd093ff3a883e07ee8cf2a1d5",
+   "severity": "High",
+   "summary": "Use after free via shared cookies"
+  },
+  {
+   "id": "CURL-CVE-2016-8623",
+   "class": "introduced",
+   "sha": "41ae97e710f728495a1d6adba6476c21b94c4881",
+   "severity": "High",
+   "summary": "Use after free via shared cookies"
+  },
+  {
+   "id": "CURL-CVE-2016-8624",
+   "class": "security-fix",
+   "sha": "3bb273db7e40ebc284cff45f3ce3f0475c8339c2",
+   "severity": "Medium",
+   "summary": "invalid URL parsing with '#'"
+  },
+  {
+   "id": "CURL-CVE-2016-8625",
+   "class": "security-fix",
+   "sha": "9c91ec778104ae3b744b39444d544e82d5ee9ece",
+   "severity": "High",
+   "summary": "IDNA 2003 makes curl use wrong host"
+  },
+  {
+   "id": "CURL-CVE-2016-5419",
+   "class": "security-fix",
+   "sha": "247d890da88f9ee817079e246c59f3d7d12fde5f",
+   "severity": "High",
+   "summary": "TLS session resumption client cert bypass"
+  },
+  {
+   "id": "CURL-CVE-2016-3739",
+   "class": "security-fix",
+   "sha": "6efd2fa529a189bf41736a610f6184cd8ad94b4d",
+   "severity": "High",
+   "summary": "TLS certificate check bypass with mbedTLS/PolarSSL"
+  },
+  {
+   "id": "CURL-CVE-2016-3739",
+   "class": "introduced",
+   "sha": "51427e1947ddc07b4ce8ad9dcb04846125170f83",
+   "severity": "High",
+   "summary": "TLS certificate check bypass with mbedTLS/PolarSSL"
+  },
+  {
+   "id": "CURL-CVE-2015-3237",
+   "class": "security-fix",
+   "sha": "50c7f17e503fbab5081b69c97f9d4645389b9270",
+   "severity": "High",
+   "summary": "SMB send off unrelated memory contents"
+  },
+  {
+   "id": "CURL-CVE-2015-3237",
+   "class": "introduced",
+   "sha": "e80d9d5902f38407d971587f2a6b7b839247ca92",
+   "severity": "High",
+   "summary": "SMB send off unrelated memory contents"
+  },
+  {
+   "id": "CURL-CVE-2015-3153",
+   "class": "security-fix",
+   "sha": "6ba2e88a642434bd0ffa95465e4a7d034d03ea10",
+   "severity": "High",
+   "summary": "sensitive HTTP server headers also sent to proxies"
+  },
+  {
+   "id": "CURL-CVE-2015-3144",
+   "class": "security-fix",
+   "sha": "0583e87ada7a3cfb10904ae4ab61b339582c5bd3",
+   "severity": "Medium",
+   "summary": "hostname out of boundary memory access"
+  },
+  {
+   "id": "CURL-CVE-2015-3144",
+   "class": "introduced",
+   "sha": "5de8d84098db1bd24e7fffefbe14e81f2a05995a",
+   "severity": "Medium",
+   "summary": "hostname out of boundary memory access"
+  },
+  {
+   "id": "CURL-CVE-2015-3145",
+   "class": "security-fix",
+   "sha": "b5f947b8ac0e282c61c75b69cd5b9d37dafc6959",
+   "severity": "Medium",
+   "summary": "cookie parser out of boundary memory access"
+  },
+  {
+   "id": "CURL-CVE-2015-3145",
+   "class": "introduced",
+   "sha": "f24dc09d209a2f91ca38d854f0c15ad93f3d7e2d",
+   "severity": "Medium",
+   "summary": "cookie parser out of boundary memory access"
+  },
+  {
+   "id": "CURL-CVE-2014-8150",
+   "class": "security-fix",
+   "sha": "178bd7db34f77e020fb8562890c5625ccbd67093",
+   "severity": "High",
+   "summary": "URL request injection"
+  },
+  {
+   "id": "CURL-CVE-2014-3707",
+   "class": "security-fix",
+   "sha": "b3875606925536f82fc61f3114ac42f29eaf6945",
+   "severity": "Medium",
+   "summary": "duphandle read out of bounds"
+  },
+  {
+   "id": "CURL-CVE-2014-3707",
+   "class": "introduced",
+   "sha": "a005243908803662d4a05427bc1061db42f4d057",
+   "severity": "Medium",
+   "summary": "duphandle read out of bounds"
+  },
+  {
+   "id": "CURL-CVE-2014-3620",
+   "class": "security-fix",
+   "sha": "a76825a5efa6b41d3a1d4f275dada2f017f6f566",
+   "severity": "High",
+   "summary": "cookie leak for TLDs"
+  },
+  {
+   "id": "CURL-CVE-2014-3620",
+   "class": "introduced",
+   "sha": "85b9dc80232d1d7d48ee4dea6db5a2263ee68efd",
+   "severity": "High",
+   "summary": "cookie leak for TLDs"
+  },
+  {
+   "id": "CURL-CVE-2014-3613",
+   "class": "security-fix",
+   "sha": "8a75dbeb2305297640453029b7905ef51b87e8dd",
+   "severity": "Medium",
+   "summary": "cookie leak with IP address as domain"
+  },
+  {
+   "id": "CURL-CVE-2014-2522",
+   "class": "security-fix",
+   "sha": "63fc8ee7be2b712e7af5029f4f8a86a0dfd71b38",
+   "severity": "Medium",
+   "summary": "not verifying certs for TLS to IP address / Schannel"
+  },
+  {
+   "id": "CURL-CVE-2014-2522",
+   "class": "introduced",
+   "sha": "aaa42aa0d594b95c6c670a373ba30c507aa0a5ed",
+   "severity": "Medium",
+   "summary": "not verifying certs for TLS to IP address / Schannel"
+  },
+  {
+   "id": "CURL-CVE-2014-1263",
+   "class": "security-fix",
+   "sha": "afc6e5004fabee590e41ffe750a237e1187fbbbd",
+   "severity": "Medium",
+   "summary": "not verifying certs for TLS to IP address / Secure Transport"
+  },
+  {
+   "id": "CURL-CVE-2014-1263",
+   "class": "introduced",
+   "sha": "6d1ea388cbd9de7f2a944a0c64f5feaec1b1904a",
+   "severity": "Medium",
+   "summary": "not verifying certs for TLS to IP address / Secure Transport"
+  },
+  {
+   "id": "CURL-CVE-2014-0015",
+   "class": "security-fix",
+   "sha": "8ae35102c43d8d06572c3a1292eb6e27e663c78d",
+   "severity": "Medium",
+   "summary": "reuse of wrong HTTP NTLM connection"
+  },
+  {
+   "id": "CURL-CVE-2014-0015",
+   "class": "introduced",
+   "sha": "73c5f24fa40460f41d6cd9114827383edc57e287",
+   "severity": "Medium",
+   "summary": "reuse of wrong HTTP NTLM connection"
+  },
+  {
+   "id": "CURL-CVE-2013-1944",
+   "class": "security-fix",
+   "sha": "2eb8dcf26cb37f09cffe26909a646e702dbcab66",
+   "severity": "High",
+   "summary": "cookie domain tailmatch"
+  },
+  {
+   "id": "CURL-CVE-2013-0249",
+   "class": "security-fix",
+   "sha": "f206d6c055d1008f0edb6d5d5920f0f300b9983a",
+   "severity": "Critical",
+   "summary": "SASL buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2013-0249",
+   "class": "introduced",
+   "sha": "7a2647e16237a2771f564d432d96a6f198a0eeb5",
+   "severity": "Critical",
+   "summary": "SASL buffer overflow"
+  },
+  {
+   "id": "CURL-CVE-2012-0036",
+   "class": "security-fix",
+   "sha": "75ca568fa1c19de4c5358fed246686de8467c238",
+   "severity": "High",
+   "summary": "URL sanitization vulnerability"
+  },
+  {
+   "id": "CURL-CVE-2010-3842",
+   "class": "security-fix",
+   "sha": "81f151c912105ded480c3c88a1be53ca345298a1",
+   "severity": "High",
+   "summary": "local file overwrite"
+  },
+  {
+   "id": "CURL-CVE-2010-0734",
+   "class": "security-fix",
+   "sha": "06ae8ca5a6e452e5cb555c1a511a9df8dec6657c",
+   "severity": "High",
+   "summary": "data callback excessive length"
+  },
+  {
+   "id": "CURL-CVE-2010-0734",
+   "class": "introduced",
+   "sha": "c95814c04d6a0436e5c4c88d2e1d57c7e0c91060",
+   "severity": "High",
+   "summary": "data callback excessive length"
+  },
+  {
+   "id": "CURL-CVE-2009-0037",
+   "class": "security-fix",
+   "sha": "042cc1f69ec0878f542667cb684378869f859911",
+   "severity": "Medium",
+   "summary": "Arbitrary File Access"
+  },
+  {
+   "id": "CURL-CVE-2005-3185",
+   "class": "security-fix",
+   "sha": "943aea62679fb9f2d6d7abe59b5edcba21490c52",
+   "severity": "High",
+   "summary": "NTLM Buffer Overflow"
+  },
+  {
+   "id": "CURL-CVE-2005-3185",
+   "class": "introduced",
+   "sha": "bdb5e5a25037a585e0ec6b83d29b25961c6823f8",
+   "severity": "High",
+   "summary": "NTLM Buffer Overflow"
+  },
+  {
+   "id": "CURL-CVE-2003-1605",
+   "class": "security-fix",
+   "sha": "5c2df3e1a4da7b17ae053ee8c4ecef5eb2d30464",
+   "severity": "High",
+   "summary": "Proxy Authentication Header Information Leakage"
+  },
+  {
+   "id": "CURL-CVE-2000-0973",
+   "class": "security-fix",
+   "sha": "751d503f54596d6d86f969683fec2fe296d9d1f0",
+   "severity": "Critical",
+   "summary": "FTP Server Response Buffer Overflow"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-82209",
+   "class": "control",
+   "sha": "4433f71d6c189b58b2288efc976786e216994e66",
+   "matched_to": "95c1e8915dce64606bd753fd47fc0bd236e31cd6"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-82208",
+   "class": "control",
+   "sha": "43680a50cf289778cba1f20f752ba6a9cb81fd66",
+   "matched_to": "ed0338befd1d865a8ea1fbaa90013a096dedd07a"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-80255",
+   "class": "control",
+   "sha": "caff91bf3c8ca6cd0cbe7cfa6c1a155a94a2a0f3",
+   "matched_to": "4f6aa41a0145e930e766775dbe860883d350aa0a"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-80231",
+   "class": "control",
+   "sha": "fbfb2499f03567611d2dc649bfadafe2b3341ef7",
+   "matched_to": "7be1e70cb6bcd83e130ecfe8cb91b6a7dcdeff42"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-80230",
+   "class": "control",
+   "sha": "68b5e6013878b1842e70c2af2f23d67427216910",
+   "matched_to": "5267ed859d545534d0c21675a2b70af5a3b6e3ef"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-80229",
+   "class": "control",
+   "sha": "1d8f54823e2d0b1e4f071059ed0f14b03ad626a3",
+   "matched_to": "7ea37abc6ac0120ba5f6d94be8d196f7cf1506bb"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-19931",
+   "class": "control",
+   "sha": "84ecfb3ecc793c0087ed9700bdc2a1475ab53ff9",
+   "matched_to": "7103a93b05bc69ea98ed9d05d02fa9eeba533f2f"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-18924",
+   "class": "control",
+   "sha": "decc6090851236ec6b09ce79433283867d4d9746",
+   "matched_to": "90325ff0444cbdff368bda5d26d6405a0bb6ee43"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-13608",
+   "class": "control",
+   "sha": "39628c50844eb8dd6f7416653a836fa0ec4d73eb",
+   "matched_to": "ea71c3b6b60e563651ea8596a975aef0c8199519"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-12064",
+   "class": "control",
+   "sha": "2b336e6b73c3da9a0cf645aada31853c80985963",
+   "matched_to": "ab3bb8cd8be8f9d4acb97da0418abc279182041e"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-11856",
+   "class": "control",
+   "sha": "084ceb66018e514eb33233fb42b3d62cae77384f",
+   "matched_to": "5c6b4880357ab3e72967c1c45cae0f96ffabc535"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-11586",
+   "class": "control",
+   "sha": "9249aad4c210e2f5690a95ca2421defc83e00771",
+   "matched_to": "849317ff5c5a5e13f50ec3d001e46ddffa77d8a4"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-11564",
+   "class": "control",
+   "sha": "37b2403f48959c632c8dd1dac688087237410ea2",
+   "matched_to": "d69bfad3fa3daf5e72331f6870667607828d5891"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-11352",
+   "class": "control",
+   "sha": "f1959ae9621af4473f7daa831d5318efdaccd97f",
+   "matched_to": "56eca2afb4806f1032872fa97d1834b3c1385276"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-10536",
+   "class": "control",
+   "sha": "b174b8b326622574dd49fce71589f414f6af937f",
+   "matched_to": "bfbff7852f050232edd3e5ca5c6bf2021c340f5a"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-9547",
+   "class": "control",
+   "sha": "64c51ad1785fbf09c944a35f5566163b50a861b3",
+   "matched_to": "0b8dbbc63c98777e4584cb9fbd71df3464008ad1"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-9546",
+   "class": "control",
+   "sha": "cce4d3b0edd98b9b10f62485f01d37b81fd46a00",
+   "matched_to": "862e8a74a84478d82973471b4f49dc2746c1780e"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-9545",
+   "class": "control",
+   "sha": "c60d90cd65391f862b094c4720496b285201dd7f",
+   "matched_to": "7b9613fa9b1a5e04301a3920eef58e8138dad05e"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-9080",
+   "class": "control",
+   "sha": "e5087ac9fc6c80fbb1708b750e8187c7c876f0a4",
+   "matched_to": "5ab34cba42e4ee4282fe8bab43f311d51b9bf9bd"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-9079",
+   "class": "control",
+   "sha": "10d4b34e5c962a0b17836b0bc7483ce3b7c518cc",
+   "matched_to": "88c7e16cceec816a2df45c899d49b1e85513f193"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-8932",
+   "class": "control",
+   "sha": "fdd27a538c4d69c4bb5030b3f9694183cf0077da",
+   "matched_to": "7541ae569d82fb308a5e2d94916027da4fa3ba3e"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-8927",
+   "class": "control",
+   "sha": "11df1251e550c5b4b77a4c66bca96cbbc09cdcc4",
+   "matched_to": "5c225384b8d52c67ce8259c6e4203bc57aacb567"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-8926",
+   "class": "control",
+   "sha": "ea392e6b36d875056cf9e28f841bdc8cdc2efbb6",
+   "matched_to": "4ae1d7cc2643e4773a136395f12bc02fc6867854"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-8925",
+   "class": "control",
+   "sha": "b079595f2e903b820a027a68ea5c4c1e6697038b",
+   "matched_to": "3da249e1f0716c06644ed3522a37a8bf81808012"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-8924",
+   "class": "control",
+   "sha": "74542c1f4bfea75f92562075370fd839891cc440",
+   "matched_to": "51beed175dbfc37da3113f6acce60c630c070ce8"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-8458",
+   "class": "control",
+   "sha": "7fd35f4c34c0034417c2fcbb69cfcff449f49d0c",
+   "matched_to": "5e99b73cf441d9c369768b9cd48b5389b9a2503d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-8286",
+   "class": "control",
+   "sha": "a946fbb5e60d6c4ca3fab5cd5cf041ea9ca23e10",
+   "matched_to": "a86efdd7ca5433de9231e650f18247de8319ad16"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-7168",
+   "class": "control",
+   "sha": "1737e47f59d93fa6e2001c2dd3404d67531d0aa9",
+   "matched_to": "c1cfdf59acbaf9504c4578d4cf56cdd7c8594507"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-7009",
+   "class": "control",
+   "sha": "d7d683c3ba3ebfa4c3e31926417f92a64686e1d0",
+   "matched_to": "51905671e07f087e28e5741063646c379fe17d89"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-6429",
+   "class": "control",
+   "sha": "cc5604182a9e6256e8b5bc288c8586a74fb7492b",
+   "matched_to": "b4024bf808bd558026fdc6096e8457f199ace306"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-6276",
+   "class": "control",
+   "sha": "cc0c83c5f853c41fca6880c5dcd6745da9353434",
+   "matched_to": "3a19987a87f393d9394fe5acc7643f6c263c92db"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-6253",
+   "class": "control",
+   "sha": "d3dc5dbc87f3047ecac73aa0e7fb190cee59eb86",
+   "matched_to": "188c2f166a20fa97c2325b2da7d0e5cecc13725f"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-5773",
+   "class": "control",
+   "sha": "7b96563a057ac5cf96cb2b3e9a0df9e1c84ac0cc",
+   "matched_to": "74a169575d6412dc0ff532acdf94de35a6c2a571"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-5545",
+   "class": "control",
+   "sha": "708b3f8b4e56aa6e8423e805b362bfc15389846c",
+   "matched_to": "33e43985b8f3b9e66691d06e70be0395849856cd"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-4873",
+   "class": "control",
+   "sha": "29dfc0238caea63ba128404c2de069a2aa3651fa",
+   "matched_to": "507e7be573b0a76fca597b75ff7cb27a66e7d865"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-3805",
+   "class": "control",
+   "sha": "b35e58b24c4b0ae7366d733fb36ac8bd57b73739",
+   "matched_to": "e090be9f73a7a71459ef678c7cc4b1f75e3ea883"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-3784",
+   "class": "control",
+   "sha": "b7ecd14725fdfe63bf84f63829dd63fb2e8cba3f",
+   "matched_to": "5f13a7645e565c5c1a06f3ef86e97afb856fb364"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-3783",
+   "class": "control",
+   "sha": "e47b6e657aa5dda6dfb79d495ba3ee7b0534532a",
+   "matched_to": "e3d7401a32a46516c9e5ee877e613e62ed35bddc"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-1965",
+   "class": "control",
+   "sha": "d19c9e4e632f23812d2781f409f4d338e4a14f45",
+   "matched_to": "f1a39f221d57354990e3eeeddc3404aede2aff70"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-15224",
+   "class": "control",
+   "sha": "2754e0f3d32f440e96705280090b7afea294a237",
+   "matched_to": "16d5f2a5660c61cc27bd5f1c7f512391d1c927aa"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-15079",
+   "class": "control",
+   "sha": "f099c2ca55652e1694188937808d77ebfe2f1df4",
+   "matched_to": "adca486c125d9a6d9565b9607a19dce803a8b479"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-14819",
+   "class": "control",
+   "sha": "20ffdfffaa870410535b4df7d5e63842e56068b8",
+   "matched_to": "cd046f6c93b39d673a58c18648d8906e954c4f5d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-14524",
+   "class": "control",
+   "sha": "86f5bd3c6e67809e4feac4df42e422c54277df05",
+   "matched_to": "1a822275d333dc6da6043497160fd04c8fa48640"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-14017",
+   "class": "control",
+   "sha": "49ab46c9c50511dcc304a92f3a2e458d4a9fa131",
+   "matched_to": "39d1976b7f709a516e3243338ebc0443bdd8d56d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-13034",
+   "class": "control",
+   "sha": "b4630ed8faef1834e2b64f30acc24e5101d4d2fb",
+   "matched_to": "3d91ca8cdb3b434226e743946d428b4dd3acf2c9"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-10966",
+   "class": "control",
+   "sha": "8d004781a577fc2fae72873c4a45b2fb3f366d98",
+   "matched_to": "b011e3fcfb06d6c0278595ee2ee297036fbe9793"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-10148",
+   "class": "control",
+   "sha": "b85cb8cb4e143d1615d4fcc1ce8f2f7b66453995",
+   "matched_to": "84db7a9eae8468c0445b15aa806fa7fa806fa0f2"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-9086",
+   "class": "control",
+   "sha": "4108d11008030c5c25adb28bf73ba392f80708a8",
+   "matched_to": "c6ae07c6a541e0e96d0040afb62b45dd37711300"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-5399",
+   "class": "control",
+   "sha": "d214e62f4e931296e36b620584036eda2ebd8464",
+   "matched_to": "d1145df24de8f80e6b167fbc4f28b86bcd0c6832"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-5025",
+   "class": "control",
+   "sha": "f862f863bfc18ca4796e17cd93773f0744c4d3b4",
+   "matched_to": "e1f65937a96a451292e9231339672797da86ecc5"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-4947",
+   "class": "control",
+   "sha": "fe9898d26e54edc197570b971be86c15ccb67935",
+   "matched_to": "a85f1df4803bbd272905c9e712537b41afeafbd3"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-0725",
+   "class": "control",
+   "sha": "18650ea01166c0cbc332f574c533f1337642a7cf",
+   "matched_to": "76f83f0db23846e254d940ec7fe141010077eb88"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-0665",
+   "class": "control",
+   "sha": "017e6440ce22b4ce57a2e7d2eb3367ab4c8e5999",
+   "matched_to": "ff5091aa9f73802e894b1cbdf24ab84e103200e2"
+  },
+  {
+   "id": "control-for-CURL-CVE-2025-0167",
+   "class": "control",
+   "sha": "d95a89266b204559e1a601806fd57d817d601bb9",
+   "matched_to": "0e120c5b925e8ca75d5319e319e5ce4b8080d8eb"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-11053",
+   "class": "control",
+   "sha": "2d1959dd0c504a1e4418f687b714357142b0b21b",
+   "matched_to": "e9b9bbac22c26cf67316fa8e6c6b9e831af31949"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-9681",
+   "class": "control",
+   "sha": "72d2090fc25fcfd5b696101521335f351c712e26",
+   "matched_to": "a94973805df96269bf3f3bf0a20ccb9887313316"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-8096",
+   "class": "control",
+   "sha": "925aea1aba76fcb3f024919b0f6ea5686bfa153a",
+   "matched_to": "aeb1a281cab13c7ba791cb104e556b20e713941f"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-7264",
+   "class": "control",
+   "sha": "bd8e45c6c5ce00c0769765dcafefe5f25028a5b0",
+   "matched_to": "27959ecce75cdb2809c0bdb3286e60e08fadb519"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-6874",
+   "class": "control",
+   "sha": "c2e427cc939a3270e528ec078334fa8ff79f180f",
+   "matched_to": "686d54baf1df6e0775898f484d1670742898b3b2"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-6197",
+   "class": "control",
+   "sha": "473ec8a05dfa2c25af3b58a3d889c16e3796a720",
+   "matched_to": "3a537a4db9e65e545ec45b1b5d5575ee09a2569d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-2466",
+   "class": "control",
+   "sha": "e3a3bb371f055ba4272fc1eadd8bc1fb97d3bf14",
+   "matched_to": "3d0fd382a29b95561b90b7ea3e7eb04dfdd43538"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-2398",
+   "class": "control",
+   "sha": "02f91d5b6408b7972fdadb938fe9a95907a00a1b",
+   "matched_to": "deca8039991886a559b67bcd6701db800a5cf764"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-2379",
+   "class": "control",
+   "sha": "6aeb729b5c0d2a4162aca0b58660edf9ef36f8f6",
+   "matched_to": "aedbbdf18e689a5eee8dc39600914f5eda6c409c"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-2004",
+   "class": "control",
+   "sha": "98794c56af0287879177a212bb414e2f9214ded9",
+   "matched_to": "17d302e56221f5040092db77d4f85086e8a20e0e"
+  },
+  {
+   "id": "control-for-CURL-CVE-2024-0853",
+   "class": "control",
+   "sha": "8e0323b4b534807e0fa8cc83e316950831a5afef",
+   "matched_to": "c28e9478cb2548848eca9b765d0d409bfb18668c"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-46219",
+   "class": "control",
+   "sha": "6d8dd746f171cc97ac3491a64f1b2406a59a1bbd",
+   "matched_to": "73b65e94f3531179de45c6f3c836a610e3d0a846"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-46218",
+   "class": "control",
+   "sha": "8c058a820afe71073823364d29ff22ed0ac34de5",
+   "matched_to": "2b0994c29a721c91c572cff7808c572a24d251eb"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-38546",
+   "class": "control",
+   "sha": "dffd996e3b54a0c9314b1c93c7f837a5b2b1fc3d",
+   "matched_to": "61275672b46d9abb3285740467b882e22ed75da8"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-38545",
+   "class": "control",
+   "sha": "dc4e885f35afed10f941cd7e3090f5d5904078cf",
+   "matched_to": "fb4415d8aee6c1045be932a34fe6107c2f5ed147"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-38039",
+   "class": "control",
+   "sha": "873b958d0b21f1ada5269faec4960152115863cf",
+   "matched_to": "3ee79c1674fd6f99e8efca52cd7510e08b766770"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-28322",
+   "class": "control",
+   "sha": "2f17a9b654121dd1ecf4fc043c6d08a9da3522db",
+   "matched_to": "7815647d6582c0a4900be2e1de6c5e61272c496b"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-28321",
+   "class": "control",
+   "sha": "6b1e4dc6cdd2c1fc1730dc64aa5e2d82615e5993",
+   "matched_to": "199f2d440d8659b42670c1b796220792b01a97bf"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-28320",
+   "class": "control",
+   "sha": "81b2b577df40262716ff0e1c0e1cebabb99f012d",
+   "matched_to": "13718030ad4b3209a7583b4f27f683cd3a6fa5f2"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-28319",
+   "class": "control",
+   "sha": "bb0b245cc1eacd5a4eb081b69c8292d23e6b1156",
+   "matched_to": "8e21b1a05f3c0ee098dbcb6c3d84cb61f102a122"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-27538",
+   "class": "control",
+   "sha": "0a0c9b6dfa0de4a4cdfe3ac7f5f28f807d9b297f",
+   "matched_to": "af369db4d3833272b8ed443f7fcc2e757a0872eb"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-27536",
+   "class": "control",
+   "sha": "4579626c273fe68bd9ce29e4caf614ed5e70240d",
+   "matched_to": "cb49e67303dbafbab1cebf4086e3ec15b7d56ee5"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-27535",
+   "class": "control",
+   "sha": "6841f2ed5fb53a74b8d6a31d4035fd52221c4275",
+   "matched_to": "8f4608468b890dce2dad9f91d5607ee7e9c1aba1"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-27534",
+   "class": "control",
+   "sha": "abae4e31a2db1ae5c552b485ddd12ee4673398ee",
+   "matched_to": "4e2b52b5f7a3bf50a0f1494155717b02cc1df6d6"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-27533",
+   "class": "control",
+   "sha": "41dfb7f516c8a9659782df695528c9d32b5653d6",
+   "matched_to": "538b1e79a6e7b0bb829ab4cecc828d32105d0684"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-23916",
+   "class": "control",
+   "sha": "0ef29268819b7a6d7c72d8f19bc6ad9e91d9b191",
+   "matched_to": "119fb187192a9ea13dc90d9d20c215fc82799ab9"
+  },
+  {
+   "id": "control-for-CURL-CVE-2023-23915",
+   "class": "control",
+   "sha": "a55256cfb2425a6d37ac8173a6a5cdf5b3529be0",
+   "matched_to": "076a2f629119222aeeb50f5a03bf9f9052fabb9a"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-43552",
+   "class": "control",
+   "sha": "b261389dbad6d96c193f6885b216e358905b3ecc",
+   "matched_to": "4f20188ac644afe174be6005ef4f6ffba232b8b2"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-43551",
+   "class": "control",
+   "sha": "6cc18802f87fa8e86d27ebf9db32bf3a4ec184a5",
+   "matched_to": "9e71901634e276dd050481c4320f046bebb1bc28"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-42916",
+   "class": "control",
+   "sha": "2e475deb802bfa8bbd41e03c3b3b256b26172b65",
+   "matched_to": "53bcf55b4538067e6dc36242168866becb987bb7"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-42915",
+   "class": "control",
+   "sha": "4d7372415d56c13a5cfc66d14a3b34c055cdd90f",
+   "matched_to": "55e1875729f9d9fc7315cec611bffbd2c817ad89"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-35260",
+   "class": "control",
+   "sha": "28687ae271892cc195e0a54fe8b5704e42345d37",
+   "matched_to": "c97ec984fb2bc919a3aa863e0476dffa377b184c"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-32221",
+   "class": "control",
+   "sha": "a0ff4dba8b7006713ee61f8df74eccc124a8c94e",
+   "matched_to": "a64e3e59938abd7d667e4470a18072a24d7e9de9"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-35252",
+   "class": "control",
+   "sha": "6e489e00a59cd1a28d652ea4a6ef6ae8e3a5aa69",
+   "matched_to": "8dfc93e573ca740544a2d79ebb0ed786592c65c3"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-32208",
+   "class": "control",
+   "sha": "5980068c87ba69c76998ab04a6723c1964bd8aa8",
+   "matched_to": "6ecdf5136b52af747e7bda08db9a748256b1cd09"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-32207",
+   "class": "control",
+   "sha": "f18af4f874cecab82a9797e8c7541e0990c7a64c",
+   "matched_to": "20f9dd6bae50b7223171b17ba7798946e74f877f"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-32206",
+   "class": "control",
+   "sha": "71bbabb16755c3d611bb24909e77a0df688827aa",
+   "matched_to": "3a09fbb7f264c67c438d01a30669ce325aa508e2"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-32205",
+   "class": "control",
+   "sha": "835a205370e30c0b516c9a6cb5714bd64762b350",
+   "matched_to": "48d7064a49148f03942380967da739dcde1cdc24"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-30115",
+   "class": "control",
+   "sha": "137a668e8cb42dda1673bf2c79cbb24c8fe0b405",
+   "matched_to": "fae6fea209a2d4db1582f608bd8cc8000721733a"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-27782",
+   "class": "control",
+   "sha": "7c1acaf61e678ff4f8bd01f161d6c74fc0163f53",
+   "matched_to": "1645e9b44505abd5cbaf65da5282c3f33b5924a5"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-27781",
+   "class": "control",
+   "sha": "6285957f1d04fef5a9c2e8cb1dd234345d184341",
+   "matched_to": "5c7da89d404bf59c8dd82a001119a16d18365917"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-27780",
+   "class": "control",
+   "sha": "a04f0b961333e1a19848d073d8c7db9c20b2a371",
+   "matched_to": "914aaab9153764ef8fa4178215b8ad89d3ac263a"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-27779",
+   "class": "control",
+   "sha": "6d86193377696886c5ef6aa42e375e67d5f59baf",
+   "matched_to": "7e92d12b4e6911f424678a133b19de670e183a59"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-27778",
+   "class": "control",
+   "sha": "6df9d9b46c363a787c10378603f1223931d9ebcc",
+   "matched_to": "8c7ee9083d0d719d0a77ab20d9cc2ae84eeea7f3"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-27776",
+   "class": "control",
+   "sha": "7422110b486d6467eed6781ba7844828fe0fbe29",
+   "matched_to": "6e659993952aa5f90f48864be84a1bbb047fc258"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-27775",
+   "class": "control",
+   "sha": "87da3e845be515ddbb1542d0d17e66e843610d3a",
+   "matched_to": "058f98dc3fe595f21dc26a5b9b1699e519ba5705"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-27774",
+   "class": "control",
+   "sha": "01a1697a79205faa9c5e3b0d8a63f98dc4fb8fa0",
+   "matched_to": "139a54ed0a172adaaf1a78d6f4fff50b2c3f9e08"
+  },
+  {
+   "id": "control-for-CURL-CVE-2022-22576",
+   "class": "control",
+   "sha": "77a6bf848936b508e9af6186c1764b42d30ae79a",
+   "matched_to": "852aa5ad351ea53e5f01d2f44b5b4370c2bf5425"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22947",
+   "class": "control",
+   "sha": "e919848ead98bd3feb30c7d6b4e08a9fccd0b1f1",
+   "matched_to": "8ef147c43646e91fdaad5d0e7b60351f842e5c68"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22946",
+   "class": "control",
+   "sha": "16e9c8e9909fc12c3f9735f666b5a8c5af669e8b",
+   "matched_to": "364f174724ef115c63d5e5dc1d3342c8a43b1cca"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22945",
+   "class": "control",
+   "sha": "8822ecf7a18c6977ac09b707ff720e503e81bfaf",
+   "matched_to": "43157490a5054bd24256fe12876931e8abc9df49"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22926",
+   "class": "control",
+   "sha": "0a513555561d8ee4c1de930996ecc0cf73154378",
+   "matched_to": "fd9b40bf8dfd43edcbc0d254d613d95a11061c05"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22925",
+   "class": "control",
+   "sha": "53c26dedf48802131fc3aa072c8982c3c4020046",
+   "matched_to": "894f6ec730597eb243618d33cc84d71add8d6a8a"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22924",
+   "class": "control",
+   "sha": "1c1d9f1affbd3367bcb24062e261d0ea5d185e3a",
+   "matched_to": "5ea3145850ebff1dc2b13d17440300a01ca38161"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22923",
+   "class": "control",
+   "sha": "19ea52da4df3c3ebc399ae25e705c7a8b5d45d95",
+   "matched_to": "265b14d6b37c4298bd5556fabcbc37d36f911693"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22901",
+   "class": "control",
+   "sha": "e4ba999646ed7a974813ecf8405651d300554eba",
+   "matched_to": "7f4a9a9b2a49547eae24d2e19bc5c346e9026479"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22898",
+   "class": "control",
+   "sha": "96adbf5cdb6f36665af2583083454e4ae38292f0",
+   "matched_to": "39ce47f219b09c380b81f89fe54ac586c8db6bde"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22897",
+   "class": "control",
+   "sha": "a774b3f3042dd5122099e0bde5e799f158fddb24",
+   "matched_to": "bbb71507b7bab52002f9b1e0880bed6a32834511"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22890",
+   "class": "control",
+   "sha": "53022e1893de74b73554396b697f5a06cc7bc3f2",
+   "matched_to": "b09c8ee15771c614c4bf3ddac893cdb12187c844"
+  },
+  {
+   "id": "control-for-CURL-CVE-2021-22876",
+   "class": "control",
+   "sha": "3780717db0bb65ae2a5cd005defbe36cd8857a5b",
+   "matched_to": "7214288898f5625a6cc196e22a74232eada7861c"
+  },
+  {
+   "id": "control-for-CURL-CVE-2020-8286",
+   "class": "control",
+   "sha": "edfb6168e9d3c7d3b0befc6977c2256c095a6690",
+   "matched_to": "d9d01672785b8ac04aab1abb6de95fe3072ae199"
+  },
+  {
+   "id": "control-for-CURL-CVE-2020-8285",
+   "class": "control",
+   "sha": "8bdc4f8aeee98802e16426adfb79855df918d47c",
+   "matched_to": "69a358f2186e04cf44698b5100332cbf1ee7f01d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2020-8284",
+   "class": "control",
+   "sha": "6e18568ba386ec82e422d238b4976673a8df2524",
+   "matched_to": "ec9cc725d598ac77de7b6df8afeec292b3c8ad46"
+  },
+  {
+   "id": "control-for-CURL-CVE-2020-8231",
+   "class": "control",
+   "sha": "eab2f95c0de94e9816c8a6110d20673761dd97a4",
+   "matched_to": "3c9e021f86872baae412a427e807fbfa2f3e8a22"
+  },
+  {
+   "id": "control-for-CURL-CVE-2020-8177",
+   "class": "control",
+   "sha": "fc0e29dd57bb0dc7bbf4d0e5c9638b01f7b6afc6",
+   "matched_to": "8236aba58542c5f89f1d41ca09d84579efb05e22"
+  },
+  {
+   "id": "control-for-CURL-CVE-2020-8169",
+   "class": "control",
+   "sha": "e1f3f3a14f678a8469ffd2d032fa1a237a6aad98",
+   "matched_to": "600a8cded447cd7118ed50142c576567c0cf5158"
+  },
+  {
+   "id": "control-for-CURL-CVE-2019-5481",
+   "class": "control",
+   "sha": "4d0306c6982ad80be532438265c52c39a55889a0",
+   "matched_to": "9069838b30fb3b48af0123e39f664cea683254a5"
+  },
+  {
+   "id": "control-for-CURL-CVE-2019-5482",
+   "class": "control",
+   "sha": "5feb58ca12d576159b176d810dab0212c940ce00",
+   "matched_to": "facb0e4662415b5f28163e853dc6742ac5fafb3d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2019-5436",
+   "class": "control",
+   "sha": "9f9ec7da570bf1468eafe611023627c9a2b0b5d2",
+   "matched_to": "2576003415625d7b5f0e390902f8097830b82275"
+  },
+  {
+   "id": "control-for-CURL-CVE-2019-5435",
+   "class": "control",
+   "sha": "85f9aa08d9ba78843e18b6eda83c81a2f92a729d",
+   "matched_to": "5fc28510a4664f46459d9a40187d81cc08571e60"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-16890",
+   "class": "control",
+   "sha": "16a3307e813fa82776dc265201ffc7dac1c842a7",
+   "matched_to": "b780b30d1377adb10bbe774835f49e9b237fb9bb"
+  },
+  {
+   "id": "control-for-CURL-CVE-2019-3822",
+   "class": "control",
+   "sha": "21c379421169b1e2bed61214e090c454577a5790",
+   "matched_to": "50c9484278c63b958655a717844f0721263939cc"
+  },
+  {
+   "id": "control-for-CURL-CVE-2019-3823",
+   "class": "control",
+   "sha": "7bcca9345977669bce9fd52f85ac2b89ccf550ec",
+   "matched_to": "39df4073e5413fcdbb5a38da0c1ce6f1c0ceb484"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-16842",
+   "class": "control",
+   "sha": "9d8dad1a9d79d60e021f0c4e0f66bf5d51fb3c4e",
+   "matched_to": "d530e92f59ae9bb2d47066c3c460b25d2ffeb211"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-16840",
+   "class": "control",
+   "sha": "75b94d77e8daedbe56249abfd2652cbbfcd08958",
+   "matched_to": "81d135d67155c5295b1033679c606165d4e28f3f"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-16839",
+   "class": "control",
+   "sha": "3793761a3777095d643e9f2da951615e1178782c",
+   "matched_to": "f3a24d7916b9173c69a3e0ee790102993833d6c5"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-14618",
+   "class": "control",
+   "sha": "3668d9d76232678007efe25f5a761d80b37a0f3e",
+   "matched_to": "57d299a499155d4b327e341c6024e293b0418243"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-0500",
+   "class": "control",
+   "sha": "47762f55839268213cc79708b51edd7cbef2893a",
+   "matched_to": "ba1dbd78e5f1ed67c1b8d37ac89d90e5e330b628"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-1000300",
+   "class": "control",
+   "sha": "d0394de152ec85fac2e4bb05f97035af3a8d7918",
+   "matched_to": "583b42cb3b809b1bf597af160468ccba728c2248"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-1000301",
+   "class": "control",
+   "sha": "2ef1662e4bc20f1641bc678141c2df0e42e21e3f",
+   "matched_to": "8c7b3737d29ed5c0575bf592063de8a51450812d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-1000122",
+   "class": "control",
+   "sha": "5fb70ea17001d328b07ed3f1971870446208054a",
+   "matched_to": "d52dc4760f6d9ca1937eefa2093058a952465128"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-1000121",
+   "class": "control",
+   "sha": "68d84cfe984e7d0483fad14fdd7deef4bf67de1b",
+   "matched_to": "9889db043393092e9d4b5a42720bba0b3d58deba"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-1000120",
+   "class": "control",
+   "sha": "3f6051f4ed2195a24adbc29036ee5ee0ef00b1e9",
+   "matched_to": "535432c0adb62fe167ec09621500470b6fa4eb0f"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-1000007",
+   "class": "control",
+   "sha": "62a721ea47e1e697faa7e3d87c8c9025808a8667",
+   "matched_to": "af32cd3859336ab963591ca0df9b1e33a7ee066b"
+  },
+  {
+   "id": "control-for-CURL-CVE-2018-1000005",
+   "class": "control",
+   "sha": "e639d4ca4d794c222dde4680d9ff35053f501042",
+   "matched_to": "fa3dbb9a147488a2943bda809c66fc497efe06cb"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-8818",
+   "class": "control",
+   "sha": "c7170e20d0a18ec8a514b4daa53bcdbb4dcb3a05",
+   "matched_to": "9b5e12a5491d2e6b68e0c88ca56f3a9ef9fba400"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-8817",
+   "class": "control",
+   "sha": "9f691be3d49840690f7d3a22e81e6fd3e03f0900",
+   "matched_to": "0b664ba968437715819bfe4c7ada5679d16ebbc3"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-8816",
+   "class": "control",
+   "sha": "ecf21c551fa3426579463abe34b623111b8d487c",
+   "matched_to": "7f2a1df6f5fc598750b2c6f34465c8d924db28cc"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-1000257",
+   "class": "control",
+   "sha": "de7597f155beea1cfba341bd7d8d7bb6202edba0",
+   "matched_to": "13c9a9ded3ae744a1e11cbc14e9146d9fa427040"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-1000254",
+   "class": "control",
+   "sha": "a7bcf274ccf3dd6eca86c5fbdf2d568690e0c494",
+   "matched_to": "5ff2c5ff25750aba1a8f64fbcad8e5b891512584"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-1000101",
+   "class": "control",
+   "sha": "a8e1c2e4668db11e1c12ce941d943acd99cc4324",
+   "matched_to": "453e7a7a03a2cec749abd3878a48e728c515cca7"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-1000100",
+   "class": "control",
+   "sha": "f262b3586cb40f6fdb265188456cfb0ff4e4ed2a",
+   "matched_to": "358b2b131ad6c095696f20dcfa62b8305263f898"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-1000099",
+   "class": "control",
+   "sha": "61046e7bd59fc5f2ab2e7b1f0b89e2b5a90ae8c7",
+   "matched_to": "c9332fa5e84f24da300b42b1a931ade929d3e27d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-9502",
+   "class": "control",
+   "sha": "534056297fc70b212f75368bc517eb163b3c5658",
+   "matched_to": "5d7952f52e410e1d4a8ff1965e5cc6fc1bde86aa"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-7468",
+   "class": "control",
+   "sha": "1d786faee1046ff90e71252aeef4a997c3bf0d8d",
+   "matched_to": "33cfcfd9f0378625d3bddbd2c8ac5aad4b646f26"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-7407",
+   "class": "control",
+   "sha": "c25e0761d0fc49c415417c4bc527fb1c69300825",
+   "matched_to": "8e65877870c1fac920b65219adec720df810aab9"
+  },
+  {
+   "id": "control-for-CURL-CVE-2017-2629",
+   "class": "control",
+   "sha": "3cc30e8207b5ab3a9a381c0ff3584d1af8dc54a1",
+   "matched_to": "ca6ea6d9be5102a2246dff6e17b3ee9ad4ec64d0"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-9594",
+   "class": "control",
+   "sha": "21a7a96c9030c0ac69a5af3c5bbc70f4b251877a",
+   "matched_to": "f81b2277a8e7e9ce8809ccd30c25b8aa72101215"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-9586",
+   "class": "control",
+   "sha": "3dcbd06d05f53e8e60bd8a99f76fd3d4223c515b",
+   "matched_to": "3ab3c16db6a5674f53cf23d56512a405fde0b2c9"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-9952",
+   "class": "control",
+   "sha": "add8ee7d57bf9d61a586126e1182e7eb356834fe",
+   "matched_to": "0354eed41085baa5ba8777019ebf5e9ef32c001d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-8615",
+   "class": "control",
+   "sha": "f7d6bdca6c804a7a399a97c42d5bdaa75c5f5327",
+   "matched_to": "cff89bc088b7884098ea0c5378bbda3d49c437bc"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-8617",
+   "class": "control",
+   "sha": "a34c7ce7546f39f24692925d66c2f42324dd94e9",
+   "matched_to": "efd24d57426bd77c9b5860e6b297904703750412"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-8618",
+   "class": "control",
+   "sha": "b7ee5316c2fd5b0fa933a4fcdf2049e112ace669",
+   "matched_to": "8732ec40db652c53fa58cd13e2acb8eab6e40874"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-8619",
+   "class": "control",
+   "sha": "b6ddc0ac075ecb7e86b25a26ba2faf7e7880ce13",
+   "matched_to": "3d6460edeee21d7d790ec570d0887bed1f4366dd"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-8621",
+   "class": "control",
+   "sha": "4a35bbbe8ee57e6549e89e655819fae75410236e",
+   "matched_to": "96a80b5a262fb6dd2ddcea7987296f3b9a405618"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-8622",
+   "class": "control",
+   "sha": "93b0d907d57453b481cd9aa15bd258942e4dd34e",
+   "matched_to": "53e71e47d6b81650d26ec33a58d0dca24c7ffb2c"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-8623",
+   "class": "control",
+   "sha": "497e7c9d3460566712b3cd81b272cde7826f264c",
+   "matched_to": "c5be3d7267c725dbd093ff3a883e07ee8cf2a1d5"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-8624",
+   "class": "control",
+   "sha": "82720490628cb53a5fd41e27fcfebace27d3b5b0",
+   "matched_to": "3bb273db7e40ebc284cff45f3ce3f0475c8339c2"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-8625",
+   "class": "control",
+   "sha": "3533def3d556e09f178e52e37b89fe8015b907f9",
+   "matched_to": "9c91ec778104ae3b744b39444d544e82d5ee9ece"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-5419",
+   "class": "control",
+   "sha": "f044cbe6fc9411262a90420e109e23d282a84b62",
+   "matched_to": "247d890da88f9ee817079e246c59f3d7d12fde5f"
+  },
+  {
+   "id": "control-for-CURL-CVE-2016-3739",
+   "class": "control",
+   "sha": "46bf7ff78d2e851dafe2d20f003283979b2962f9",
+   "matched_to": "6efd2fa529a189bf41736a610f6184cd8ad94b4d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2015-3237",
+   "class": "control",
+   "sha": "f2a0b2164a1cdeaa806debbc3d0b46cfe04976e9",
+   "matched_to": "50c7f17e503fbab5081b69c97f9d4645389b9270"
+  },
+  {
+   "id": "control-for-CURL-CVE-2015-3153",
+   "class": "control",
+   "sha": "8df4b5af3f788e54d7d4b63f141d7856d56932d9",
+   "matched_to": "6ba2e88a642434bd0ffa95465e4a7d034d03ea10"
+  },
+  {
+   "id": "control-for-CURL-CVE-2015-3144",
+   "class": "control",
+   "sha": "31be461c6b659312100c47be6ddd5f0f569290f6",
+   "matched_to": "0583e87ada7a3cfb10904ae4ab61b339582c5bd3"
+  },
+  {
+   "id": "control-for-CURL-CVE-2015-3145",
+   "class": "control",
+   "sha": "ae3c985060d7d5fd7a72d7dcb0b6b176f3c972b2",
+   "matched_to": "b5f947b8ac0e282c61c75b69cd5b9d37dafc6959"
+  },
+  {
+   "id": "control-for-CURL-CVE-2014-8150",
+   "class": "control",
+   "sha": "cfa0ac7aff6dedd43294226ef683c0e44c9d7691",
+   "matched_to": "178bd7db34f77e020fb8562890c5625ccbd67093"
+  },
+  {
+   "id": "control-for-CURL-CVE-2014-3707",
+   "class": "control",
+   "sha": "93e450793ce289925dfd1d5e3b2d14e781f8dfd4",
+   "matched_to": "b3875606925536f82fc61f3114ac42f29eaf6945"
+  },
+  {
+   "id": "control-for-CURL-CVE-2014-3620",
+   "class": "control",
+   "sha": "bdfc75e75195d70659997bfdb1f282ea31441f28",
+   "matched_to": "a76825a5efa6b41d3a1d4f275dada2f017f6f566"
+  },
+  {
+   "id": "control-for-CURL-CVE-2014-3613",
+   "class": "control",
+   "sha": "7320e53d9e17b22cacea77a89ecaa8348513f0e1",
+   "matched_to": "8a75dbeb2305297640453029b7905ef51b87e8dd"
+  },
+  {
+   "id": "control-for-CURL-CVE-2014-2522",
+   "class": "control",
+   "sha": "f2d234a4dd9bcc5760d92697546fea14b5897a0e",
+   "matched_to": "63fc8ee7be2b712e7af5029f4f8a86a0dfd71b38"
+  },
+  {
+   "id": "control-for-CURL-CVE-2014-1263",
+   "class": "control",
+   "sha": "8034b08e0e49b21ab8b186575d638dee8c7dfb17",
+   "matched_to": "afc6e5004fabee590e41ffe750a237e1187fbbbd"
+  },
+  {
+   "id": "control-for-CURL-CVE-2014-0015",
+   "class": "control",
+   "sha": "c9dd4022f4629d33fd2094f8cfd9cf112b4eaea7",
+   "matched_to": "8ae35102c43d8d06572c3a1292eb6e27e663c78d"
+  },
+  {
+   "id": "control-for-CURL-CVE-2013-1944",
+   "class": "control",
+   "sha": "4b643f1ca44e91683be8697709b786efd43c64ef",
+   "matched_to": "2eb8dcf26cb37f09cffe26909a646e702dbcab66"
+  },
+  {
+   "id": "control-for-CURL-CVE-2013-0249",
+   "class": "control",
+   "sha": "6b18f18b4c2dfd257ca93cd3b7a46888b55ff9e7",
+   "matched_to": "f206d6c055d1008f0edb6d5d5920f0f300b9983a"
+  },
+  {
+   "id": "control-for-CURL-CVE-2012-0036",
+   "class": "control",
+   "sha": "5793bc370c794a10e6ed014cb535a47672842ae6",
+   "matched_to": "75ca568fa1c19de4c5358fed246686de8467c238"
+  },
+  {
+   "id": "control-for-CURL-CVE-2010-3842",
+   "class": "control",
+   "sha": "5ea9e78bd7ddc725a8056fdcc3d830fa5ff49fb1",
+   "matched_to": "81f151c912105ded480c3c88a1be53ca345298a1"
+  },
+  {
+   "id": "control-for-CURL-CVE-2010-0734",
+   "class": "control",
+   "sha": "296ebf382c7f629f3ab8a8ca895153d72202629d",
+   "matched_to": "06ae8ca5a6e452e5cb555c1a511a9df8dec6657c"
+  },
+  {
+   "id": "control-for-CURL-CVE-2009-0037",
+   "class": "control",
+   "sha": "608fdce0a0541cbd73eb80e7db1b5e3df70d1bf5",
+   "matched_to": "042cc1f69ec0878f542667cb684378869f859911"
+  },
+  {
+   "id": "control-for-CURL-CVE-2005-3185",
+   "class": "control",
+   "sha": "c7b7bf32f8ab6020047db8b4dbb33e58bae2b145",
+   "matched_to": "943aea62679fb9f2d6d7abe59b5edcba21490c52"
+  },
+  {
+   "id": "control-for-CURL-CVE-2003-1605",
+   "class": "control",
+   "sha": "e615d117a010e068f3d0639928cc9555b14c0077",
+   "matched_to": "5c2df3e1a4da7b17ae053ee8c4ecef5eb2d30464"
+  },
+  {
+   "id": "control-for-CURL-CVE-2000-0973",
+   "class": "control",
+   "sha": "91bda5650c780808d195c5e884f43a8dde2a1f95",
+   "matched_to": "751d503f54596d6d86f969683fec2fe296d9d1f0"
+  }
+ ],
+ "missing": []
+}
