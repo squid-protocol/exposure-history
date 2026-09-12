@@ -11,6 +11,12 @@ whose GIT ranges carry BOTH the fix commit and the introduced-by commit for
 most CVEs -- the two delta directions of the experiment from one authoritative,
 independently maintained source (189 of 215 entries at harvest time).
 
+repo #2 (nDPI) has no curl-style self-published feed; instead its vuln data
+lives in OSS-Fuzz's OSV export (ids like OSV-2025-147), fetched live from
+OSV.dev's query API (`--source oss-fuzz`). Same GIT-range shape (introduced +
+fixed 40-hex SHAs), same event classes, same control-matching -- just a
+different fetch step, selected with `--source {curl-vuln-json,oss-fuzz}`.
+
 Event classes emitted:
   security-fix  -- the commit that fixed a CVE (H1: deltas below controls)
   introduced    -- the commit that introduced it (H2: deltas above controls)
@@ -34,6 +40,7 @@ import urllib.request
 from _engine import EVENTS_DIR, POOL_DIR
 
 VULN_URL = "https://curl.se/docs/vuln.json"
+OSV_QUERY_URL = "https://api.osv.dev/v1/query"
 DOC_PREFIXES = ("docs/", "tests/", ".github/", "scripts/", "packages/", "plan/")
 
 
@@ -90,25 +97,61 @@ def pick_control(repo, event_sha, taken, event_shas):
     return best
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--repo", default="curl")
-    ap.add_argument("--out", default=str(EVENTS_DIR / "curl.json"))
-    ap.add_argument("--limit", type=int, default=0, help="cap events (0 = all)")
-    args = ap.parse_args()
-
-    repo = POOL_DIR / args.repo
-    head = _git(repo, "rev-parse", "HEAD").stdout.strip()
-
+def fetch_curl_osv():
+    """curl's self-published OSV feed -- a plain JSON array of entries."""
     with urllib.request.urlopen(VULN_URL) as r:  # noqa: S310 -- fixed https URL
-        osv = json.load(r)
+        return json.load(r)
 
+
+def fetch_ossfuzz_osv(project: str):
+    """All OSV entries for an OSS-Fuzz project, paginated via page_token.
+
+    OSV.dev's query API takes {"package": {"name", "ecosystem": "OSS-Fuzz"}}
+    and returns full entries inline (ranges included) -- no per-id GET needed,
+    unlike the /v1/vulns/<id> lookup path. `name` is the OSS-Fuzz project
+    slug, which is lowercase even when the upstream repo/display name isn't
+    (e.g. "ndpi" for ntop/nDPI).
+    """
+    entries, page_token = [], None
+    while True:
+        body = {"package": {"name": project, "ecosystem": "OSS-Fuzz"}}
+        if page_token:
+            body["page_token"] = page_token
+        req = urllib.request.Request(
+            OSV_QUERY_URL, data=json.dumps(body).encode(),
+            headers={"Content-Type": "application/json"}, method="POST")
+        with urllib.request.urlopen(req) as r:  # noqa: S310 -- fixed https URL
+            page = json.load(r)
+        entries.extend(page.get("vulns", []))
+        page_token = page.get("next_page_token")
+        if not page_token:
+            break
+    return entries
+
+
+def extract_events(osv_entries, repo, repo_filter=None):
+    """Walk OSV-shaped entries -> (events, missing), verifying every SHA.
+
+    Shared by both sources: the GIT-range {introduced, fixed} event shape is
+    OSV-standard, not curl-specific. `repo_filter`, if given, is a substring
+    that a GIT range's `repo` field must contain -- OSS-Fuzz projects can in
+    principle span more than one upstream repo under one project name, so
+    this is a guard, not a formatting assumption. Severity/CWE live under
+    `database_specific` in curl's feed and under the per-`affected` entry
+    (`ecosystem_specific` or `database_specific`) in OSS-Fuzz's -- both are
+    checked so one extractor covers both shapes.
+    """
     events, missing = [], []
-    for entry in osv:
-        cve = entry["id"]
+    for entry in osv_entries:
+        vid = entry["id"]
+        entry_ds = entry.get("database_specific", {})
         for aff in entry.get("affected", []):
+            aff_specific = {**aff.get("database_specific", {}),
+                             **aff.get("ecosystem_specific", {})}
             for rng in aff.get("ranges", []):
                 if rng.get("type") != "GIT":
+                    continue
+                if repo_filter and repo_filter.lower() not in (rng.get("repo") or "").lower():
                     continue
                 intro = fixed = None
                 for ev in rng.get("events", []):
@@ -118,13 +161,52 @@ def main() -> int:
                     if not sha or len(sha) < 40:
                         continue
                     if not sha_exists(repo, sha):
-                        missing.append((cve, cls, sha))
+                        missing.append((vid, cls, sha))
                         continue
-                    cwe = entry.get("database_specific", {}).get("CWE", {})
-                    events.append({"id": cve, "class": cls, "sha": sha,
-                                   "severity": entry.get("database_specific", {}).get("severity"),
-                                   "cwe": cwe.get("id"), "cwe_desc": cwe.get("desc"),
-                                   "summary": entry.get("summary")})
+                    cwe = entry_ds.get("CWE", {})
+                    events.append({
+                        "id": vid, "class": cls, "sha": sha,
+                        "severity": entry_ds.get("severity") or aff_specific.get("severity"),
+                        "cwe": cwe.get("id"), "cwe_desc": cwe.get("desc"),
+                        "summary": entry.get("summary"),
+                    })
+    return events, missing
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--repo", default="curl")
+    ap.add_argument("--out", default=str(EVENTS_DIR / "curl.json"))
+    ap.add_argument("--limit", type=int, default=0, help="cap events (0 = all)")
+    ap.add_argument("--source", choices=["curl-vuln-json", "oss-fuzz"],
+                    default="curl-vuln-json",
+                    help="curl-vuln-json: curl's own vuln.json feed (default). "
+                         "oss-fuzz: query OSV.dev for an OSS-Fuzz project's "
+                         "entries (needs --osv-project).")
+    ap.add_argument("--osv-project", default=None,
+                    help="OSS-Fuzz project slug for --source oss-fuzz, e.g. "
+                         "'ndpi' for ntop/nDPI. Defaults to --repo, lowercased.")
+    ap.add_argument("--repo-filter", default=None,
+                    help="Substring the GIT range's repo URL must contain "
+                         "(oss-fuzz source only, guards against a project "
+                         "name spanning multiple upstream repos). Defaults "
+                         "to --repo (case-insensitive) when unset.")
+    args = ap.parse_args()
+
+    repo = POOL_DIR / args.repo
+    head = _git(repo, "rev-parse", "HEAD").stdout.strip()
+
+    if args.source == "oss-fuzz":
+        project = args.osv_project or args.repo.lower()
+        source_label = f"{OSV_QUERY_URL} (ecosystem=OSS-Fuzz, package={project})"
+        osv = fetch_ossfuzz_osv(project)
+        repo_filter = args.repo_filter or args.repo
+        events, missing = extract_events(osv, repo, repo_filter=repo_filter)
+    else:
+        source_label = VULN_URL
+        osv = fetch_curl_osv()
+        events, missing = extract_events(osv, repo)
+
     # de-dup (same sha can fix/introduce several CVEs) -- keep first label
     seen, unique = set(), []
     for e in events:
@@ -147,7 +229,7 @@ def main() -> int:
                              "sha": c, "matched_to": e["sha"]})
 
     out = {
-        "repo": args.repo, "source": VULN_URL, "pool_head": head,
+        "repo": args.repo, "source": source_label, "pool_head": head,
         "counts": {"security-fix": len(fix_events),
                    "introduced": sum(1 for e in unique if e["class"] == "introduced"),
                    "control": len(controls), "missing_shas": len(missing)},
