@@ -1,6 +1,6 @@
 {
  "schema_version": "1.0.0",
- "generated_at": "2026-09-12T10:18:21",
+ "generated_at": "2026-09-12T11:35:41",
  "repo": "curl",
  "pool_head": "04bfe8fbbf552a3baf38c629bf9dd59916b3c559",
  "events_source": "https://curl.se/docs/vuln.json",
@@ -210,10 +210,10 @@
   ]
  },
  "counts": {
-  "events": 307,
-  "files": 1240,
-  "functions": 26128,
-  "skipped": 201
+  "events": 507,
+  "files": 1691,
+  "functions": 34030,
+  "skipped": 1
  },
  "files": {
   "events": "curl.events.jsonl.gz",
