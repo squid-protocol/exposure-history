@@ -1,0 +1,36 @@
+{
+ "repo": "curl",
+ "source": "tools/make_fixture_db.py (subset of https://curl.se/docs/vuln.json)",
+ "pool_head": "04bfe8fbbf552a3baf38c629bf9dd59916b3c559",
+ "counts": {
+  "security-fix": 1,
+  "control": 1,
+  "introduced": 1
+ },
+ "events": [
+  {
+   "id": "CURL-CVE-2026-80230",
+   "class": "security-fix",
+   "sha": "5267ed859d545534d0c21675a2b70af5a3b6e3ef",
+   "severity": "Low",
+   "cwe": "CWE-295",
+   "cwe_desc": "Improper Certificate Validation",
+   "summary": "OpenSSL pinning bypass"
+  },
+  {
+   "id": "control-for-CURL-CVE-2026-82209",
+   "class": "control",
+   "sha": "4433f71d6c189b58b2288efc976786e216994e66",
+   "matched_to": "95c1e8915dce64606bd753fd47fc0bd236e31cd6"
+  },
+  {
+   "id": "CURL-CVE-2026-80230",
+   "class": "introduced",
+   "sha": "8363656cb4e0c60a11d8531ead0ec43120b50591",
+   "severity": "Low",
+   "cwe": "CWE-295",
+   "cwe_desc": "Improper Certificate Validation",
+   "summary": "OpenSSL pinning bypass"
+  }
+ ]
+}
