@@ -21,6 +21,11 @@ fixing them looks like. Every question was written down as a prediction *before*
    know things the sum washes out.
 4. **Vulnerabilities lurk ~4.5 years** between being written and being fixed — a huge
    window for any early warning to matter.
+5. **The negative controls behave.** Reverts measurably *remove* structure (the instrument's
+   sanity check — passed); and CVE-fix *follow-ups* turn out to be administrative (build /
+   cmake / test fixes), not more security logic — so neither "incomplete fixes look thinner"
+   nor "follow-ups finish the job" held. Two more registered predictions died on contact; the
+   record keeps working.
 
 **What this points at:** the question worth owning is not "rank everything by risk"
 (history wins that) but **"which file gets its *first* security bug?"** — where history is
@@ -72,6 +77,9 @@ it. Nothing here is yet a cross-language or cross-ecosystem claim.
 | RW-H1 | Structural exposure beats LOC at ordering a 20%-LOC review budget (effort-aware, from repowise's Popt result) | 2026-09-12, pre-analysis | **✗ not supported** — 52W/48L/82T, p=0.38; exposure ≈ LOC even at ordering, on CVE labels | rw_hypotheses.md |
 | RW-H2 | Prior CVE-fix count beats any static ranking (recall@budget + AUC) | 2026-09-12, pre-analysis | **✓ SUPPORTED decisively** — median recall .444 vs .000; 77W/27L vs exposure, 71W/10L vs LOC, both p<1e-4. **Recidivism is the rung-7 baseline to beat.** | rw_hypotheses.md |
 | R2-H1 | Danger density marks the vulnerable function: at equal length, more pointer/danger/alloc/cast constructs than siblings | 2026-09-12, for **repo #2** (curl read p=0.032, below α — suggestive only) | **pending repo #2** | signal_anatomy.md Phase D control row |
+| W1-H1 | Reverts are net-removal: grammar-signal deltas predominantly negative (where other classes are net-positive); median event net-LOC < 0 | 2026-09-12, pre-batch | **✓ SUPPORTED** — net-LOC median −1.0 (60 events <0 / 24 >0, sign p=5.4e-05) vs +2.0..+6.5 for every other class; net-grammar median −1.0 (57/23, p=9.2e-05); revert < control 1-sided MW p<1e-4. A clean instrument sanity check. | wave1_hypotheses.md |
+| W1-H2 | Fixes that later needed a follow-up carry the fix-shaped composite at a LOWER rate than fixes that stuck (one-sided) | 2026-09-12, pre-batch | **✗ not supported** — direction wrong: needs-follow-up 0.71 (10/14) vs stuck 0.65 (110/168), Fisher p=0.77. Incomplete fixes are not structurally thinner. | wave1_hypotheses.md |
+| W1-H3 | CVE-fix follow-ups carry the fix grammar (branch/pointer adds) at a rate closer to fixes than to controls | 2026-09-12, pre-batch | **✗ not supported** — follow-ups are THIN: loose (branch/ptr+) rate 0.20 (3/15), below controls (0.45) and fixes (0.71). The follow-ups are administrative (build/cmake/test), not added security logic; n=15 small. | wave1_hypotheses.md |
 
 ## What one repo taught us (the reflection)
 
@@ -107,3 +115,99 @@ After one repository: the signal layer and contract-shaped formulas correlate wi
 security events; aggregate exposure does not; the specific function-level profile of
 CVE-prone code is registered as a prediction awaiting repo #2 — which is the program's
 single highest-value next step.
+
+## Repo #2 (nDPI) replication battery — pre-registered 2026-09-12
+
+Registered **while the nDPI scan was in flight (~[228]/610 commits) and before any nDPI
+delta, grammar, ranking, or function-grain result had been computed** — no nDPI analysis
+artifact existed at registration (epic gitgalaxy#2982, comment 5648589175). Dataset:
+`events/ndpi.json` — 121 security-fix, 73 introduced (OSS-Fuzz-bisected), 111 size-matched
+control; `pool_head 7787711`. nDPI uses the original three classes, so
+`delta_report`/`signal_anatomy`/`rw_analyses` run unchanged.
+
+**Correction & reporting.** Each lettered claim is one registered test at α=0.01; within a
+multi-cell (per-vector) table, Bonferroni across cells; a battery-wide Bonferroni
+(α=0.01/k) is reported alongside as a sensitivity. Verdicts published either way. Directions
+are pre-set to curl's observed direction (legitimate — registered for unseen nDPI data).
+
+| id | maps to (curl) | registered nDPI direction | test / α | for nulls: equivalence δ |
+|---|---|---|---|---|
+| **N-H3** | H3 ✓ | fixes' `risk_safety_score` Δ below controls (curl direction) | 1-sided MW, α=0.01 | — |
+| **N-GRAM** | grammar ✓ | fixes net-add `struct_branch` **and** `state_pointers` vs controls | 1-sided MW ×2, Bonferroni | — |
+| **N-FIXSHAPE** | fix-shaped 66/38/40 ✓ | security-fix fix-shaped rate > control **and** > introduced | 1-sided Fisher ×2, Bonferroni | — |
+| **N-RW2** | RW-H2 ✓ | prior-CVE-fix count beats exposure- and LOC-ranking at recall@20%LOC + AUC | 1-sided, α=0.01 | — |
+| **D-H1′** | repo-#2 reg. | implicated functions' branch-guard rate `branch/(ptr+danger+alloc+cast+1)` < loc-matched siblings; fix raises it | 1-sided MW pairs, α=0.01 | — |
+| **R2-H1** | repo-#2 reg. (curl p=0.032) | at equal length, implicated functions carry more pointer/danger/alloc/cast than siblings | 1-sided MW, α=0.01 | — |
+| **N-FIRST** | repo-#2 reg. | pre-event structural exposure separates first-CVE files from age/size-matched non-CVE files | AUC, α=0.01 | — |
+| **N-H1** | H1 ✗ (p=0.77) | fixes' event-median structural Δ < controls | 1-sided MW, α=0.01 + effect-size CI | ±0.10 exposure units |
+| **N-H2** | H2 ✗ (p=0.023) | introduced > controls | 1-sided MW, α=0.01 + effect-size CI | ±0.10 exposure units |
+| **N-RW1** | RW-H1 ✗ | exposure recall@20%LOC > LOC recall@budget | 1-sided, α=0.01 + effect-size CI | ±0.05 recall |
+
+**Null-replication rule (N-H1/N-H2/N-RW1):** "null replicated" is declared only if BOTH
+(a) non-significant at α=0.01 in curl's direction AND (b) the effect's 95% CI lies within δ
+(TOST/equivalence) — a repeated p>α on nDPI's smaller n is otherwise just lower power. A
+**flip to significant is reported as a new signal**, not hidden.
+
+**Explicitly NOT a clean replication on nDPI** (reported as contrast, not pass/fail):
+dwell time (nDPI median lurk ≈ weeks under continuous fuzzing vs curl's 4.5 years — a
+different discovery population); **D-H1 verbatim** (degenerate at C function grain — subsumed
+by D-H1′); **Phase M / wave-1 classes** (revert, cve-followup — no such labels in the
+OSS-Fuzz set).
+
+## Mechanism-matched specificity battery — pre-registered 2026-09-12 (for unseen data)
+
+The engine's exposure vectors are named for what they *should* mark (crypto, IO, concurrency,
+memory-danger…). The stronger claim than "exposure ≈ CVEs" is **specificity**: the *right*
+vector marks the *right* failure type, and it does so **beyond a line count**. These are
+registered from curl's *exploratory* CWE×vector table, so — per protocol rule 3 — they are
+**never scored on curl's full table that suggested them**. They evaluate on **unseen data**:
+a CWE-labeled repo #3 (below), or a held-out curl temporal split (register on pre-2020 CVEs,
+test on post-2020). curl's failure supply (323 CWE-labeled events) gives the families power;
+the two named vectors that curl *can't* test are called out.
+
+Each signal set is the engine's raw keyword columns. Metric = **defect-lift beyond size**:
+AUC(signal | matched controls) and, one-sided, AUC(signal) > AUC(LOC) — the bar
+gitgalaxy#2987 sets for a signal to earn a gated formula slot. α=0.01, Bonferroni across the
+family.
+
+| id | failure family (example CWEs) | matched signal set | registered direction |
+|---|---|---|---|
+| **S-H1** | memory-safety (126/416/122/125/415/121/124/787) | `state_pointers + state_memory_alloc + state_cast_hits + state_danger` | memory-CVE functions carry more, at equal length, than matched non-CVE siblings **and** than non-memory CVE functions; AUC > LOC |
+| **S-H2** | cert/auth (295/297/305/294/299) | `arch_crypto + def_auth` | cert/auth-CVE files carry more than matched controls **and** than non-auth CVE files; AUC > LOC |
+| **S-H3** | info-leak (200/201/319/488/522) | `arch_io + api_exposure` | leak-CVE files carry more egress surface than matched controls **and** than non-leak CVE files; AUC > LOC |
+| **S-H4** | concurrency (362/367) — *repo-#3 dependent* | `arch_concurrency + def_sync_locks` | race/TOCTOU-CVE functions carry more than matched controls; AUC > LOC. **Untestable on curl** (single-threaded, ~0 such CVEs) — requires a concurrency-bearing repo |
+| **S-H0** | *the discriminant* | all four sets | the family→best-matched-signal **confusion matrix is diagonal** — each family's own set ranks its own failures above other families'. This is the real specificity claim: the vectors are specific, not one undifferentiated "danger" blob |
+
+Failure verdicts published either way. A vector that lifts *generally* but is **not** specific
+(S-H0 off-diagonal) is itself a finding — it would mean "danger" is one blob, not a set of
+mechanism-specific signals, and it caps what the score-contract program can gate.
+
+### Repo-#3 selection criteria (this battery drives them)
+Beyond the repo-#2 hard criteria (OSV GIT ranges with introduced+fixed, ≥50 events,
+GitGalaxy-supported language, full history), repo #3 must add what curl and nDPI each lack:
+- **CWE labels on the vulnerability data** — *required* for any mechanism-matched test.
+  nDPI's OSS-Fuzz feed has none, so nDPI runs the general battery only, never S-H*.
+- **Concurrency-bearing with real race/TOCTOU CVEs** — for S-H4 (curl has ~none).
+- **Mixed network / non-network CVEs** — so S-H3's IO test has a contrast (curl is
+  all-network: no non-IO group to separate against).
+Candidates to weigh against these: redis, postgres, nginx (concurrency + mixed surface),
+a managed-language service; openssl only if its `CHANGES.md` CVE→PR trail is parsed to real
+fix commits (its OSV SHAs are version-tag proxies — see docs/repo2_survey.md).
+
+### Held-out curl result — 2026-09-12 (split at median fix-date 2022-06-25; test half only)
+
+Full detail: `docs/specificity_curl_heldout.md` (tool: `tools/specificity_split.py`).
+
+| id | verdict | evidence |
+|---|---|---|
+| **S-H1** memory ↔ danger cluster | **✗ not supported (genuine null)** — signal well-populated (state_pointers 70% nonzero) yet AUC ties LOC (0.588 vs 0.590); no defect-lift out-of-sample | specificity_curl_heldout.md |
+| **S-H3** info-leak ↔ arch_io/arch_api | **✗ not supported (genuine null)** — populated; AUC 0.54 vs LOC 0.57; no lift | specificity_curl_heldout.md |
+| **S-H2** cert/auth ↔ arch_crypto/def_auth | **⚠ degenerate — no verdict** — `def_auth` is 0 across all 1.05M rows, `arch_crypto` 0.1%; the matched signal is absent (D-H1-class vocabulary gap), AUC pins at 0.509. Untestable on curl; deferred to a repo with live crypto/auth vocabulary | specificity_curl_heldout.md |
+| **S-H0** the discriminant (diagonal?) | **✗ not supported** (caveat: cert/auth column dead) — among the *live* signal-sets the **memory** set ranks highest even for info-leak's positives; the populated "danger" signals read as a general code-mass proxy, not mechanism-specific | specificity_curl_heldout.md |
+
+**Reading.** Predicting *which* file gets *which* CVE from pre-event structural *standing*
+does not work on curl (coheres with H1/RW-H1: standing ≈ LOC) — the real security signal is
+in the fix **delta/grammar**, not standing. cert/auth couldn't be tested (dead vocabulary),
+which is itself an engine signal: `def_auth`/`arch_crypto` under-fire on C (cf.
+gitgalaxy#2984/#2979). This is a *within-curl temporal* result; the independent cross-repo
+test remains repo #3 — and it must carry live crypto/auth + concurrency vocabulary.
