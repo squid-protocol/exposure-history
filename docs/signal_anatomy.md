@@ -73,5 +73,17 @@ If implicated functions stand out from their own file's siblings, the instrument
 
 Pairwise: implicated more complex than its length-matched sibling in 179/433 pairs (59 ties). If the gate holds, complexity separates future-patched functions at equal length — a real below-file signal, not hunk-area bias.
 
+### Phase D — the guard deficit (pre-registered)
+
+guard rate = (def_safety + bailouts) / (pointers + danger + memory_alloc + casts + 1), function grain, parent snapshot, loc-matched pairs.
+
+| metric | implicated | matched sibling | p (one-sided, registered direction) |
+|---|---|---|---|
+| guard rate (D-H1) | 0.000 | 0.000 | 0.2175 |
+| danger load (control) | 20.0 | 17.0 | 0.0321 |
+| guard-rate change after fix (D-H2) | +0.0000 (n=414) | +0.0000 (n=433) | 0.8687 |
+
+**D-H1 (vulnerable = under-guarded relative to danger): not supported** · **D-H2 (the fix closes the deficit): not supported** (α=0.01, directions registered on gitgalaxy#2982 before this table was generated).
+
 ---
 *Counts are the engine's own extraction (persisted per commit in file_data/function_data); no diff-text keyword matching involved. Regenerate: `python tools/signal_anatomy.py --events events/curl.json`.*

@@ -152,18 +152,32 @@ def main() -> int:
                 changed = hunk_lines_parent_side(repo, parent, child, st["old_path"])
                 if not changed:
                     continue
+                FSEL = ("f.func_name, f.start_line, f.loc, f.complexity, f.func_z_score, "
+                        "f.state_pointers, f.state_danger, f.state_memory_alloc, "
+                        "f.state_cast_hits, f.def_safety, f.state_bailout_hits")
                 frows = con.execute(
-                    "SELECT f.func_name, f.start_line, f.loc, f.complexity, f.func_z_score "
-                    "FROM function_data f JOIN file_data fd ON f.file_id = fd.id "
+                    f"SELECT {FSEL} FROM function_data f JOIN file_data fd ON f.file_id = fd.id "
                     "WHERE fd.commit_hash = ? AND fd.file_path = ?",
                     (parent, st["old_path"])).fetchall()
+                # child snapshot rows by name, for D-H2 (did the fix close the deficit?)
+                crows = {r[0]: r for r in con.execute(
+                    f"SELECT {FSEL} FROM function_data f JOIN file_data fd ON f.file_id = fd.id "
+                    "WHERE fd.commit_hash = ? AND fd.file_path = ?", (child, path))}
+                def loads(row):
+                    danger = sum((row[i] or 0) for i in (5, 6, 7, 8))
+                    guard = sum((row[i] or 0) for i in (9, 10))
+                    return danger, guard, guard / (danger + 1)
                 per_file = []
-                for name, start, loc, cx, z in frows:
+                for row in frows:
+                    name, start, loc, cx, z = row[:5]
                     if start is None or loc is None:
                         continue
                     span = range(start, start + max(loc, 1))
                     hit = any(ln in changed for ln in span)
-                    rec = (hit, cx or 0, z or 0.0, loc or 0)
+                    danger, guard, rate = loads(row)
+                    post = crows.get(name)
+                    post_rate = loads(post)[2] if post else None
+                    rec = (hit, cx or 0, z or 0.0, loc or 0, danger, guard, rate, post_rate)
                     func_standing.append(rec)
                     per_file.append(rec)
                 func_files.append(per_file)
@@ -217,8 +231,8 @@ def main() -> int:
     md.append("")
 
     if func_standing:
-        imp = [(cx, z, loc) for hit, cx, z, loc in func_standing if hit]
-        sib = [(cx, z, loc) for hit, cx, z, loc in func_standing if not hit]
+        imp = [(r[1], r[2], r[3]) for r in func_standing if r[0]]
+        sib = [(r[1], r[2], r[3]) for r in func_standing if not r[0]]
         md.append("## 3 · The vulnerable function — implicated vs same-file siblings "
                   "(parent snapshot)\n")
         md.append(f"Functions overlapping a fix's changed lines (n={len(imp)}) vs untouched "
@@ -262,6 +276,41 @@ def main() -> int:
                       f"{wins}/{len(pairs)} pairs ({ties} ties). If the gate holds, complexity "
                       f"separates future-patched functions at equal length — a real "
                       f"below-file signal, not hunk-area bias.\n")
+            # ---- Phase D: the guard-deficit study (pre-registered on #2982) --
+            # D-H1: implicated functions carry a LOWER guard rate
+            # (def_safety+bailouts per danger construct) than their
+            # length-matched siblings. D-H2: the fix RAISES the implicated
+            # function's guard rate; siblings stay flat. Danger load reported
+            # alone as the "is it just more pointers" control.
+            md.append("### Phase D — the guard deficit (pre-registered)\n")
+            md.append("guard rate = (def_safety + bailouts) / (pointers + danger + "
+                      "memory_alloc + casts + 1), function grain, parent snapshot, "
+                      "loc-matched pairs.\n")
+            md.append("| metric | implicated | matched sibling | p (one-sided, "
+                      "registered direction) |")
+            md.append("|---|---|---|---|")
+            a_rate = [h[6] for h, _ in pairs]
+            b_rate = [s[6] for _, s in pairs]
+            _, p_d1 = mann_whitney_u(a_rate, b_rate)  # D-H1: implicated < sibling
+            md.append(f"| guard rate (D-H1) | {median(a_rate):.3f} | {median(b_rate):.3f} | "
+                      f"{p_d1:.4f} |")
+            a_d = [h[4] for h, _ in pairs]
+            b_d = [s[4] for _, s in pairs]
+            _, p_dng = mann_whitney_u(b_d, a_d)  # control: sibling < implicated danger
+            md.append(f"| danger load (control) | {median(a_d):.1f} | {median(b_d):.1f} | "
+                      f"{p_dng:.4f} |")
+            # D-H2: paired pre->post guard-rate change where the function survives
+            imp_chg = [h[7] - h[6] for h, _ in pairs if h[7] is not None]
+            sib_chg = [s[7] - s[6] for _, s in pairs if s[7] is not None]
+            _, p_d2 = mann_whitney_u(sib_chg, imp_chg)  # sib change < implicated change
+            md.append(f"| guard-rate change after fix (D-H2) | "
+                      f"{median(imp_chg):+.4f} (n={len(imp_chg)}) | "
+                      f"{median(sib_chg):+.4f} (n={len(sib_chg)}) | {p_d2:.4f} |")
+            d1 = "SUPPORTED" if p_d1 < 0.01 and median(a_rate) < median(b_rate) else "not supported"
+            d2 = "SUPPORTED" if p_d2 < 0.01 and median(imp_chg) > median(sib_chg) else "not supported"
+            md.append(f"\n**D-H1 (vulnerable = under-guarded relative to danger): {d1}** · "
+                      f"**D-H2 (the fix closes the deficit): {d2}** (α=0.01, directions "
+                      f"registered on gitgalaxy#2982 before this table was generated).\n")
 
     md.append("---\n*Counts are the engine's own extraction (persisted per commit in "
               "file_data/function_data); no diff-text keyword matching involved. Regenerate: "
