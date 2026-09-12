@@ -1,5 +1,5 @@
 # ==============================================================================
-# exposure-history
+# temporal-crucible
 # Copyright (c) 2026 Joe Esquibel
 # Licensed under the PolyForm Noncommercial License 1.0.0 (see LICENSE).
 # ==============================================================================

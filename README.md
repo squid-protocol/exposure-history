@@ -1,4 +1,4 @@
-# Exposure History
+# Temporal Crucible
 
 The **rung-6 validation program** for [GitGalaxy](https://github.com/squid-protocol/gitgalaxy)
 (gitgalaxy [#2982](https://github.com/squid-protocol/gitgalaxy/issues/2982); the design lives
