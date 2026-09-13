@@ -426,3 +426,28 @@ Motivation on record: the `state_memory_alloc`+`def_cleanup` pair co-moves at ρ
 nearly size-independent (ρ=0.25 vs net-LOC) — breaking the pairing is the anomaly; and the
 8-class table orders 66/53/48/46/38/20/13, replacing the retired binary "grammar is
 CVE-specific" claim with a gradient.
+
+## What precisely was falsified — the scoping statement (2026-09-13)
+
+The program's negative results share four assumptions, and the falsification applies to
+their **conjunction**, not to "structure relates to risk" in general:
+
+> risk as a property of a **file**, in **isolation**, as a standing **level**, scored by
+> marker **abundance**.
+
+Every dead test instantiated all four (pooled, density-normalized, length-matched, banded,
+multivariate, and trajectory variants alike). What was **validated** at the same time: the
+markers annotate *activity* (the x-ray — what a function is involved in), and marker
+*changes* characterize *events* (fix-vs-nonfix at patch grain; allocation-at-introduction
+51% vs 5–10%). Analogy on record: protein domains annotate function, not pathology;
+pathology is dosage, context, and interaction partners — we scored domain counts per gene
+and called the count a disease score.
+
+**What remains untested — hypothesis 3 restated one level up (tc#37):** risk as a *system*
+property — module-level dosage/thresholds (SYS-1), marker *dispersion* across files
+(SYS-2), system-level discipline trajectories (SYS-3), cross-file responsibility splits
+(INT-1), marker×process conjunctions (INT-3), and neighborhood/graph interactions (INT-2,
+blocked on edge persistence, gitgalaxy#2992). Mandatory guard carried forward: module-LOC
+controls in every SYS design, since aggregation can re-manufacture the size confound one
+level up. Engine-side consequence tracked as gitgalaxy#2991 (descriptive-layer reform +
+separate gated predictive layer).
