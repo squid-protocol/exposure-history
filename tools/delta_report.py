@@ -50,6 +50,19 @@ from _engine import DOCS_DIR, STRUCTURAL_COLUMNS, TEMPORAL_COLUMNS  # noqa: E402
 from exposure_delta import diff_statuses, rows_for  # noqa: E402
 from scan_pair import history_db, out_dir_for, resolve_repo  # noqa: E402
 
+# CWE-id -> family, for the "which exposure vector flags which weakness type"
+# table. Module-level (not main()-local) so other tools (tools/make_charts.py)
+# can import it and stay in sync with this report's own family assignment.
+CWE_FAMILY = {
+    "CWE-119": "memory", "CWE-122": "memory", "CWE-125": "memory", "CWE-126": "memory",
+    "CWE-131": "memory", "CWE-415": "memory", "CWE-416": "memory", "CWE-787": "memory",
+    "CWE-476": "memory", "CWE-590": "memory", "CWE-121": "memory", "CWE-124": "memory",
+    "CWE-295": "cert/auth", "CWE-297": "cert/auth", "CWE-305": "cert/auth",
+    "CWE-287": "cert/auth", "CWE-290": "cert/auth", "CWE-620": "cert/auth",
+    "CWE-200": "info-leak", "CWE-201": "info-leak", "CWE-522": "info-leak",
+    "CWE-311": "info-leak", "CWE-319": "info-leak",
+}
+
 
 # ------------------------------------------------------------------ statistics
 def mann_whitney_u(a: list[float], b: list[float]) -> tuple[float, float]:
@@ -355,15 +368,6 @@ def main() -> int:
               f"(controls < fixes).\n")
 
     # --- CWE x vector: which vector flags which weakness type ----------------
-    CWE_FAMILY = {
-        "CWE-119": "memory", "CWE-122": "memory", "CWE-125": "memory", "CWE-126": "memory",
-        "CWE-131": "memory", "CWE-415": "memory", "CWE-416": "memory", "CWE-787": "memory",
-        "CWE-476": "memory", "CWE-590": "memory", "CWE-121": "memory", "CWE-124": "memory",
-        "CWE-295": "cert/auth", "CWE-297": "cert/auth", "CWE-305": "cert/auth",
-        "CWE-287": "cert/auth", "CWE-290": "cert/auth", "CWE-620": "cert/auth",
-        "CWE-200": "info-leak", "CWE-201": "info-leak", "CWE-522": "info-leak",
-        "CWE-311": "info-leak", "CWE-319": "info-leak",
-    }
     cwe_events = defaultdict(list)  # family -> [(event, deltas)]
     for e, d in by_class.get("security-fix", []) + by_class.get("introduced", []):
         fam = CWE_FAMILY.get(e.get("cwe"), "other") if e.get("cwe") else "unlabeled"
