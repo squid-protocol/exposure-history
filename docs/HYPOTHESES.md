@@ -316,3 +316,36 @@ provenance classes inside one repository** (e.g. curl commits fixing OSS-Fuzz/AS
 curl commits fixing human-reported CVEs, labeled from commit-message provenance). Registered
 as the next experiment; until it runs, the fix-grammar stands as **single-repo, single-
 discovery-process, and explicitly not general**.
+
+## B-H1..B-H3 — results (2026-09-13; registration epic comment 5651082895)
+
+957 usable bug-label events, 767,591 pooled files, 1,900 positives; **both small bands
+powered** (28 / 42 positives). Detail: `docs/bh_eval.md` (tool `tools/bh_eval.py`,
+numpy-parallel, per-cell checkpointed).
+
+| id | verdict | evidence |
+|---|---|---|
+| **B-H1** small-file centrality | **✗ not supported** — with real power the small-file story dies: PageRank ≤22 *inverted* (AUC 0.259); 23–48 n.s. | bh_eval.md |
+| **B-H2** monotone lift shape | **✗ not supported, decisively** — frac_monotone 0.0000/5000; the true shape is an **inverted U** (lifts −0.047 / +0.017 / +0.145 / −0.253). The CVE-label "perfect monotone" was an unpowered-band artifact | bh_eval.md |
+| **B-H3** HCM selection-free validation | **✓ SUPPORTED** — `HCM1_LD_30` frozen from the CVE selection, fresh bug labels: AUC 0.868 vs LOC 0.830, lift **+0.0379** (lo +0.0211). **The second genuine positive after recidivism**, and the first *feature* to beat a line count out-of-selection | bh_eval.md |
+
+**Exploratory (context cells, outside the registered family — registered for repo #3, not
+claimed):** the 49–108 mid-band carries two robust centrality cells (PageRank lift +0.145
+lo +0.020; popularity +0.132 lo +0.025). Mid-band, not small-file, is the surviving
+centrality candidate.
+
+**Program standing after the bug-label expansion:** surviving predictors = **recidivism**
+(replicated, 2 repos) + **change entropy (HCM1_LD_30)** (selection-free, single-repo until
+repo #3). Centrality small-file: dead. Structure/keywords as predictors: size, everywhere.
+
+## Repo-#3 survey — 2026-09-13 (docs/repo3_survey.md)
+
+No candidate clears all five criteria. **Primary: openssl, fixed-side-only** — CWE joinable
+via NVD (5/5), human-reported fixes (median ≈+13 net LOC), confirmed race CVEs (S-H4
+testable at last), mixed network/non-network surface (S-H3 contrast); introduced-side 0%.
+Its CHANGES/commit trail is parseable (9/10 sampled resolve to diff-verified fix commits) —
+reversing repo-2's future-work flag. **Version-proxy diff-check failed** nginx, sqlite,
+systemd, imagemagick, netty, tensorflow-partially, and **vim** (worst mode found yet:
+real-looking SHAs pointing at *unrelated* commits). Sleeper lead: **kernel subsystem-scoped
+harvest** (net/ ≈43s/scan, fs/ ≈32s) — the only gold-standard introduced-side at tractable
+cost; unexplored.
