@@ -38,7 +38,7 @@ Files stratified into quartile bands (equal-COUNT, by RANK — see design note b
 | Q3 (lowest=False) | 38869 | 49 | 0.7140 | 0.5754 | [0.6160, 0.8051] | 5000 | **SUPPORTED** |
 | Q4 (lowest=False) | 38870 | 376 | 0.6101 | 0.5552 | [0.5740, 0.6447] | 5000 | **SUPPORTED** |
 
-**IV-H1 verdict: SUPPORTED (partial — see per-band verdicts)** (all 4 bands must independently clear the Bonferroni bound for a clean SUPPORTED).
+**IV-H1: 3/4 bands clear the Bonferroni bound.** The pre-registration fixes the per-band corrected threshold but never states whether the OVERALL claim requires ALL bands or ANY band to clear it — a genuine ambiguity, reported both ways rather than silently picking one: **strict (all 4 bands): not supported** · **weak (any band): SUPPORTED**. §4 supersedes both: once size is controlled, the within-band lift is a size artifact.
 
 ## 3 · IV-H2 — the mirror: does process add lift within structure bands?
 
