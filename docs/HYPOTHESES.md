@@ -317,6 +317,53 @@ curl commits fixing human-reported CVEs, labeled from commit-message provenance)
 as the next experiment; until it runs, the fix-grammar stands as **single-repo, single-
 discovery-process, and explicitly not general**.
 
+## HCM variant sweep + centrality bands — results (2026-09-12/13)
+
+**HV-H1/HV-H2 — the Hassan HCM family** (registered epic comment 5649866008; detail
+`docs/hcm_variants.md`). 36 variants (attribution × decay × period) + repowise's flavour,
+evaluated size-orthogonally on curl CVE labels:
+
+| id | verdict | evidence |
+|---|---|---|
+| **HV-H1** a variant clears the size wall (≥3/4 LOC bands) | **✗ not supported** — best variant `HCM1_LD_30` clears 2/4 (Q3 0.771, Q4 0.803); same monotone wall shape as repowise's | hcm_variants.md |
+| **HV-H2** best variant beats LOC pooled | **⚠ supported-as-computed (lift +0.0238, lo +0.0050) but DISCOUNTED — selected best-of-36 and tested on the same data**; out-of-selection validation registered as B-H3 | hcm_variants.md |
+
+Robust family pattern regardless of the winner: all top-8 are HCM1 (share-weighted), 30-day
+periods beat 90/180d, and HCM2/HCM3 at 180d are *worse than a line count* (−0.10..−0.15).
+repowise's shipped shape was near-optimal (rank ~6, lift +0.0192) — their choice was sound.
+
+**C-H1/C-H2 — centrality in the small-file regime** (registered 5650157545; per-cell
+checkpoint cache, full doc regenerating):
+
+| id | verdict | evidence |
+|---|---|---|
+| **C-H1** centrality beats LOC in small bands | **⚠ NOT EVALUABLE on curl** — the small bands are unpowered by the data itself: ≤22-LOC has **1** CVE positive, 23–48 has **4**; the ≥20-positive rule refuses verdicts (without it we'd quote AUC 0.999 off one positive) | centrality cache / centrality_bands.md |
+| **C-H2** lift monotone-decreasing with size | **suggestive, no verdict** — PageRank lift +0.458 → +0.320 → +0.154 → **−0.271**, perfectly monotone (repowise's shape), but the small end is unpowered | same |
+
+Solid negative within this: **in >108-LOC files (433 positives) PageRank is far worse than a
+line count** (0.525 vs 0.796) — centrality is not a large-file ranking signal.
+
+## Overnight bug-label expansion (B-H1..B-H3) — registered 2026-09-13, batch in flight
+
+Mirror of epic comment 5651082895 (registered **before the sample was drawn**). Purpose:
+power the small-file bands with labels that actually land in small files (CVE fixes don't),
+and provide selection-free validation data. Sample (seed 2982): ALL `regression` commits +
+500 uniform from `Fixes #` + 300 from `Bug:`; SHAs already scanned excluded; multi-label
+kept. Drawn: **1,107 unique events** (307 regression / 500 fixes / 300 bug; census after
+exclusions 1,915 / 1,195 / 307 — the registration's parenthetical "(census 154)" for
+regression was a case-sensitive undercount; the registered case-insensitive rule stands).
+Batch: `dbs/bugs_batch.log`, ≤2,214 scans ≈ 6.4 h, resumable by construction.
+
+| id | claim (α=0.01; ≥20-positives power rule) | status |
+|---|---|---|
+| **B-H1** | on bug-label positives, ≥1 centrality measure beats LOC (AUC>0.5, lift lo>0) within each powered small band (≤22, 23–48); Bonferroni 5×bands | **pending scans** |
+| **B-H2** | PageRank lift decreases across all four bands in ≥99% of 5,000 event-bootstraps | **pending** |
+| **B-H3** | `HCM1_LD_30` (frozen from the CVE-label selection) has pooled lift>0 over LOC on bug labels — fresh labels, no selection problem | **pending** |
+
+Priors registered in advance: B-H1 uncertain (the live lead), B-H2 expected supported,
+B-H3 expected shrunken-but-positive. Exploratory alongside (no verdicts): per-class grammar
+profiles (CVE vs Fixes# vs Bug: vs regression — the Phase-M question).
+
 ## B-H1..B-H3 — results (2026-09-13; registration epic comment 5651082895)
 
 957 usable bug-label events, 767,591 pooled files, 1,900 positives; **both small bands
