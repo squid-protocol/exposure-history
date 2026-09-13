@@ -1,0 +1,2426 @@
+{
+ "repo": "ndpi",
+ "source": "https://api.osv.dev/v1/query (ecosystem=OSS-Fuzz, package=ndpi)",
+ "pool_head": "7787711585577bc4a7efd34d445fdcfeb2ad54e8",
+ "counts": {
+  "security-fix": 121,
+  "introduced": 73,
+  "control": 111,
+  "missing_shas": 0
+ },
+ "events": [
+  {
+   "id": "OSV-2020-10",
+   "class": "security-fix",
+   "sha": "83bbb4cb694d1f305258d4c4a5dc4174ef6526d1",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-use-after-free in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2020-10",
+   "class": "introduced",
+   "sha": "10738a0ca334104377e19a1e683bd13f2451a9e2",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-use-after-free in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2020-1011",
+   "class": "security-fix",
+   "sha": "fc82cdfa4ac11e34725319620cdc549cb1b700d0",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_mail_smtp_tcp"
+  },
+  {
+   "id": "OSV-2020-1011",
+   "class": "introduced",
+   "sha": "e695dd6eade754b2d50bdf297ca8bdc4105f93ff",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_mail_smtp_tcp"
+  },
+  {
+   "id": "OSV-2020-1013",
+   "class": "security-fix",
+   "sha": "c7efd0892f1f9299360956b740044a798123a773",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_amazon_video"
+  },
+  {
+   "id": "OSV-2020-1015",
+   "class": "security-fix",
+   "sha": "8486eb08ea80b779dfcba07cc3ece48bbe81bdad",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_memcached"
+  },
+  {
+   "id": "OSV-2020-1019",
+   "class": "security-fix",
+   "sha": "634457615c91ef27436db92210f32522277f1818",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in getTLScertificate"
+  },
+  {
+   "id": "OSV-2020-1074",
+   "class": "security-fix",
+   "sha": "ab9ccf9eb9a6571d84bd0b2c8e185565d0d700f6",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in SHA1Transform"
+  },
+  {
+   "id": "OSV-2020-1075",
+   "class": "security-fix",
+   "sha": "287015ffdc33ff2c212563ffb866b38dee64e12b",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in processClientServerHello"
+  },
+  {
+   "id": "OSV-2020-1075",
+   "class": "introduced",
+   "sha": "b2cbe76e716e628438a94d2e112acddb67ec89f2",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in processClientServerHello"
+  },
+  {
+   "id": "OSV-2020-1082",
+   "class": "security-fix",
+   "sha": "2aec630202bf976e8ee978922441a414d4176cb8",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in processClientServerHello"
+  },
+  {
+   "id": "OSV-2020-1112",
+   "class": "security-fix",
+   "sha": "c223bb1f10068c00aaf9e9c96709dc3984a969cb",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in getNameLength"
+  },
+  {
+   "id": "OSV-2020-1114",
+   "class": "security-fix",
+   "sha": "27ea04c08ef72e78604308624bf31735aa2e8e98",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_int_check_stun"
+  },
+  {
+   "id": "OSV-2020-1131",
+   "class": "security-fix",
+   "sha": "4976d93d4e7ce5e63cb562fb7f0f916c3103e2de",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_oscar_tcp_connect"
+  },
+  {
+   "id": "OSV-2020-1133",
+   "class": "security-fix",
+   "sha": "c6acf97bfbe5ad26db3c2f5dd4d379ac674d6fb3",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_h323"
+  },
+  {
+   "id": "OSV-2020-1187",
+   "class": "security-fix",
+   "sha": "6d7f3976f33b0d4fbbece60d6b7d549b13107674",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_int_check_stun"
+  },
+  {
+   "id": "OSV-2020-1194",
+   "class": "security-fix",
+   "sha": "d4ae8a5f164167ef4fcf5b76b743e92b9e76d9dd",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_mail_smtp_tcp"
+  },
+  {
+   "id": "OSV-2020-12",
+   "class": "security-fix",
+   "sha": "0ddc3a0052cfd3ad539ae0540aa4879bcae80ee5",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_parse_packet_line_info"
+  },
+  {
+   "id": "OSV-2020-12",
+   "class": "introduced",
+   "sha": "cd765c08d6f1038ea5efd7a7cc556ca89bdec9e4",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_parse_packet_line_info"
+  },
+  {
+   "id": "OSV-2020-122",
+   "class": "security-fix",
+   "sha": "db16a987c57c2fa097b5efabb66cef16caeddb03",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_strnstr"
+  },
+  {
+   "id": "OSV-2020-122",
+   "class": "introduced",
+   "sha": "4148c5e065d32128eea17c0e228e372ad72eef82",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_strnstr"
+  },
+  {
+   "id": "OSV-2020-1263",
+   "class": "security-fix",
+   "sha": "226a9abf2235fd9e87353ffe727babad71fb7274",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in getSSCertificateFingerprint"
+  },
+  {
+   "id": "OSV-2020-1314",
+   "class": "security-fix",
+   "sha": "a845e997209b987ef85a2562697d4d0522cb0c66",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_strdup"
+  },
+  {
+   "id": "OSV-2020-136",
+   "class": "security-fix",
+   "sha": "7a2bcd9c395f9fe554109e04add33e9e65564d82",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_netbios_name_interpret"
+  },
+  {
+   "id": "OSV-2020-136",
+   "class": "introduced",
+   "sha": "7234f369499e02f44efcbbf0efe43bae596ddc53",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_netbios_name_interpret"
+  },
+  {
+   "id": "OSV-2020-142",
+   "class": "security-fix",
+   "sha": "374a24a1fb373617be23d7cbb397b47d23a5ffda",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-use-after-free in ndpi_strncasestr"
+  },
+  {
+   "id": "OSV-2020-142",
+   "class": "introduced",
+   "sha": "1edf5c49d662f7944ee976a63d54980a270a2419",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-use-after-free in ndpi_strncasestr"
+  },
+  {
+   "id": "OSV-2020-1566",
+   "class": "security-fix",
+   "sha": "6027a7c7995eda54905f126f3495b4fea8515c5c",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2020-166",
+   "class": "security-fix",
+   "sha": "d318285caec168b2b8a813845ae7b93b7e078aa3",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_parse_packet_line_info"
+  },
+  {
+   "id": "OSV-2020-171",
+   "class": "security-fix",
+   "sha": "38e4910636bd6273b62e0b195c9d45483c39cc1a",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_parse_packet_line_info"
+  },
+  {
+   "id": "OSV-2020-1715",
+   "class": "security-fix",
+   "sha": "37abe0daea8c964dbd2e09058074bfc7ae053199",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in ndpi_search_kerberos"
+  },
+  {
+   "id": "OSV-2020-1715",
+   "class": "introduced",
+   "sha": "239842b821763a2afc62d859a186f673ba09b171",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in ndpi_search_kerberos"
+  },
+  {
+   "id": "OSV-2020-1717",
+   "class": "security-fix",
+   "sha": "53a5c354d833770196852ee94b0abefb73ffd8b8",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_free"
+  },
+  {
+   "id": "OSV-2020-1717",
+   "class": "introduced",
+   "sha": "7a1147d733dc2a43c375207747e8c4587af83388",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_free"
+  },
+  {
+   "id": "OSV-2020-1729",
+   "class": "security-fix",
+   "sha": "1c0e617d802d214b0186f2752b50b8ee2a9e17a6",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_check_dga_name"
+  },
+  {
+   "id": "OSV-2020-1729",
+   "class": "introduced",
+   "sha": "ea4240055d5301b52d9fa934b8d14c126375eb17",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_check_dga_name"
+  },
+  {
+   "id": "OSV-2020-177",
+   "class": "security-fix",
+   "sha": "90e08b3568d8963a459cf06c4e67ff6fc99298e3",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN in get_ndpi_flow_info6"
+  },
+  {
+   "id": "OSV-2020-177",
+   "class": "introduced",
+   "sha": "812505b56bb4508bc42e1615d6425ad26444d3f8",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN in get_ndpi_flow_info6"
+  },
+  {
+   "id": "OSV-2020-179",
+   "class": "security-fix",
+   "sha": "fe513014a8f5156b243ec2eb5e6862a0506c6632",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in get16"
+  },
+  {
+   "id": "OSV-2020-179",
+   "class": "introduced",
+   "sha": "5c52c00ea4ad8afaebd5259bc53215a1ab41569f",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in get16"
+  },
+  {
+   "id": "OSV-2020-18",
+   "class": "security-fix",
+   "sha": "8e7b1ea7a136cc4e4aa9880072ec2d69900a825e",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_openvpn"
+  },
+  {
+   "id": "OSV-2020-181",
+   "class": "security-fix",
+   "sha": "b287dccecfecd32f114b043f395019eb3b000791",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in get_ndpi_flow_info"
+  },
+  {
+   "id": "OSV-2020-1827",
+   "class": "security-fix",
+   "sha": "b70ad0e2f19aa1d6f4b3b64208e14c6e5839d60a",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in http_process_user_agent"
+  },
+  {
+   "id": "OSV-2020-1827",
+   "class": "introduced",
+   "sha": "753b5dde16bae60299ca8e31afb4f519b13629c1",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in http_process_user_agent"
+  },
+  {
+   "id": "OSV-2020-185",
+   "class": "security-fix",
+   "sha": "b0bf66c436b829155662c27f59ab09dc6e9e7f3d",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_kerberos"
+  },
+  {
+   "id": "OSV-2020-1884",
+   "class": "security-fix",
+   "sha": "5f7b9d802498215f5769a8bfa39d92356da2cfdd",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in process_ndpi_collected_info"
+  },
+  {
+   "id": "OSV-2020-1884",
+   "class": "introduced",
+   "sha": "4a09b4efa053a26e187119a540da4b41dd8a24d8",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in process_ndpi_collected_info"
+  },
+  {
+   "id": "OSV-2020-2126",
+   "class": "security-fix",
+   "sha": "9f050fa0a65f3403c1f8296faf5f9d88d4900a8d",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2020-2206",
+   "class": "security-fix",
+   "sha": "0fceb6576aeb76b78ad9c19c86830fba694cfd5d",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_free"
+  },
+  {
+   "id": "OSV-2020-2298",
+   "class": "security-fix",
+   "sha": "68b6ac7da8b2f3c5f0ffa3f29015eefaa37e1ff5",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_free"
+  },
+  {
+   "id": "OSV-2020-2298",
+   "class": "introduced",
+   "sha": "32bd3d7a599a6dfcfadf6ed4ad684f904e50719c",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_free"
+  },
+  {
+   "id": "OSV-2020-236",
+   "class": "security-fix",
+   "sha": "812505b56bb4508bc42e1615d6425ad26444d3f8",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in get_ndpi_flow_info6"
+  },
+  {
+   "id": "OSV-2020-245",
+   "class": "security-fix",
+   "sha": "6a9f5e4f7c3fd5ddab3e6727b071904d76773952",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-use-after-free in ndpi_http_check_content"
+  },
+  {
+   "id": "OSV-2020-245",
+   "class": "introduced",
+   "sha": "374a24a1fb373617be23d7cbb397b47d23a5ffda",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-use-after-free in ndpi_http_check_content"
+  },
+  {
+   "id": "OSV-2020-342",
+   "class": "security-fix",
+   "sha": "23b0b8625d1f20596b2b20a149fb28c38046f4e1",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_search_kerberos"
+  },
+  {
+   "id": "OSV-2020-342",
+   "class": "introduced",
+   "sha": "65a629304c7930bd566b592c84d3478443a9e659",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_search_kerberos"
+  },
+  {
+   "id": "OSV-2020-39",
+   "class": "security-fix",
+   "sha": "29d9c2d2c80289f31278f8717959a5718a2e6ce1",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-use-after-free in ndpi_http_check_content"
+  },
+  {
+   "id": "OSV-2020-4",
+   "class": "security-fix",
+   "sha": "46d96e7f32a799ae57400d82e4c485e4ef9771ab",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_check_dga_name"
+  },
+  {
+   "id": "OSV-2020-4",
+   "class": "introduced",
+   "sha": "55364ef0b4ef629630a663dc7b05d83c1b662067",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_check_dga_name"
+  },
+  {
+   "id": "OSV-2020-40",
+   "class": "security-fix",
+   "sha": "e9195589d29d86da1849ad0d195900e6567354cf",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2020-49",
+   "class": "security-fix",
+   "sha": "4f370fe7c49cb38125cff2a1411261011e433c94",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_netbios_name_interpret"
+  },
+  {
+   "id": "OSV-2020-59",
+   "class": "security-fix",
+   "sha": "34ad06fef53626bc718b3e349a365f8fd0ef3646",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_add_connection_as_bittorrent"
+  },
+  {
+   "id": "OSV-2020-67",
+   "class": "security-fix",
+   "sha": "c1baf1516de5fc0cd122e4693f4774b0fd4b627b",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2020-70",
+   "class": "security-fix",
+   "sha": "25cd2a23a6b7057af0e898c613e5f4acf168a11c",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_handle_ipv6_extension_headers"
+  },
+  {
+   "id": "OSV-2020-70",
+   "class": "introduced",
+   "sha": "cf47ba234a59db325a382db4bbdf10187f93eb9a",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_handle_ipv6_extension_headers"
+  },
+  {
+   "id": "OSV-2020-71",
+   "class": "security-fix",
+   "sha": "61066fb106efa6d3d95b67e47b662de208b2b622",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_parse_packet_line_info"
+  },
+  {
+   "id": "OSV-2020-747",
+   "class": "security-fix",
+   "sha": "d6a97219ea14f0eb4d7d0831d4aefc971878caae",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-use-after-free in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2020-774",
+   "class": "security-fix",
+   "sha": "7051acc0b5b8046b6415a454a2eff4fffa18396b",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_kerberos"
+  },
+  {
+   "id": "OSV-2020-774",
+   "class": "introduced",
+   "sha": "9fb3a57a7182432f89248fc65e3fe59c2cbf1963",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_kerberos"
+  },
+  {
+   "id": "OSV-2020-78",
+   "class": "security-fix",
+   "sha": "241af016e9e2a43d24cbdc2378d813ba523f5126",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_check_spotify"
+  },
+  {
+   "id": "OSV-2020-78",
+   "class": "introduced",
+   "sha": "9dfd0d0071845779487b4e2e14c3599e18a74a8c",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_check_spotify"
+  },
+  {
+   "id": "OSV-2020-780",
+   "class": "security-fix",
+   "sha": "204f3ddff5efc929095556ed22ec62d18bef6324",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_strdup"
+  },
+  {
+   "id": "OSV-2020-795",
+   "class": "security-fix",
+   "sha": "05dfae6430d34d66ea8e43084f5c12a9f3a6dc5d",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_setup_iax"
+  },
+  {
+   "id": "OSV-2020-806",
+   "class": "security-fix",
+   "sha": "d90b333363b157d8eab9205430c83dab986ff965",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in process_ndpi_collected_info"
+  },
+  {
+   "id": "OSV-2020-812",
+   "class": "security-fix",
+   "sha": "1ec621c85b9411cc611652fd57a892cfef478af3",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_netbios_name_interpret"
+  },
+  {
+   "id": "OSV-2020-875",
+   "class": "security-fix",
+   "sha": "6c366d73e27ab2097a197cd6d9870c1ca2457cc8",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_strdup"
+  },
+  {
+   "id": "OSV-2020-875",
+   "class": "introduced",
+   "sha": "4ec3e6c064b56f1434bd4c887bd96d0916d07f2e",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_strdup"
+  },
+  {
+   "id": "OSV-2020-918",
+   "class": "security-fix",
+   "sha": "17235d234eb6a55fd0753ab4f3b6fc8f66eb7659",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_oracle"
+  },
+  {
+   "id": "OSV-2020-92",
+   "class": "security-fix",
+   "sha": "bbbc5fdbae79c72dbe157e02dfee4ef9f18014b5",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_parse_packet_line_info"
+  },
+  {
+   "id": "OSV-2020-922",
+   "class": "security-fix",
+   "sha": "b7e666e465f138ae48ab81976726e67deed12701",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_h323"
+  },
+  {
+   "id": "OSV-2020-956",
+   "class": "security-fix",
+   "sha": "bf7dcd63c3a663cd0e1e8c567511ccfd8047d24a",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2020-956",
+   "class": "introduced",
+   "sha": "98d9f524f9ff7746d0345939fe543020f8057212",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2020-962",
+   "class": "security-fix",
+   "sha": "c793e16050df1de377e400eec6e2b34ccff6ca85",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in processCertificateElements"
+  },
+  {
+   "id": "OSV-2020-972",
+   "class": "security-fix",
+   "sha": "98f2d3a73c0d4b09b1204e4cfc868ec258a3e478",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_irc_tcp"
+  },
+  {
+   "id": "OSV-2020-994",
+   "class": "security-fix",
+   "sha": "ea001b439a134f4e0e4245d29988547103c047b4",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in getTLScertificate"
+  },
+  {
+   "id": "OSV-2021-1476",
+   "class": "security-fix",
+   "sha": "c3d1c69722f31791ad718bfe3a265c0df22b9997",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2021-1476",
+   "class": "introduced",
+   "sha": "4c00ff89dfa64f1026c2f1d267dc081a86b45243",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2021-1804",
+   "class": "security-fix",
+   "sha": "9dcc4a2334fa10d7d0a3c019ee35dfde4c06e044",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2021-1804",
+   "class": "introduced",
+   "sha": "9ca62ed7acc3e10fe00d2d0e2c4e921948cda52c",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2021-1805",
+   "class": "introduced",
+   "sha": "ed51987e3a4838dd9aef27dfab2c0651f2f52836",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_kerberos"
+  },
+  {
+   "id": "OSV-2021-298",
+   "class": "security-fix",
+   "sha": "550e6fe6fcd96e507763db66873791b96f19fe2b",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in http_process_user_agent"
+  },
+  {
+   "id": "OSV-2021-784",
+   "class": "security-fix",
+   "sha": "ed51987e3a4838dd9aef27dfab2c0651f2f52836",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2021-784",
+   "class": "introduced",
+   "sha": "e2c3445a204c39c152bd3ae93a73f0cf2e57d286",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2021-868",
+   "class": "security-fix",
+   "sha": "b0b3e1bc6c8db7cf8a2a26dbb29ffdb057d86121",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_set_detected_protocol"
+  },
+  {
+   "id": "OSV-2021-868",
+   "class": "introduced",
+   "sha": "be808c30f3f4582009df4c5efccd4f3bb0c6ef1d",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_set_detected_protocol"
+  },
+  {
+   "id": "OSV-2021-872",
+   "class": "security-fix",
+   "sha": "0afc8ace3d2da3ff67c13cf3e95f722bdc981170",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_set_detected_protocol"
+  },
+  {
+   "id": "OSV-2022-1022",
+   "class": "security-fix",
+   "sha": "3c0021d6036532a6fdff9196b7ee7a614bdbd525",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2022-1022",
+   "class": "introduced",
+   "sha": "37c88b129f6f5a3475dc6364cc4a898df9ff37ab",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2022-1025",
+   "class": "security-fix",
+   "sha": "c4fb2a590e2648ee52641b3afe22157d2e9173d3",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_irc_tcp"
+  },
+  {
+   "id": "OSV-2022-1025",
+   "class": "introduced",
+   "sha": "199c86e3df8da0b4734193df8424cd4a62768ae8",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_irc_tcp"
+  },
+  {
+   "id": "OSV-2022-1032",
+   "class": "security-fix",
+   "sha": "2d153fba45325e4fe716ff92a44eb67fe0fcea72",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2022-1055",
+   "class": "security-fix",
+   "sha": "de16fd35aa08ab584eaec487c02d31ad7a7a8942",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_search_irc_tcp"
+  },
+  {
+   "id": "OSV-2022-120",
+   "class": "security-fix",
+   "sha": "79968f3245ae7bf277e01d8c5a28349b75d9ac74",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_strncasestr"
+  },
+  {
+   "id": "OSV-2022-120",
+   "class": "introduced",
+   "sha": "0dd5ac89f842ac37f4c36ff67620a49b9e7eb76f",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_strncasestr"
+  },
+  {
+   "id": "OSV-2022-191",
+   "class": "security-fix",
+   "sha": "96f8942f75f6f489312779a0c5ec22b7520319ca",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_handle_ipv6_extension_headers"
+  },
+  {
+   "id": "OSV-2022-191",
+   "class": "introduced",
+   "sha": "1fadf4754a1741e6fd690dbb65ae778fd1dc0313",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_handle_ipv6_extension_headers"
+  },
+  {
+   "id": "OSV-2022-202",
+   "class": "security-fix",
+   "sha": "6f431057c5e11ce24dc88a43b681e9ba9aa5a0e1",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2022-202",
+   "class": "introduced",
+   "sha": "75a53ad064bcb19570847554b72e9303d776b8fd",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2022-325",
+   "class": "security-fix",
+   "sha": "06a0abb6fdf8fb7a446ef5aafdf2c7d24608977f",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_tinc"
+  },
+  {
+   "id": "OSV-2022-325",
+   "class": "introduced",
+   "sha": "b04040768323a7666bcf588f2323054082883d75",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_tinc"
+  },
+  {
+   "id": "OSV-2022-341",
+   "class": "security-fix",
+   "sha": "4775be3d85434d4e385f43a47b783844bbfb2571",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in krb_parse"
+  },
+  {
+   "id": "OSV-2022-341",
+   "class": "introduced",
+   "sha": "e3faecf9de165adececbf77cbe54a8cbe373a91c",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in krb_parse"
+  },
+  {
+   "id": "OSV-2022-376",
+   "class": "security-fix",
+   "sha": "d5005f584c4baf67e084e3bc8b052ca27004550e",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_raknet"
+  },
+  {
+   "id": "OSV-2022-376",
+   "class": "introduced",
+   "sha": "ac0f50b56115acc7c8107d9b2661cac6b0d7bf2b",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_raknet"
+  },
+  {
+   "id": "OSV-2022-443",
+   "class": "security-fix",
+   "sha": "c4f50b2cdac989cc89930564a88a5caab85c7214",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_http_tcp"
+  },
+  {
+   "id": "OSV-2022-443",
+   "class": "introduced",
+   "sha": "f25deeccb1ccbebd6346271828762fdd8326c32b",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_http_tcp"
+  },
+  {
+   "id": "OSV-2022-445",
+   "class": "security-fix",
+   "sha": "9040bc74c94dbd44cd86b29ec3de40621df53467",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in tlsCheckUncommonALPN"
+  },
+  {
+   "id": "OSV-2022-48",
+   "class": "security-fix",
+   "sha": "eb5d7b07afae0d1dd8f5b079835d8f1ec66dc160",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2022-48",
+   "class": "introduced",
+   "sha": "9c3bfeca80a5064ce5ac689002a9f518d0cb3347",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2022-481",
+   "class": "security-fix",
+   "sha": "bdf54d725bb3e751b63af171e08203e3e434c587",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_strdup"
+  },
+  {
+   "id": "OSV-2022-481",
+   "class": "introduced",
+   "sha": "7419cfee6407ff2dad687733da8eb27edd181ef9",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_strdup"
+  },
+  {
+   "id": "OSV-2022-483",
+   "class": "security-fix",
+   "sha": "8dcaa5c0e11a7af1b529d0d657f4b37f11e8ec11",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_dns"
+  },
+  {
+   "id": "OSV-2022-483",
+   "class": "introduced",
+   "sha": "32428026d6dbcf7ee36aa3c882056b869b593d65",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_dns"
+  },
+  {
+   "id": "OSV-2022-661",
+   "class": "security-fix",
+   "sha": "8b6a00f84bff9c998643d823502ae9f924fce528",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in dissect_softether_ip_port"
+  },
+  {
+   "id": "OSV-2022-661",
+   "class": "introduced",
+   "sha": "ed4f106a0d6ba2d644e95354891b4b68f927c535",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in dissect_softether_ip_port"
+  },
+  {
+   "id": "OSV-2022-670",
+   "class": "security-fix",
+   "sha": "346e274a1b1d713aedfc341f7d1300009f9f0e1a",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in dissect_softether_ip_port"
+  },
+  {
+   "id": "OSV-2022-691",
+   "class": "security-fix",
+   "sha": "59a9bdeb55fb5a712b51141bfa4492a897cda5c8",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in dissect_softether_host_fqdn"
+  },
+  {
+   "id": "OSV-2022-691",
+   "class": "introduced",
+   "sha": "346e274a1b1d713aedfc341f7d1300009f9f0e1a",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in dissect_softether_host_fqdn"
+  },
+  {
+   "id": "OSV-2022-695",
+   "class": "security-fix",
+   "sha": "540848c254ab4f8f89b6cfab03269ed8dc4dc887",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_free_flow_data"
+  },
+  {
+   "id": "OSV-2022-695",
+   "class": "introduced",
+   "sha": "c0732eda45884de91e0c221e9dd23eeec364bf68",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_free_flow_data"
+  },
+  {
+   "id": "OSV-2022-709",
+   "class": "security-fix",
+   "sha": "e135c1c5e3a6b202f4b29374426bbc9808978045",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in dissect_softether_host_fqdn"
+  },
+  {
+   "id": "OSV-2022-712",
+   "class": "introduced",
+   "sha": "1093aafa5f81aeb39263bc87dc88327f873341ae",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_florensia"
+  },
+  {
+   "id": "OSV-2023-1004",
+   "class": "security-fix",
+   "sha": "30fc89e556e5c09bf62b9548862cc3d924b9ec81",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_snprintf"
+  },
+  {
+   "id": "OSV-2023-1004",
+   "class": "introduced",
+   "sha": "a76b9d151f58e000980abffc29b0192b08c5bb4e",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_snprintf"
+  },
+  {
+   "id": "OSV-2023-102",
+   "class": "security-fix",
+   "sha": "9eb9664516aafb821097f049717c70e576ac18a6",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_free_flow_data"
+  },
+  {
+   "id": "OSV-2023-102",
+   "class": "introduced",
+   "sha": "afb5c3e6bad82ebd265ab12254ac7c6e067a791b",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_free_flow_data"
+  },
+  {
+   "id": "OSV-2023-1093",
+   "class": "security-fix",
+   "sha": "e399bd7e3d4cb4071e426ecb735084c6577a8644",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in ndpi_handle_rule"
+  },
+  {
+   "id": "OSV-2023-1093",
+   "class": "introduced",
+   "sha": "9fb7a635765769d1343af32841c24aa908acb79e",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in ndpi_handle_rule"
+  },
+  {
+   "id": "OSV-2023-1354",
+   "class": "security-fix",
+   "sha": "f2be9722242880fb9bff3be31d59dae6a25a8690",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2023-1354",
+   "class": "introduced",
+   "sha": "cbea1b2203647e3ee819d8d1d93411e8a8f9e116",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2023-1364",
+   "class": "security-fix",
+   "sha": "308f71a6e80751eae09f08cdfdc996a77510e5a5",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2023-19",
+   "class": "security-fix",
+   "sha": "f95bdaf625a540cbd040508bfbb8808223f97aed",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_bittorrent"
+  },
+  {
+   "id": "OSV-2023-19",
+   "class": "introduced",
+   "sha": "470eaa6ff388435d7233ff2680e3ea013068d1fe",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_bittorrent"
+  },
+  {
+   "id": "OSV-2023-219",
+   "class": "security-fix",
+   "sha": "ddb9aa0f95ba263361b9be2ba0a122ea1e001be9",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN WRITE in processCertificateElements"
+  },
+  {
+   "id": "OSV-2023-219",
+   "class": "introduced",
+   "sha": "0e80828e146a30bc03b60eefbf0d4c3583e243e3",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN WRITE in processCertificateElements"
+  },
+  {
+   "id": "OSV-2023-229",
+   "class": "security-fix",
+   "sha": "04a426feef3399a2354b4aa10ee2a28cf107fb45",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2023-229",
+   "class": "introduced",
+   "sha": "530d0de4382ab4d70cfc1dedcf8cf2ac729dfddf",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_workflow_process_packet"
+  },
+  {
+   "id": "OSV-2023-243",
+   "class": "security-fix",
+   "sha": "6e0cd162254e54ee2ca349455f39786fe039b811",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN WRITE in processCertificateElements"
+  },
+  {
+   "id": "OSV-2023-436",
+   "class": "security-fix",
+   "sha": "82fa3a098632006cc8edffb647cabee08843524a",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_check_punycode_string"
+  },
+  {
+   "id": "OSV-2023-436",
+   "class": "introduced",
+   "sha": "0223d3c4f5219910e0f7dc3c5f5b2c95df72dea7",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_check_punycode_string"
+  },
+  {
+   "id": "OSV-2023-504",
+   "class": "security-fix",
+   "sha": "8dbd591053274fc1faddc1eff355fda9f5ad79a5",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_line"
+  },
+  {
+   "id": "OSV-2023-504",
+   "class": "introduced",
+   "sha": "66bee475ae1b1f4b1b4104555b7bb4d38c3e20b6",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_line"
+  },
+  {
+   "id": "OSV-2023-509",
+   "class": "security-fix",
+   "sha": "3a1600ff26d02a3440186a6e8355521086a7e11f",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_thrift_tcp_udp"
+  },
+  {
+   "id": "OSV-2023-509",
+   "class": "introduced",
+   "sha": "167888828470d26a10252d67b62117f770341a5f",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_thrift_tcp_udp"
+  },
+  {
+   "id": "OSV-2023-566",
+   "class": "security-fix",
+   "sha": "bd0fcb2e62e5fa1fb3f4342e605e15f1f4920efc",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2023-566",
+   "class": "introduced",
+   "sha": "0b0f255cc2b4ef18b9c1b51cf71e86de5b2c462b",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2023-573",
+   "class": "security-fix",
+   "sha": "fea09e825b8c3872ea54c8361242a9eff538222c",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Negative-size-param in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2023-776",
+   "class": "security-fix",
+   "sha": "19381f330ae735d361d9e765148be5e14478256d",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_domain_classify_contains"
+  },
+  {
+   "id": "OSV-2023-776",
+   "class": "introduced",
+   "sha": "36abf06c6f59b66bde48e7b3028b4823ecc6ed85",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_domain_classify_contains"
+  },
+  {
+   "id": "OSV-2024-1326",
+   "class": "security-fix",
+   "sha": "35f37c38d983108b55f38f62b7b58582c1909c39",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_mikrotik"
+  },
+  {
+   "id": "OSV-2024-1326",
+   "class": "introduced",
+   "sha": "dfc3168caf289c6de9ccad6401e819d710455ba2",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_search_mikrotik"
+  },
+  {
+   "id": "OSV-2024-1330",
+   "class": "security-fix",
+   "sha": "c228502cb4d06de42a01e4c451f6b1acd750ce71",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in zoom_search_again"
+  },
+  {
+   "id": "OSV-2024-1330",
+   "class": "introduced",
+   "sha": "0d36d9c8c2d02a8d2e93f5419925140674bbeead",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in zoom_search_again"
+  },
+  {
+   "id": "OSV-2024-1380",
+   "class": "security-fix",
+   "sha": "4d17dc635cac296ae2f526c1d56a90c6d60170d8",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Index-out-of-bounds in ndpi_search_dns"
+  },
+  {
+   "id": "OSV-2024-1380",
+   "class": "introduced",
+   "sha": "45323e3bf8a0fc56fd5f74c12f78e2f27429e701",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Index-out-of-bounds in ndpi_search_dns"
+  },
+  {
+   "id": "OSV-2024-246",
+   "class": "security-fix",
+   "sha": "f5905a62c7fc1922d0b49e9399d56e8cfee69516",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_detection_process_packet"
+  },
+  {
+   "id": "OSV-2024-246",
+   "class": "introduced",
+   "sha": "99e521eaf8b79ef38764edc204ae588f15ea2291",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_detection_process_packet"
+  },
+  {
+   "id": "OSV-2024-293",
+   "class": "security-fix",
+   "sha": "a62679952c4fe51fead86f38c76eee8fbdd1f694",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in shoco_decompress"
+  },
+  {
+   "id": "OSV-2024-293",
+   "class": "introduced",
+   "sha": "ef891834699db2b0ed16e32fc2d352e8a8419945",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Stack-buffer-overflow in shoco_decompress"
+  },
+  {
+   "id": "OSV-2024-469",
+   "class": "security-fix",
+   "sha": "0110623b4ed94e49f2821073146d705856ed149f",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2024-469",
+   "class": "introduced",
+   "sha": "6bbae9a70a2b346968406d582f411447c9cbbd00",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2024-552",
+   "class": "security-fix",
+   "sha": "312dc424bdf93f6680562e7f925e782c766383e6",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_search_zoom"
+  },
+  {
+   "id": "OSV-2024-552",
+   "class": "introduced",
+   "sha": "070a0908b30c055bf0590fb0d10557c1acf70401",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in ndpi_search_zoom"
+  },
+  {
+   "id": "OSV-2025-145",
+   "class": "security-fix",
+   "sha": "30c3613f2fae705a284284794b5367ad7c7374ae",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ___interceptor_strncat"
+  },
+  {
+   "id": "OSV-2025-145",
+   "class": "introduced",
+   "sha": "e052e5b6b7b9f38819bcd8f12c10258936e134e9",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ___interceptor_strncat"
+  },
+  {
+   "id": "OSV-2025-149",
+   "class": "security-fix",
+   "sha": "6c00422f5cc901896ed3d4001874ef72e43da600",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in processClientServerHello"
+  },
+  {
+   "id": "OSV-2025-149",
+   "class": "introduced",
+   "sha": "30c3613f2fae705a284284794b5367ad7c7374ae",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN READ in processClientServerHello"
+  },
+  {
+   "id": "OSV-2025-449",
+   "class": "security-fix",
+   "sha": "75395cb264f9bfd38d27ac0ba506acc9eab22e34",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2025-449",
+   "class": "introduced",
+   "sha": "6d0a891d1e9ee137d24263881530c5dcb9411709",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in check_content_type_and_change_protocol"
+  },
+  {
+   "id": "OSV-2025-469",
+   "class": "security-fix",
+   "sha": "86c591af6abb92448863d03d659aa430beb8f61d",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_strdup"
+  },
+  {
+   "id": "OSV-2025-469",
+   "class": "introduced",
+   "sha": "6da6991320168754eef57b2316574dd625938a65",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in ndpi_strdup"
+  },
+  {
+   "id": "OSV-2025-484",
+   "class": "security-fix",
+   "sha": "6cbc8d1471be221766fac49ed73f5b0e837917be",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in load_protocols_file_fd"
+  },
+  {
+   "id": "OSV-2025-484",
+   "class": "introduced",
+   "sha": "a671226078347ed058a6ddcbfebd27e8a524bd1d",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in load_protocols_file_fd"
+  },
+  {
+   "id": "OSV-2025-564",
+   "class": "security-fix",
+   "sha": "ae48c8df7a7b01e67838572621b758e4b2d966ec",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_match_host_subprotocol"
+  },
+  {
+   "id": "OSV-2025-564",
+   "class": "introduced",
+   "sha": "61d152778d6329350ccf5acb063d6ffc3fd1b366",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ndpi_match_host_subprotocol"
+  },
+  {
+   "id": "OSV-2025-723",
+   "class": "security-fix",
+   "sha": "43d9caac0090fb1c5d70dd1675b021bfbeaf5524",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2025-723",
+   "class": "introduced",
+   "sha": "37562c655d13fa301bc7fb584e4cb9331c303ff5",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in processClientServerHello"
+  },
+  {
+   "id": "OSV-2025-80",
+   "class": "security-fix",
+   "sha": "5424d144242c5b85176465acb7376237d80c6d91",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_snprintf"
+  },
+  {
+   "id": "OSV-2025-80",
+   "class": "introduced",
+   "sha": "aacade6d9571bdf6fc9bd0b5cbbafb65d5123f8f",
+   "severity": null,
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Segv on unknown address in ndpi_snprintf"
+  },
+  {
+   "id": "OSV-2026-21",
+   "class": "security-fix",
+   "sha": "27071bc6e7826e70e5104a9a3e1e240cbd0bbaf2",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in processTLSBlock"
+  },
+  {
+   "id": "OSV-2026-21",
+   "class": "introduced",
+   "sha": "412c63df19dd80a9bc765f0686340c7d7baea2f8",
+   "severity": "MEDIUM",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Use-of-uninitialized-value in processTLSBlock"
+  },
+  {
+   "id": "OSV-2026-659",
+   "class": "security-fix",
+   "sha": "da372c59cc0a3d83e500742953d96e7d15c01491",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ___interceptor_strncpy"
+  },
+  {
+   "id": "OSV-2026-659",
+   "class": "introduced",
+   "sha": "2255d82d2df361c164412cfe3ba08e8598b0270c",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "Heap-buffer-overflow in ___interceptor_strncpy"
+  },
+  {
+   "id": "OSV-2026-678",
+   "class": "security-fix",
+   "sha": "211d26151d31bd4ba344248205e1aa695782fbd1",
+   "severity": "HIGH",
+   "cwe": null,
+   "cwe_desc": null,
+   "summary": "UNKNOWN WRITE in ___interceptor_strncpy"
+  },
+  {
+   "id": "control-for-OSV-2020-10",
+   "class": "control",
+   "sha": "e1047b324bc67bd64f690b0848ad26464b6a982e",
+   "matched_to": "83bbb4cb694d1f305258d4c4a5dc4174ef6526d1"
+  },
+  {
+   "id": "control-for-OSV-2020-1011",
+   "class": "control",
+   "sha": "00e639d51301ccbaa2c14a47e829bdfe1831e226",
+   "matched_to": "fc82cdfa4ac11e34725319620cdc549cb1b700d0"
+  },
+  {
+   "id": "control-for-OSV-2020-1013",
+   "class": "control",
+   "sha": "9b80c6314d9862c716f77bc2814bd28e8ede2f54",
+   "matched_to": "c7efd0892f1f9299360956b740044a798123a773"
+  },
+  {
+   "id": "control-for-OSV-2020-1019",
+   "class": "control",
+   "sha": "937dcb38eacec02cf7fc8aa6f587caf98b545a4b",
+   "matched_to": "634457615c91ef27436db92210f32522277f1818"
+  },
+  {
+   "id": "control-for-OSV-2020-1074",
+   "class": "control",
+   "sha": "21bc84e837d1410c1cf8ab8817391a73c575aa4d",
+   "matched_to": "ab9ccf9eb9a6571d84bd0b2c8e185565d0d700f6"
+  },
+  {
+   "id": "control-for-OSV-2020-1075",
+   "class": "control",
+   "sha": "4d95dae2ae2beabbd9c4ceb86444a9643781ab8f",
+   "matched_to": "287015ffdc33ff2c212563ffb866b38dee64e12b"
+  },
+  {
+   "id": "control-for-OSV-2020-1082",
+   "class": "control",
+   "sha": "942a71c7eb10656621a8b7ba44d2d28c69566e90",
+   "matched_to": "2aec630202bf976e8ee978922441a414d4176cb8"
+  },
+  {
+   "id": "control-for-OSV-2020-1112",
+   "class": "control",
+   "sha": "277b4a060acda6f0f20b3df03c4c099df6c7b3a9",
+   "matched_to": "c223bb1f10068c00aaf9e9c96709dc3984a969cb"
+  },
+  {
+   "id": "control-for-OSV-2020-1131",
+   "class": "control",
+   "sha": "40896d3d447a919cd2183a0ccd5751d1fc4ad4af",
+   "matched_to": "4976d93d4e7ce5e63cb562fb7f0f916c3103e2de"
+  },
+  {
+   "id": "control-for-OSV-2020-1133",
+   "class": "control",
+   "sha": "7f510c10fe1f764bf42417110cd53cf6ac765a4b",
+   "matched_to": "c6acf97bfbe5ad26db3c2f5dd4d379ac674d6fb3"
+  },
+  {
+   "id": "control-for-OSV-2020-1187",
+   "class": "control",
+   "sha": "b715467da621b0bb901160a14a01250e54e0b1f9",
+   "matched_to": "6d7f3976f33b0d4fbbece60d6b7d549b13107674"
+  },
+  {
+   "id": "control-for-OSV-2020-1194",
+   "class": "control",
+   "sha": "fce2cd98178166cd62179cf7f3bde2eccc0a5009",
+   "matched_to": "d4ae8a5f164167ef4fcf5b76b743e92b9e76d9dd"
+  },
+  {
+   "id": "control-for-OSV-2020-12",
+   "class": "control",
+   "sha": "16ca69733a26cd047a61d9355cba8b39ebaceb28",
+   "matched_to": "0ddc3a0052cfd3ad539ae0540aa4879bcae80ee5"
+  },
+  {
+   "id": "control-for-OSV-2020-1263",
+   "class": "control",
+   "sha": "82a186e096edab6443bddfc1a786962f96653f0f",
+   "matched_to": "226a9abf2235fd9e87353ffe727babad71fb7274"
+  },
+  {
+   "id": "control-for-OSV-2020-136",
+   "class": "control",
+   "sha": "a58a135758e6b98fe1ebed4ac595a837864ef5a3",
+   "matched_to": "7a2bcd9c395f9fe554109e04add33e9e65564d82"
+  },
+  {
+   "id": "control-for-OSV-2020-142",
+   "class": "control",
+   "sha": "fb863c6bfba2593c4bb64b94615ac2e15662aa18",
+   "matched_to": "374a24a1fb373617be23d7cbb397b47d23a5ffda"
+  },
+  {
+   "id": "control-for-OSV-2020-1566",
+   "class": "control",
+   "sha": "4b1cae2c2be5be76e848c9794b62e5095a6b38f0",
+   "matched_to": "6027a7c7995eda54905f126f3495b4fea8515c5c"
+  },
+  {
+   "id": "control-for-OSV-2020-166",
+   "class": "control",
+   "sha": "068c1b1f22b65ec200a2f577ff93f8dbeecb7321",
+   "matched_to": "d318285caec168b2b8a813845ae7b93b7e078aa3"
+  },
+  {
+   "id": "control-for-OSV-2020-171",
+   "class": "control",
+   "sha": "52893d99f667d16ace6eef03fa7c4344a87ff6e9",
+   "matched_to": "38e4910636bd6273b62e0b195c9d45483c39cc1a"
+  },
+  {
+   "id": "control-for-OSV-2020-1715",
+   "class": "control",
+   "sha": "cefb667d8bb483adfbad6a3e8bcb6ec21fd012d8",
+   "matched_to": "37abe0daea8c964dbd2e09058074bfc7ae053199"
+  },
+  {
+   "id": "control-for-OSV-2020-1717",
+   "class": "control",
+   "sha": "6719fa30f9cfda5fe9d60b84e7afb442a9ea3517",
+   "matched_to": "53a5c354d833770196852ee94b0abefb73ffd8b8"
+  },
+  {
+   "id": "control-for-OSV-2020-1729",
+   "class": "control",
+   "sha": "c4b19fd6c5d7bd5649be4f15a974742d064eb89b",
+   "matched_to": "1c0e617d802d214b0186f2752b50b8ee2a9e17a6"
+  },
+  {
+   "id": "control-for-OSV-2020-177",
+   "class": "control",
+   "sha": "931f51bd77b2b863cab010064d2a2d0b4f968f7e",
+   "matched_to": "90e08b3568d8963a459cf06c4e67ff6fc99298e3"
+  },
+  {
+   "id": "control-for-OSV-2020-179",
+   "class": "control",
+   "sha": "6fe95358812323fcf614fba8f8e5a43f43d164bb",
+   "matched_to": "fe513014a8f5156b243ec2eb5e6862a0506c6632"
+  },
+  {
+   "id": "control-for-OSV-2020-18",
+   "class": "control",
+   "sha": "fd943d6000316cdab5588558090bce0b2242f2f3",
+   "matched_to": "8e7b1ea7a136cc4e4aa9880072ec2d69900a825e"
+  },
+  {
+   "id": "control-for-OSV-2020-181",
+   "class": "control",
+   "sha": "cb34c6b23366dcfae75a27987f4676a7de021ea3",
+   "matched_to": "b287dccecfecd32f114b043f395019eb3b000791"
+  },
+  {
+   "id": "control-for-OSV-2020-1827",
+   "class": "control",
+   "sha": "b23cfd6b8444ec44dcc1b349ed0ee0659df8447d",
+   "matched_to": "b70ad0e2f19aa1d6f4b3b64208e14c6e5839d60a"
+  },
+  {
+   "id": "control-for-OSV-2020-185",
+   "class": "control",
+   "sha": "32d25bfdaf700ddb22085f662854cc62b2f2e8ec",
+   "matched_to": "b0bf66c436b829155662c27f59ab09dc6e9e7f3d"
+  },
+  {
+   "id": "control-for-OSV-2020-1884",
+   "class": "control",
+   "sha": "a91e6179c5e19cd7769247614680a5e99f1b7cfc",
+   "matched_to": "5f7b9d802498215f5769a8bfa39d92356da2cfdd"
+  },
+  {
+   "id": "control-for-OSV-2020-2126",
+   "class": "control",
+   "sha": "0eb7a0388c4549ebbf8cd7a10d398088005cc2de",
+   "matched_to": "9f050fa0a65f3403c1f8296faf5f9d88d4900a8d"
+  },
+  {
+   "id": "control-for-OSV-2020-2206",
+   "class": "control",
+   "sha": "f6cb869c637850e9439fb9a04f392f352d909712",
+   "matched_to": "0fceb6576aeb76b78ad9c19c86830fba694cfd5d"
+  },
+  {
+   "id": "control-for-OSV-2020-2298",
+   "class": "control",
+   "sha": "60aaa80570b48b15c14c2a5133d9b73f7578b21a",
+   "matched_to": "68b6ac7da8b2f3c5f0ffa3f29015eefaa37e1ff5"
+  },
+  {
+   "id": "control-for-OSV-2020-236",
+   "class": "control",
+   "sha": "f389969c0b860961deaec4ee6e200246ca0f6482",
+   "matched_to": "812505b56bb4508bc42e1615d6425ad26444d3f8"
+  },
+  {
+   "id": "control-for-OSV-2020-245",
+   "class": "control",
+   "sha": "328016895f4da6c817495d98cdc09980040dd06b",
+   "matched_to": "6a9f5e4f7c3fd5ddab3e6727b071904d76773952"
+  },
+  {
+   "id": "control-for-OSV-2020-342",
+   "class": "control",
+   "sha": "b96b61844389fbf9334033eae7dfd3f2d6dc3828",
+   "matched_to": "23b0b8625d1f20596b2b20a149fb28c38046f4e1"
+  },
+  {
+   "id": "control-for-OSV-2020-39",
+   "class": "control",
+   "sha": "6769168d8912d80c1343945232bffb8adc8f74b2",
+   "matched_to": "29d9c2d2c80289f31278f8717959a5718a2e6ce1"
+  },
+  {
+   "id": "control-for-OSV-2020-4",
+   "class": "control",
+   "sha": "65d526d8f6ae75f8d1a3f5c8dd19bf40ec03f320",
+   "matched_to": "46d96e7f32a799ae57400d82e4c485e4ef9771ab"
+  },
+  {
+   "id": "control-for-OSV-2020-40",
+   "class": "control",
+   "sha": "5fc9d41eb0b337958fb7c7446ca690f8ba361285",
+   "matched_to": "e9195589d29d86da1849ad0d195900e6567354cf"
+  },
+  {
+   "id": "control-for-OSV-2020-49",
+   "class": "control",
+   "sha": "ac17e0bea7a4629477ab32b6624daa9c6484b9b6",
+   "matched_to": "4f370fe7c49cb38125cff2a1411261011e433c94"
+  },
+  {
+   "id": "control-for-OSV-2020-59",
+   "class": "control",
+   "sha": "fd9427050700aea7a7e37ad7909c09aff721a797",
+   "matched_to": "34ad06fef53626bc718b3e349a365f8fd0ef3646"
+  },
+  {
+   "id": "control-for-OSV-2020-67",
+   "class": "control",
+   "sha": "7806eb5f5b02fd78de1db20caeebc56088ebec3e",
+   "matched_to": "c1baf1516de5fc0cd122e4693f4774b0fd4b627b"
+  },
+  {
+   "id": "control-for-OSV-2020-70",
+   "class": "control",
+   "sha": "32dc9e3225cc3c55f263221e8fd723aa85a991af",
+   "matched_to": "25cd2a23a6b7057af0e898c613e5f4acf168a11c"
+  },
+  {
+   "id": "control-for-OSV-2020-71",
+   "class": "control",
+   "sha": "1b73f7372e0ddbdef9549c92cd56ba59746bd14d",
+   "matched_to": "61066fb106efa6d3d95b67e47b662de208b2b622"
+  },
+  {
+   "id": "control-for-OSV-2020-747",
+   "class": "control",
+   "sha": "3669c14afddc30649866a88e7a5f147bdabe6495",
+   "matched_to": "d6a97219ea14f0eb4d7d0831d4aefc971878caae"
+  },
+  {
+   "id": "control-for-OSV-2020-774",
+   "class": "control",
+   "sha": "5d2551ff3e8544cc76e9b6a2747b95db8c7f97d5",
+   "matched_to": "7051acc0b5b8046b6415a454a2eff4fffa18396b"
+  },
+  {
+   "id": "control-for-OSV-2020-78",
+   "class": "control",
+   "sha": "c5e16b4ff7517fd336f1e80db5a9a920a31ae6b2",
+   "matched_to": "241af016e9e2a43d24cbdc2378d813ba523f5126"
+  },
+  {
+   "id": "control-for-OSV-2020-780",
+   "class": "control",
+   "sha": "24fea66a26dcf621b0669b3e2315d694f3a2bf20",
+   "matched_to": "204f3ddff5efc929095556ed22ec62d18bef6324"
+  },
+  {
+   "id": "control-for-OSV-2020-795",
+   "class": "control",
+   "sha": "87c43450f30ca45f9be2efac83d6f2c5abc42ab6",
+   "matched_to": "05dfae6430d34d66ea8e43084f5c12a9f3a6dc5d"
+  },
+  {
+   "id": "control-for-OSV-2020-812",
+   "class": "control",
+   "sha": "1ecc6d323eff8f5d7990e88675c1cc99c4eadb79",
+   "matched_to": "1ec621c85b9411cc611652fd57a892cfef478af3"
+  },
+  {
+   "id": "control-for-OSV-2020-875",
+   "class": "control",
+   "sha": "50f4049b58b9d04a403ba7570935f887aef937db",
+   "matched_to": "6c366d73e27ab2097a197cd6d9870c1ca2457cc8"
+  },
+  {
+   "id": "control-for-OSV-2020-92",
+   "class": "control",
+   "sha": "4d746dabe99da7b193b1f1f74e15d480b83ff8fe",
+   "matched_to": "bbbc5fdbae79c72dbe157e02dfee4ef9f18014b5"
+  },
+  {
+   "id": "control-for-OSV-2020-922",
+   "class": "control",
+   "sha": "6b7c56c909d2f5ee01c71317dc305224963381d4",
+   "matched_to": "b7e666e465f138ae48ab81976726e67deed12701"
+  },
+  {
+   "id": "control-for-OSV-2020-956",
+   "class": "control",
+   "sha": "b97360d931d504a1c1fcfa7d2a8bb577e148be35",
+   "matched_to": "bf7dcd63c3a663cd0e1e8c567511ccfd8047d24a"
+  },
+  {
+   "id": "control-for-OSV-2020-962",
+   "class": "control",
+   "sha": "1d3bef41a4c06e7d24de24e8703c3217a4f2f3a1",
+   "matched_to": "c793e16050df1de377e400eec6e2b34ccff6ca85"
+  },
+  {
+   "id": "control-for-OSV-2020-972",
+   "class": "control",
+   "sha": "369dc65c1a4af1176a5012ebb414d97e84b9f81d",
+   "matched_to": "98f2d3a73c0d4b09b1204e4cfc868ec258a3e478"
+  },
+  {
+   "id": "control-for-OSV-2020-994",
+   "class": "control",
+   "sha": "da7e595fcf03f4ee61b192804e3d80cda94861f4",
+   "matched_to": "ea001b439a134f4e0e4245d29988547103c047b4"
+  },
+  {
+   "id": "control-for-OSV-2021-1476",
+   "class": "control",
+   "sha": "06f13fd2de45237b0643b2a26c76f57967b8e93e",
+   "matched_to": "c3d1c69722f31791ad718bfe3a265c0df22b9997"
+  },
+  {
+   "id": "control-for-OSV-2021-1804",
+   "class": "control",
+   "sha": "48726301e1a2859e277b2ed5b76338cdf4468b22",
+   "matched_to": "9dcc4a2334fa10d7d0a3c019ee35dfde4c06e044"
+  },
+  {
+   "id": "control-for-OSV-2021-298",
+   "class": "control",
+   "sha": "2234b97149b4a7a9dcdc5d04e0e25b36f6360532",
+   "matched_to": "550e6fe6fcd96e507763db66873791b96f19fe2b"
+  },
+  {
+   "id": "control-for-OSV-2021-784",
+   "class": "control",
+   "sha": "227e586e63cb92c6982e1602dbec79891f3910aa",
+   "matched_to": "ed51987e3a4838dd9aef27dfab2c0651f2f52836"
+  },
+  {
+   "id": "control-for-OSV-2021-868",
+   "class": "control",
+   "sha": "ffbce931b981f466bdb82ce8ab757f871997e822",
+   "matched_to": "b0b3e1bc6c8db7cf8a2a26dbb29ffdb057d86121"
+  },
+  {
+   "id": "control-for-OSV-2021-872",
+   "class": "control",
+   "sha": "b7376cc6903b0e1e111fad38484e592676883faa",
+   "matched_to": "0afc8ace3d2da3ff67c13cf3e95f722bdc981170"
+  },
+  {
+   "id": "control-for-OSV-2022-1022",
+   "class": "control",
+   "sha": "66a8010ef7337aa734e430c40c690f4470384f62",
+   "matched_to": "3c0021d6036532a6fdff9196b7ee7a614bdbd525"
+  },
+  {
+   "id": "control-for-OSV-2022-1025",
+   "class": "control",
+   "sha": "ac7a3669dabef5b084f00c3a52fa6c63b0a0a768",
+   "matched_to": "c4fb2a590e2648ee52641b3afe22157d2e9173d3"
+  },
+  {
+   "id": "control-for-OSV-2022-1032",
+   "class": "control",
+   "sha": "cd76bacd4aa42e0a2b97f3c8e3ff497fd3dd0495",
+   "matched_to": "2d153fba45325e4fe716ff92a44eb67fe0fcea72"
+  },
+  {
+   "id": "control-for-OSV-2022-1055",
+   "class": "control",
+   "sha": "f8076e3a58e628d6761d16acdb4c8c7220a260ec",
+   "matched_to": "de16fd35aa08ab584eaec487c02d31ad7a7a8942"
+  },
+  {
+   "id": "control-for-OSV-2022-120",
+   "class": "control",
+   "sha": "a96d7eb180db4074e46b0e56ea79e1417fe771f5",
+   "matched_to": "79968f3245ae7bf277e01d8c5a28349b75d9ac74"
+  },
+  {
+   "id": "control-for-OSV-2022-191",
+   "class": "control",
+   "sha": "6c1accd2bdca957b0979707b7f789ae8b5a63334",
+   "matched_to": "96f8942f75f6f489312779a0c5ec22b7520319ca"
+  },
+  {
+   "id": "control-for-OSV-2022-202",
+   "class": "control",
+   "sha": "61a3c2eb5b3cac0f36a1bfadc5261b7694d3bfab",
+   "matched_to": "6f431057c5e11ce24dc88a43b681e9ba9aa5a0e1"
+  },
+  {
+   "id": "control-for-OSV-2022-325",
+   "class": "control",
+   "sha": "63c44a24b63e9f015ae0f114dcfd821f245c2070",
+   "matched_to": "06a0abb6fdf8fb7a446ef5aafdf2c7d24608977f"
+  },
+  {
+   "id": "control-for-OSV-2022-341",
+   "class": "control",
+   "sha": "f4554218708e390299e0804c4d5d5fda70809b99",
+   "matched_to": "4775be3d85434d4e385f43a47b783844bbfb2571"
+  },
+  {
+   "id": "control-for-OSV-2022-376",
+   "class": "control",
+   "sha": "8238e68275037d4e3fddac67dc65b81d8f5d35c7",
+   "matched_to": "d5005f584c4baf67e084e3bc8b052ca27004550e"
+  },
+  {
+   "id": "control-for-OSV-2022-443",
+   "class": "control",
+   "sha": "5dcb9c1c16d59650a5c7570a6957fa47e752643e",
+   "matched_to": "c4f50b2cdac989cc89930564a88a5caab85c7214"
+  },
+  {
+   "id": "control-for-OSV-2022-445",
+   "class": "control",
+   "sha": "2e0dedbaae24a8662a494e15fe47a67ea30fdcec",
+   "matched_to": "9040bc74c94dbd44cd86b29ec3de40621df53467"
+  },
+  {
+   "id": "control-for-OSV-2022-48",
+   "class": "control",
+   "sha": "cefcc25b13f997ca84ac3b0ca7554ece178f4cc2",
+   "matched_to": "eb5d7b07afae0d1dd8f5b079835d8f1ec66dc160"
+  },
+  {
+   "id": "control-for-OSV-2022-481",
+   "class": "control",
+   "sha": "736a80f9ce7a73e8c136d3621facb1bdb3637e65",
+   "matched_to": "bdf54d725bb3e751b63af171e08203e3e434c587"
+  },
+  {
+   "id": "control-for-OSV-2022-483",
+   "class": "control",
+   "sha": "6149c0f880163b0bebd513fa957ece325c77cb88",
+   "matched_to": "8dcaa5c0e11a7af1b529d0d657f4b37f11e8ec11"
+  },
+  {
+   "id": "control-for-OSV-2022-661",
+   "class": "control",
+   "sha": "44459895889042e8d4e434c2f2b5cdece15a5728",
+   "matched_to": "8b6a00f84bff9c998643d823502ae9f924fce528"
+  },
+  {
+   "id": "control-for-OSV-2022-670",
+   "class": "control",
+   "sha": "5ca82ad84b9622a94655cb33797dd952e81b6e9b",
+   "matched_to": "346e274a1b1d713aedfc341f7d1300009f9f0e1a"
+  },
+  {
+   "id": "control-for-OSV-2022-691",
+   "class": "control",
+   "sha": "120e01566a32e1aa4c7c8179165d035c1864cfb3",
+   "matched_to": "59a9bdeb55fb5a712b51141bfa4492a897cda5c8"
+  },
+  {
+   "id": "control-for-OSV-2022-695",
+   "class": "control",
+   "sha": "dfe6557e181afc5d4fb4d01241760920fd4b7b69",
+   "matched_to": "540848c254ab4f8f89b6cfab03269ed8dc4dc887"
+  },
+  {
+   "id": "control-for-OSV-2023-1004",
+   "class": "control",
+   "sha": "2768366969308ebf55c5804266baba72205618db",
+   "matched_to": "30fc89e556e5c09bf62b9548862cc3d924b9ec81"
+  },
+  {
+   "id": "control-for-OSV-2023-102",
+   "class": "control",
+   "sha": "97014c53f3855b657ad876df2d1e5954ae52a075",
+   "matched_to": "9eb9664516aafb821097f049717c70e576ac18a6"
+  },
+  {
+   "id": "control-for-OSV-2023-1093",
+   "class": "control",
+   "sha": "63a2b359b9bbc481ef266407791f09fd12be8fc4",
+   "matched_to": "e399bd7e3d4cb4071e426ecb735084c6577a8644"
+  },
+  {
+   "id": "control-for-OSV-2023-1354",
+   "class": "control",
+   "sha": "8ea16ffd77d486cce4c4bb0d58d80b32d68a4f4f",
+   "matched_to": "f2be9722242880fb9bff3be31d59dae6a25a8690"
+  },
+  {
+   "id": "control-for-OSV-2023-1364",
+   "class": "control",
+   "sha": "ac90b1f00910a33d9104d0470429bb8244a49cc9",
+   "matched_to": "308f71a6e80751eae09f08cdfdc996a77510e5a5"
+  },
+  {
+   "id": "control-for-OSV-2023-19",
+   "class": "control",
+   "sha": "5a5e01a9e2b66e9238c40583baa70341e9ffc3a5",
+   "matched_to": "f95bdaf625a540cbd040508bfbb8808223f97aed"
+  },
+  {
+   "id": "control-for-OSV-2023-219",
+   "class": "control",
+   "sha": "a303756edb8b07bec838db3e154b75e65baa1231",
+   "matched_to": "ddb9aa0f95ba263361b9be2ba0a122ea1e001be9"
+  },
+  {
+   "id": "control-for-OSV-2023-229",
+   "class": "control",
+   "sha": "b3457c644f5581c211697330e3f12d2ef83200aa",
+   "matched_to": "04a426feef3399a2354b4aa10ee2a28cf107fb45"
+  },
+  {
+   "id": "control-for-OSV-2023-243",
+   "class": "control",
+   "sha": "563a24bf6b520798324b2c9356d6bde7dd269ea3",
+   "matched_to": "6e0cd162254e54ee2ca349455f39786fe039b811"
+  },
+  {
+   "id": "control-for-OSV-2023-436",
+   "class": "control",
+   "sha": "3e06bcce8dc558239c4a7e33e936adde8c05791f",
+   "matched_to": "82fa3a098632006cc8edffb647cabee08843524a"
+  },
+  {
+   "id": "control-for-OSV-2023-504",
+   "class": "control",
+   "sha": "46aab35a296bfe059e60ea7aa3dc75ca6c0b88a8",
+   "matched_to": "8dbd591053274fc1faddc1eff355fda9f5ad79a5"
+  },
+  {
+   "id": "control-for-OSV-2023-509",
+   "class": "control",
+   "sha": "552c9b3cc6fbffc5767086c1594b2b8f6598365c",
+   "matched_to": "3a1600ff26d02a3440186a6e8355521086a7e11f"
+  },
+  {
+   "id": "control-for-OSV-2023-566",
+   "class": "control",
+   "sha": "7ef80f6b78e882129f47bb9e09e67d53690cba2f",
+   "matched_to": "bd0fcb2e62e5fa1fb3f4342e605e15f1f4920efc"
+  },
+  {
+   "id": "control-for-OSV-2023-573",
+   "class": "control",
+   "sha": "93d65ed6503b32865b5453238c159e603bb37cb8",
+   "matched_to": "fea09e825b8c3872ea54c8361242a9eff538222c"
+  },
+  {
+   "id": "control-for-OSV-2023-776",
+   "class": "control",
+   "sha": "570c75d6019872610b0cbde981e25edcda5f6754",
+   "matched_to": "19381f330ae735d361d9e765148be5e14478256d"
+  },
+  {
+   "id": "control-for-OSV-2024-1326",
+   "class": "control",
+   "sha": "ed479e5baddef189021678f62ac3bb679bf53f67",
+   "matched_to": "35f37c38d983108b55f38f62b7b58582c1909c39"
+  },
+  {
+   "id": "control-for-OSV-2024-1330",
+   "class": "control",
+   "sha": "c8f8d87bf91a26cfa23bbb0270c1d312e87b5841",
+   "matched_to": "c228502cb4d06de42a01e4c451f6b1acd750ce71"
+  },
+  {
+   "id": "control-for-OSV-2024-1380",
+   "class": "control",
+   "sha": "399be12585f83302178175396bcaf4487ffd57a9",
+   "matched_to": "4d17dc635cac296ae2f526c1d56a90c6d60170d8"
+  },
+  {
+   "id": "control-for-OSV-2024-246",
+   "class": "control",
+   "sha": "6e61368cd609899048560405ad792705fffb1f1a",
+   "matched_to": "f5905a62c7fc1922d0b49e9399d56e8cfee69516"
+  },
+  {
+   "id": "control-for-OSV-2024-293",
+   "class": "control",
+   "sha": "39a5d234fdbb1ca80f387c184d30b3bc29df56c1",
+   "matched_to": "a62679952c4fe51fead86f38c76eee8fbdd1f694"
+  },
+  {
+   "id": "control-for-OSV-2024-469",
+   "class": "control",
+   "sha": "dabf29ea61538e06b969d22b04e62530332218ca",
+   "matched_to": "0110623b4ed94e49f2821073146d705856ed149f"
+  },
+  {
+   "id": "control-for-OSV-2024-552",
+   "class": "control",
+   "sha": "c95e8c184e7e28915bf37aa623e4886fd720aba0",
+   "matched_to": "312dc424bdf93f6680562e7f925e782c766383e6"
+  },
+  {
+   "id": "control-for-OSV-2025-145",
+   "class": "control",
+   "sha": "1bda2bf414b22ce2e983e9c9a849698ccdbb1bf1",
+   "matched_to": "30c3613f2fae705a284284794b5367ad7c7374ae"
+  },
+  {
+   "id": "control-for-OSV-2025-449",
+   "class": "control",
+   "sha": "29eb89a88ff4ab3a5b19f102bf81461ed026a387",
+   "matched_to": "75395cb264f9bfd38d27ac0ba506acc9eab22e34"
+  },
+  {
+   "id": "control-for-OSV-2025-469",
+   "class": "control",
+   "sha": "06a49b4086257f46fd44a1f9f176a539fb49bcdc",
+   "matched_to": "86c591af6abb92448863d03d659aa430beb8f61d"
+  },
+  {
+   "id": "control-for-OSV-2025-484",
+   "class": "control",
+   "sha": "69a4f8120a3e335074fcc33f81e1d82dc0a88791",
+   "matched_to": "6cbc8d1471be221766fac49ed73f5b0e837917be"
+  },
+  {
+   "id": "control-for-OSV-2025-723",
+   "class": "control",
+   "sha": "79f0cbd32a4a04d0edaae1d910dd1608498e78aa",
+   "matched_to": "43d9caac0090fb1c5d70dd1675b021bfbeaf5524"
+  },
+  {
+   "id": "control-for-OSV-2025-80",
+   "class": "control",
+   "sha": "c03dd3e4c7c0e70158cc61d9de3b5cb3790ce171",
+   "matched_to": "5424d144242c5b85176465acb7376237d80c6d91"
+  },
+  {
+   "id": "control-for-OSV-2026-659",
+   "class": "control",
+   "sha": "f3ec1cca05e0628a162adcec61393d88ae7c8727",
+   "matched_to": "da372c59cc0a3d83e500742953d96e7d15c01491"
+  },
+  {
+   "id": "control-for-OSV-2026-678",
+   "class": "control",
+   "sha": "575a2b238a378b4c6a3ef226ba725495662e65c3",
+   "matched_to": "211d26151d31bd4ba344248205e1aa695782fbd1"
+  }
+ ],
+ "missing": []
+}

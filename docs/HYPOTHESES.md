@@ -60,8 +60,12 @@ exists without a pre-registration**.
 **One repository: curl** (C-dominant, ~39.7k commits, 25 years). Events: 186 CVE-fix +
 137 CVE-introducing commits from curl's OSV feed (GIT ranges, 0 unresolvable SHAs) +
 185 size-matched controls; 1,014 full snapshots scanned; ~3.4M per-function measurements.
-Every "supported" below is therefore a **single-project result** until repo #2 replicates
-it. Nothing here is yet a cross-language or cross-ecosystem claim.
+**Repo #2 (nDPI) has now run** (see "Repo #2 (nDPI) replication — RESULTS" below): of curl's
+positives, **only recidivism (RW-H2) replicated**; every structural signature (H3
+`safety_score`, the fix-shaped grammar, R2-H1 danger density) **failed to replicate**, while
+every structural null held. So the cross-repo standing is: recidivism is real; structural
+exposure is a size proxy whose fix-signatures are repo/discovery-specific. Still two C-family
+repos — no cross-*language* or cross-ecosystem claim yet.
 
 ## Register
 
@@ -211,3 +215,104 @@ in the fix **delta/grammar**, not standing. cert/auth couldn't be tested (dead v
 which is itself an engine signal: `def_auth`/`arch_crypto` under-fire on C (cf.
 gitgalaxy#2984/#2979). This is a *within-curl temporal* result; the independent cross-repo
 test remains repo #3 — and it must carry live crypto/auth + concurrency vocabulary.
+
+## Repo #2 (nDPI) replication — RESULTS (2026-09-12)
+
+Ran the pre-registered nDPI battery (epic gitgalaxy#2982, comment 5648589175) on the fresh
+nDPI scan (112 security-fix / 68 introduced / 96 control usable events; 555 snapshots).
+Reports: `docs/ndpi_exposure_report.md`, `docs/ndpi_signal_anatomy.md`, `docs/ndpi_rw.md`.
+
+| id | curl | nDPI | cross-repo verdict |
+|---|---|---|---|
+| N-H1 aggregate exposure | null (0.77) | null (**0.70**) | ✅ null replicates |
+| N-H2 introduced raises | null (0.023) | null (**0.37**) | ✅ null replicates |
+| N-RW1 exposure > LOC @budget | null | null (**0.60**, W/L/T 8/8/96) | ✅ null replicates |
+| N-H3 `safety_score` tracks | ✓ (0.0072) | **✗ (0.71)**, all vectors flat | ❌ **fails to replicate** |
+| N-GRAM fix grammar (branch/ptr adds) | ✓ (0.0004/0.0001) | **✗** (struct_branch 0.28, state_pointers 0.079) | ❌ **fails** |
+| N-FIXSHAPE fix-shaped signature | ✓ 66/38/40 differential | **✗ 58/59/59** (no differential) | ❌ **fails** |
+| R2-H1 danger density (equal length) | suggestive (0.032) | **✗ (0.47)**, implicated 19 vs sibling 20 | ❌ **fails** |
+| D-H1/D-H2 guard deficit | degenerate | degenerate (**0.70**) | ➖ degeneracy replicates |
+| N-RW2 recidivism beats static | ✓✓ | **✓✓ (p<1e-4 vs exposure and vs LOC)** | ✅ **replicates** |
+
+**The verdict after two repositories:** the only *positive* that replicates is **recidivism**
+(N-RW2) — a file's prior-CVE-fix count beats every structural ranking, decisively, on both
+repos. Every **structural** signature curl showed — the `safety_score` vector (H3), the
+fix-shaped branch/pointer grammar (N-GRAM/N-FIXSHAPE), and the danger-density function
+profile (R2-H1) — **fails to replicate on nDPI.** And every structural **null** (aggregate
+exposure, exposure-vs-LOC) holds on both.
+
+**Why the structural signatures collapsed:** nDPI's CVEs are OSS-Fuzz-discovered, and its
+fixes are *tiny* — median event net-LOC **+1** vs curl's +6 — minimal bounds-checks that
+barely move any signal (function-grain values are non-degenerate: implicated functions
+n=243, complexity 22 vs 3, so the DB is populated; the fixes simply don't add branch/pointer
+*grammar* the way curl's user-reported-CVE fixes did). This is the pre-registered
+discovery-population contrast made real: **curl's fix-shaped grammar was a property of
+user-reported CVE fixes, not a cross-repo law.** The emerging function profile (register
+reflection #5) is therefore **withdrawn as a cross-repo claim** — length dominates on nDPI
+too (length-bias gate: complexity 17 vs 15, p=0.39), but danger-density does not separate.
+
+Stage-2 items still owed (need new code, verdicts pending): D-H1′ (branch-guard variant),
+N-FIRST (first-CVE AUC), and the equivalence/TOST CIs formalizing the three replicated
+nulls. Given the grammar collapsed, D-H1′ and N-FIRST are expected null; they will be
+evaluated and published regardless.
+
+**What this sharpens:** structural exposure is a general size/activity proxy whose
+event-signatures are repo- and discovery-specific; the durable, cross-repo predictive law is
+**recidivism** (history beats structure). That is the rung-7 baseline, now confirmed twice.
+
+### Stage-2 (D-H1′, N-FIRST, equivalence CIs) — 2026-09-12
+
+Detail: `docs/ndpi_stage2.md` (tool: `tools/ndpi_stage2.py`).
+
+- **D-H1′ / D-H2′ (branch-per-danger guard deficit, nDPI): ✗ not supported.** Guard rate
+  `struct_branch/(ptr+danger+alloc+cast+1)` — implicated functions 0.634 vs siblings 0.600
+  (p=0.75, *wrong* direction); the fix doesn't raise it (D-H2′ null). Non-degenerate this time
+  (branch-guards exist where `def_safety` didn't), so a real "no", not a vocabulary artifact.
+- **Equivalence (TOST) on the three replicated nulls (nDPI): all ✓ EQUIVALENT-NULL.** N-H1
+  effect 0.000, 95% CI [0, 0.0008] ⊂ ±0.10; N-H2 0.000, CI [−0.011, 0.039] ⊂ ±0.10; N-RW1
+  0.000, CI [0, 0] ⊂ ±0.05. The nulls are **confirmed near-zero**, not merely underpowered —
+  the structural nulls genuinely replicate.
+- **N-FIRST (first-CVE profile, nDPI): ✓ SUPPORTED — but the mechanism is CENTRALITY, not
+  fine structure.** Structural exposure separates first-CVE files from size-matched clean files
+  (AUC 0.755). Orchestrator verification: that raw AUC is inflated — the [0.66,1.5]× LOC match
+  is loose (positives +25 LOC larger within the band) and AUC(LOC)≈0.50 is forced by matching,
+  so the "+0.25 over LOC" is circular. Dividing size out, a real component survives
+  (**AUC(density) 0.624, density-win 78%**) — carried by *total* exposure (`api_exposure`/
+  **centrality**) against *peripheral* never-CVE files: the hot-files effect (reflection #4)
+  that also drives recidivism, **not** the fine danger-structure the density/specificity tests
+  killed (memory density-win 43%). curl context far weaker (density-win 62%). So the file that
+  gets its *first* bug is a **central/hot** one — a genuine but coarse signal, to be cleanly
+  separated from residual size + activity by tighter matching + a per-vector decomposition,
+  **registered for repo #3.**
+
+**Net after Stage 2:** the two-repo picture is unchanged and now airtight — recidivism is the
+lone replicated positive; aggregate/fine-structural exposure is size (the three nulls are
+*equivalence-confirmed*); and the only "structure predicts the first bug" signal that survives
+is **centrality**, which is the same hot-files axis, not a new structural predictor.
+
+### G-H1 / G-H2 — the LOC-floor grammar re-test (2026-09-12)
+
+Registered on gitgalaxy#2982 (comment 5649412476) **before any floor-restricted statistic was
+computed**; only the fix-size distributions were inspected to set the floors. The question:
+the cross-repo grammar failure was confounded with fix size (nDPI fixes median net-LOC +1 vs
+curl +6) — a one-line bounds-check cannot express a structural signature. Restricting BOTH
+repos to fixes above a churn floor de-confounds them. Detail: `docs/grammar_floor.md`
+(tool: `tools/grammar_floor.py`).
+
+| id | verdict | evidence |
+|---|---|---|
+| **G-H2** curl's grammar survives the floor | **✓ SUPPORTED** | persists at ≥5 (branch p=0.0001) and ≥10 (p=0.0008, n=115/108); fix-shaped composite 72%/39% and 69%/37%; thins only at ≥20 where n=72 halves power. **Not** an artifact of tiny commits. |
+| **G-H1** the grammar returns on nDPI under a size floor | **✗ not supported** | no floor revives it — at ≥10 (n=50/46) branch p=0.44, `state_pointers` p=0.93 (*wrong* direction), fix-shaped composite **68% fix vs 67% control** (no differential). |
+
+**This is pre-registered outcome (b): fix size is NOT the explanation.** The grammar is
+**genuinely curl-specific** — a property of *human-reported CVE fixes*, not a consequence of
+nDPI's small commits. Conservative detail: nDPI's controls are *larger* than its fixes at
+every floor (median net-LOC 3.0 vs 4.8 at ≥10), so the fixes were not size-handicapped.
+
+**What remains open.** With size eliminated, the surviving explanation for the curl↔nDPI
+divergence is **discovery process** (human-reported vs fuzzer-found). That cannot be tested by
+comparing repos — repo is confounded with language, era, and team — it requires **both
+provenance classes inside one repository** (e.g. curl commits fixing OSS-Fuzz/ASAN findings vs
+curl commits fixing human-reported CVEs, labeled from commit-message provenance). Registered
+as the next experiment; until it runs, the fix-grammar stands as **single-repo, single-
+discovery-process, and explicitly not general**.
