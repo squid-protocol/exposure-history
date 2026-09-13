@@ -411,3 +411,18 @@ systemd, imagemagick, netty, tensorflow-partially, and **vim** (worst mode found
 real-looking SHAs pointing at *unrelated* commits). Sleeper lead: **kernel subsystem-scoped
 harvest** (net/ ≈43s/scan, fs/ ≈32s) — the only gold-standard introduced-side at tractable
 cost; unexplored.
+
+## X-H1 / X-H2 — registered 2026-09-13 from the keyword-pools exploration (unseen data only)
+
+Mirror of epic comment 5653744144. Both derive from `docs/keyword_pools_explore.md`
+(post-hoc) and are therefore never scored on curl.
+
+| id | claim (α=0.01) | evaluates on |
+|---|---|---|
+| **X-H1** | "Unpaired allocation" (net-add `state_memory_alloc` with `def_cleanup` delta ≤ 0) is enriched among vulnerability-**introducing** commits vs paired-allocation commits; one-sided Fisher | a genuine introduced-side corpus (kernel-subsystem harvest, tc#27) |
+| **X-H2** | The fix-grammar **gradient** replicates: fix-shaped rate orders security-fix > ordinary bug-fix > control (two one-sided Fishers, Bonferroni ×2) | openssl (repo #3, tc#26) |
+
+Motivation on record: the `state_memory_alloc`+`def_cleanup` pair co-moves at ρ=0.85 while
+nearly size-independent (ρ=0.25 vs net-LOC) — breaking the pairing is the anomaly; and the
+8-class table orders 66/53/48/46/38/20/13, replacing the retired binary "grammar is
+CVE-specific" claim with a gradient.

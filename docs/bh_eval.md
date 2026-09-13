@@ -100,3 +100,18 @@ Pooled over all 767591 candidate files across all 957 parent snapshots (n_pos=19
 
 ---
 *Regenerate: `python tools/bh_eval.py --events events/curl_bugs.json` — stdlib+numpy only; HCM walks cached under `/tmp/claude-1000/-home-joe-Projects/7026d7a1-a379-4dda-a4df-b5859b206664/scratchpad/hcmwalk_cache` (shared with hcm_variants.py) keyed by parent sha; bootstrap cells checkpointed to `/tmp/claude-1000/-home-joe-Projects/7026d7a1-a379-4dda-a4df-b5859b206664/scratchpad/bh_eval_cache_curl_bugs_i5000_s2982.json`. Bootstrap compute time this run: 3589.6s wall-clock summed across workers (cells loaded from cache report 0s).*
+
+## Assumption audit (2026-09-13, post-hoc — recorded for honest reading of the above)
+
+- **Label purity:** a 12-commit sample of `bugfix-fixes` found ~half are not code-bug fixes
+  (man-page edits, CMake fixes, deprecations, test infra). The pooled positive class is
+  "changes maintainers linked to issues," not "bugs."
+- **Bystander positives:** ~31% of fix-touched files are under `tests/`/`docs/` (sampled
+  194 files across 80 events) — positives are not all product code.
+- **HCM vs churn (the churn-proxy trap):** rank-corr(HCM, churn) = **0.853** — heavily
+  entangled. But HCM beats churn pooled (0.868 vs 0.848) and adds discrimination within
+  churn bands Q2 (0.70 vs LOC 0.46) and Q4 (0.80 vs 0.76), while being dead in Q1 (files
+  with no recent history have no periods to accumulate entropy). Honest restatement of
+  B-H3: **change entropy is a refinement of churn** — "was the change chaotic?" on top of
+  "did it change?" — better than both trivial baselines, not an independent axis.
+  (Exploratory checks, no bootstrap bounds.)
