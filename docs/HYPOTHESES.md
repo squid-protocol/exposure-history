@@ -426,3 +426,28 @@ Motivation on record: the `state_memory_alloc`+`def_cleanup` pair co-moves at ρ
 nearly size-independent (ρ=0.25 vs net-LOC) — breaking the pairing is the anomaly; and the
 8-class table orders 66/53/48/46/38/20/13, replacing the retired binary "grammar is
 CVE-specific" claim with a gradient.
+
+## Hunk-grain grammar (tc#34, 2026-09-13) — and an honest pre-annotation on X-H2
+
+`docs/hunk_grammar.md` (exploratory, patch-lines only, engine C rules, bystanders excluded):
+
+- **The file-grain gradient largely collapses at patch grain.** Fix-shaped rate: security-fix
+  66→57%, bugfix-fixes 53→56%, bugfix-bug 48→49%, regression 46→49%, control 38→39%, revert
+  13→10%. Scoring only what the developer typed, **an ordinary C bug fix looks structurally
+  like a CVE fix** — what survives is a *fix-vs-nonfix* separation (~50–57% vs 39% vs 10%),
+  not a security-specific grammar. The file-grain security-vs-ordinary spread reads as
+  bystander/dilution artifact.
+- **X-H2 annotation, recorded BEFORE openssl runs:** X-H2's registered claim (security-fix >
+  ordinary bug-fix > control) stands as registered, but this hunk-grain evidence predicts its
+  FIRST inequality may fail at patch grain. Updated expectation on record: the second
+  inequality (fix-classes > control) is the likely survivor. The registered test is unchanged;
+  only the stated prior is revised.
+- **The allocation table — the sharpest single-keyword class separation of the program:**
+  share of patches ADDING any allocation / any cast: **introduced 51% / 46%** vs security-fix
+  10%/8%, control 5%/14%, regression 5%/6%, bugfix-bug 9%/6%, bugfix-fixes 6%/14%. Half of
+  vulnerability-introducing patches add allocations; ~1-in-15 fixes do. The "no new
+  allocations" veto works against *introductions*, not for distinguishing security fixes from
+  controls — the strongest support yet for the X-H1 family (allocation marks where risk is
+  born; evaluates on an introduced-side corpus, tc#27).
+- Method caveat on record: rules run over raw diff text (comments/strings not stripped —
+  `branch` matches the English word "for" in comments); same instrument limits as everywhere.
