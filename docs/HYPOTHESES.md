@@ -2,35 +2,47 @@
 
 ## The plain-language summary (read this first)
 
-**What we did:** took 25 years of curl's security history (every CVE's fix commit and the
-commit that introduced it), scanned the repository at each of those moments, and asked
-whether GitGalaxy's measurements know anything about where security bugs live and what
-fixing them looks like. Every question was written down as a prediction *before* looking.
+**What we did:** validated GitGalaxy's measurements against real defect ground truth,
+pre-registering every prediction before looking: curl's 25-year CVE history (fix +
+introducing commits), a second repository (nDPI, OSS-Fuzz-found CVEs), and 1,107 of curl's
+own bug-fix / regression commits — ~3,550 repository snapshots scanned, every verdict
+published either way.
 
-**What we learned, in plain terms:**
+**What we learned, in plain terms (updated 2026-09-13, after the full program):**
 
-1. **The best predictor of the next security bug is where the last one was.** A reviewer
-   inspecting 20% of the codebase catches ~44% of future CVE files by revisiting past-CVE
-   files — and ~0% by following our risk score or file size. History wins, decisively.
-2. **Our per-file risk totals don't beat a line count** at finding or ranking CVE files.
-   Neither does anyone else's — the leading commercial tools tie a line count too.
-3. **But the raw ingredients carry real signal.** Security fixes have a recognizable shape
-   (added pointer-handling and branching, without the new allocations that mark feature
-   code); one formula built the contract-recommended way (`safety_score`) genuinely tracks
-   fixes; and the functions that get CVE fixes are the long, danger-dense ones. The pieces
-   know things the sum washes out.
-4. **Vulnerabilities lurk ~4.5 years** between being written and being fixed — a huge
-   window for any early warning to matter.
-5. **The negative controls behave.** Reverts measurably *remove* structure (the instrument's
-   sanity check — passed); and CVE-fix *follow-ups* turn out to be administrative (build /
-   cmake / test fixes), not more security logic — so neither "incomplete fixes look thinner"
-   nor "follow-ups finish the job" held. Two more registered predictions died on contact; the
-   record keeps working.
+1. **Two predictors survive honest evaluation; both are history, neither is structure.**
+   - **Recidivism** — the file that had the last fix gets the next one — beats every static
+     ranking, decisively, on both repositories (p<1e-4). The strongest and most replicated
+     result of the program.
+   - **Change entropy (Hassan HCM, `HCM1_LD_30`)** — was this file changed during periods
+     when edits were scattered chaotically across the codebase? Selected on CVE labels,
+     then **validated frozen on fresh bug labels**: AUC 0.868 vs a line count's 0.830
+     (lift +0.038, bound +0.021). The only *feature* to beat a line count out-of-selection.
+2. **Everything structural reduces to file size.** Keyword counts, danger vocabulary,
+   complexity, per-file risk totals — pooled, density-normalized, length-matched, or
+   banded — none beats a line count (nulls equivalence-confirmed, two repos). The same
+   size-confound wall was independently reported by repowise-bench on ordinary bug labels;
+   we reproduced it on CVE labels. Nobody's per-file structural score clears it.
+3. **The fix "grammar" is real but narrow.** curl's security fixes have a recognizable
+   shape (branch/pointer adds without new allocations) — it survives fix-size controls but
+   **does not travel**: nDPI's fuzzer-found one-line fixes carry no signature. It is a
+   property of *human-reported* CVE fixes in curl, not a law.
+4. **Centrality is not the small-file answer.** With proper power (28/42 positives),
+   PageRank in ≤22-line files is *inverted* (AUC 0.26), and the once-beautiful monotone
+   size story failed in 5,000/5,000 bootstrap resamples. The surviving candidate is an
+   **inverted U** — centrality lifts only in mid-size files (49–108 LOC: +0.14, robust) —
+   registered for repo #3, not yet claimed.
+5. **The guards did the finding.** Pre-registration killed post-hoc stories (the monotone
+   shape, the best-of-36 HCM selection); the ≥20-positive power rule stopped an AUC-0.999
+   "result" built on one positive; equivalence tests turned "not significant" into
+   "confirmed near-zero"; and the instrument audit caught a real engine determinism bug
+   (gitgalaxy#2988). More predictions died than lived — that is the record working.
 
-**What this points at:** the question worth owning is not "rank everything by risk"
-(history wins that) but **"which file gets its *first* security bug?"** — where history is
-blind and only structure can answer. That prediction is registered below, awaiting a
-second repository.
+**What this points at:** ship history (recidivism + change entropy) as the predictive
+layer; let structure do what it actually does — describe, explain, and localize, across
+59 languages. The open questions now live in repo #3 (openssl, fixed-side): does the
+grammar return on human-reported fixes elsewhere, is mid-band centrality real, does HCM
+replicate, and the CWE-matched specificity battery that curl and nDPI could not power.
 
 
 This is the temporal crucible's register of record — every confirmatory claim this program
@@ -57,9 +69,11 @@ exists without a pre-registration**.
 
 ## Scope of validation to date
 
-**One repository: curl** (C-dominant, ~39.7k commits, 25 years). Events: 186 CVE-fix +
-137 CVE-introducing commits from curl's OSV feed (GIT ranges, 0 unresolvable SHAs) +
-185 size-matched controls; 1,014 full snapshots scanned; ~3.4M per-function measurements.
+**curl** (C, ~39.7k commits, 25 years): 186 CVE-fix + 137 CVE-introducing commits (OSV GIT
+ranges, 0 unresolvable) + 185 size-matched controls + 147 wave-1 (reverts/follow-ups) +
+1,107 bug-label events (Fixes#/Bug:/regression, seeded sample). **nDPI** (C/C++): 121
+fix + 73 introducing (OSS-Fuzz-bisected) + 111 controls. **~3,550 snapshots scanned in
+total** across both repos; ~3.4M per-function measurements on curl alone.
 **Repo #2 (nDPI) has now run** (see "Repo #2 (nDPI) replication — RESULTS" below): of curl's
 positives, **only recidivism (RW-H2) replicated**; every structural signature (H3
 `safety_score`, the fix-shaped grammar, R2-H1 danger density) **failed to replicate**, while
@@ -77,10 +91,10 @@ repos — no cross-*language* or cross-ecosystem claim yet.
 | D-H1 | Vulnerable functions are under-guarded relative to danger (guard rate < length-matched siblings) | 2026-09-12, pre-analysis | **✗ not supported** — metric degenerate (median 0.000 both sides: C carries no `def_safety` vocabulary at function grain) | signal_anatomy.md Phase D |
 | D-H2 | The fix closes the deficit | same | **✗ not supported** — same degeneracy | signal_anatomy.md Phase D |
 | M-H1..M-H3 | Multi-label signatures (classes distinguishable; security-fix vs `Fixes #` differ; follow-up-corrected fixes differ) | 2026-09-12, pre-batch | **pending** — batch not yet run | gitgalaxy#2982 Phase M |
-| D-H1′ | Branch-per-danger guard deficit (the C idiom) — implicated < length-matched siblings; the fix raises it | 2026-09-12, for **repo #2 only** (post-hoc on curl) | **pending repo #2** | gitgalaxy#2982 Phase D result |
+| D-H1′ | Branch-per-danger guard deficit (the C idiom) — implicated < length-matched siblings; the fix raises it | 2026-09-12, for **repo #2 only** (post-hoc on curl) | **✗ not supported** — nDPI: implicated 0.634 vs sibling 0.600 (*wrong* direction, p=0.75); fix doesn't raise it (D-H2′ p=0.999). Non-degenerate → a real no. | ndpi_stage2.md |
 | RW-H1 | Structural exposure beats LOC at ordering a 20%-LOC review budget (effort-aware, from repowise's Popt result) | 2026-09-12, pre-analysis | **✗ not supported** — 52W/48L/82T, p=0.38; exposure ≈ LOC even at ordering, on CVE labels | rw_hypotheses.md |
 | RW-H2 | Prior CVE-fix count beats any static ranking (recall@budget + AUC) | 2026-09-12, pre-analysis | **✓ SUPPORTED decisively** — median recall .444 vs .000; 77W/27L vs exposure, 71W/10L vs LOC, both p<1e-4. **Recidivism is the rung-7 baseline to beat.** | rw_hypotheses.md |
-| R2-H1 | Danger density marks the vulnerable function: at equal length, more pointer/danger/alloc/cast constructs than siblings | 2026-09-12, for **repo #2** (curl read p=0.032, below α — suggestive only) | **pending repo #2** | signal_anatomy.md Phase D control row |
+| R2-H1 | Danger density marks the vulnerable function: at equal length, more pointer/danger/alloc/cast constructs than siblings | 2026-09-12, for **repo #2** (curl read p=0.032, below α — suggestive only) | **✗ not supported** — nDPI: implicated 19.0 vs sibling 20.0, p=0.47. The curl suggestion did not replicate. | ndpi_signal_anatomy.md |
 | W1-H1 | Reverts are net-removal: grammar-signal deltas predominantly negative (where other classes are net-positive); median event net-LOC < 0 | 2026-09-12, pre-batch | **✓ SUPPORTED** — net-LOC median −1.0 (60 events <0 / 24 >0, sign p=5.4e-05) vs +2.0..+6.5 for every other class; net-grammar median −1.0 (57/23, p=9.2e-05); revert < control 1-sided MW p<1e-4. A clean instrument sanity check. | wave1_hypotheses.md |
 | W1-H2 | Fixes that later needed a follow-up carry the fix-shaped composite at a LOWER rate than fixes that stuck (one-sided) | 2026-09-12, pre-batch | **✗ not supported** — direction wrong: needs-follow-up 0.71 (10/14) vs stuck 0.65 (110/168), Fisher p=0.77. Incomplete fixes are not structurally thinner. | wave1_hypotheses.md |
 | W1-H3 | CVE-fix follow-ups carry the fix grammar (branch/pointer adds) at a rate closer to fixes than to controls | 2026-09-12, pre-batch | **✗ not supported** — follow-ups are THIN: loose (branch/ptr+) rate 0.20 (3/15), below controls (0.45) and fixes (0.71). The follow-ups are administrative (build/cmake/test), not added security logic; n=15 small. | wave1_hypotheses.md |
@@ -115,10 +129,11 @@ repos — no cross-*language* or cross-ecosystem claim yet.
 
 ## Current verdict, one sentence
 
-After one repository: the signal layer and contract-shaped formulas correlate with real
-security events; aggregate exposure does not; the specific function-level profile of
-CVE-prone code is registered as a prediction awaiting repo #2 — which is the program's
-single highest-value next step.
+After two repositories and three label families: **history predicts (recidivism,
+replicated; change entropy, validated out-of-selection) and structure describes** —
+every structural signal reduces to file size, the fix grammar is curl-/human-report-
+specific, small-file centrality is dead and mid-band centrality is the registered
+candidate — with repo #3 (openssl, fixed-side) carrying every remaining open question.
 
 ## Repo #2 (nDPI) replication battery — pre-registered 2026-09-12
 
