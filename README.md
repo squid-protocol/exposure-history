@@ -76,4 +76,31 @@ with 0 unresolvable SHAs at harvest time, plus 185 size-matched control commits.
     # the report
     python tools/delta_report.py --events events/curl.json
 
+> **Long batches: run detached, never through a 600-second-capped shell.**
+> `run_batch.py` and `walk_history.py` do real work per commit (a worktree +
+> a real `galaxyscope` scan, twice per event) and a full batch routinely runs
+> well past any interactive shell's timeout. Launch it detached and walk
+> away; both are resumable by construction (they skip anything already in
+> the DB), so an interrupted or backgrounded run is never lost work:
+>
+>     setsid nohup python tools/run_batch.py --events events/curl.json \
+>         --classes security-fix,control,introduced \
+>         > dbs/full_batch.log 2>&1 < /dev/null &
+>     disown
+>
+> Tail `dbs/full_batch.log` to check progress; re-running the same command
+> after an interruption picks up where it left off.
+
+## CI
+
+`.github/workflows/verify.yml` runs on every PR and on pushes to non-main
+branches. It does NOT need the 2.6GB master DB, the pool clone, or
+`galaxyscope` — it byte-compiles `tools/*.py`, runs `delta_report.py` and
+`signal_anatomy.py` end-to-end against a small fixture DB + fixture git repo
+under `tests/fixtures/` (see `tools/make_fixture_db.py` for how that fixture
+is built and regenerated), and schema-checks the committed `dataset/`
+export against `tools/export_dataset.py`'s current schema. See
+[`CONTRIBUTING.md`](CONTRIBUTING.md) for the PR flow and the hypothesis-first
+rule this repo runs on.
+
 Licensed under the PolyForm Noncommercial License 1.0.0 (see LICENSE).
